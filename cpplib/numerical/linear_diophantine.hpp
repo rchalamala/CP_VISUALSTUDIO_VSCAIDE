@@ -1,9 +1,13 @@
 #ifndef LINEAR_DIOPHANTINE_HPP
 #define LINEAR_DIOPHANTINE_HPP
 
+// Verification:
+//
+
 #include "gcd.hpp"
 #include <functional>
 #include <tuple>
+#include <type_traits>
 #include <utility>
 
 template<typename T> class linear_diophantine
@@ -11,10 +15,12 @@ template<typename T> class linear_diophantine
 	std::tuple<T, T, T> gcd;
 	T a, b;
 public:
-	linear_diophantine(const T& u_a, const T& u_b, const T& c) : a{u_a}, b{u_b}
+	linear_diophantine(const T& u_a, const T& u_b, const T& c) : a{ u_a }, b{ u_b }
 	{
+		static_assert(std::is_integral<T>::value);
+		static_assert(std::is_signed<T>::value);
 		gcd = extended_euclidian_gcd(a, b);
-		assert(c % std::get<2>(gcd) == 0);
+		assert(c% std::get<2>(gcd) == 0);
 		std::get<0>(gcd) *= (c / std::get<2>(gcd));
 		std::get<1>(gcd) *= (c / std::get<2>(gcd));
 	}

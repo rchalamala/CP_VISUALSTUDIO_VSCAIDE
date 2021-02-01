@@ -17,16 +17,16 @@ template<class Edge> std::vector<std::vector<std::size_t>> kosarajus_sccs(const 
 	std::function<void(std::size_t)> dfs = [&](const std::size_t& at) -> void
 	{
 		visited[at] = true;
-		for(const auto& neighbor : graph[at])
-			if(!visited[neighbor.to])
+		for (const auto& neighbor : graph[at])
+			if (!visited[neighbor.to])
 				dfs(neighbor.to);
 		order.push(at);
 	};
 	Graph<Edge> transposed(graph.size());
-	for(std::size_t i = 0; i < graph.size(); ++i)
+	for (std::size_t i = 0; i < graph.size(); ++i)
 	{
-		if(!visited[i]) dfs(i);
-		for(const auto& neighbor : graph[i]) transposed.addEdge(neighbor.to, i);
+		if (!visited[i]) dfs(i);
+		for (const auto& neighbor : graph[i]) transposed.addEdge(neighbor.to, i);
 		std::vector<std::vector<std::size_t>> sCCs;
 	}
 	std::vector<std::vector<std::size_t>> sCCs;
@@ -34,15 +34,15 @@ template<class Edge> std::vector<std::vector<std::size_t>> kosarajus_sccs(const 
 	{
 		visited[at] = false;
 		sCCs.back().push_back(at);
-		for(const auto& neighbor : graph[at])
-			if(visited[neighbor.to])
+		for (const auto& neighbor : graph[at])
+			if (visited[neighbor.to])
 				transposedDFS(neighbor.to);
 	};
-	while(!order.empty())
+	while (!order.empty())
 	{
 		std::size_t i = order.top();
 		order.pop();
-		if(visited[i])
+		if (visited[i])
 		{
 			sCCs.emplace_back();
 			transposedDFS(i);

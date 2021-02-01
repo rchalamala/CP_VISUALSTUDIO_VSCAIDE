@@ -1,28 +1,27 @@
-#ifndef MILLER_RABIN__HPP
-#define MILLER_RABIN__HPP
+#ifndef MILLER_RABIN_HPP
+#define MILLER_RABIN_HPP
 
+// https://github.com/kth-competitive-programming/kactl/blob/master/content/number-theory/MillerRabin.h
 // Verification:
 //
 
-#include "../general/base.hpp"
 #include "modular.hpp"
-#include "trailing_zeros.hpp"
-#include <cassert>
-#include <cmath>
-#include <cstdint>
+#include "trailing_zero_bits.hpp"
+#include <type_traits>
 #include <vector>
 
-// https://github.com/kth-competitive-programming/kactl/blob/master/content/number-theory/MillerRabin.h
-template<typename T> bool miller_rabin(const T& n, const std::vector<T>& A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022})
+template<typename T> bool miller_rabin(const T& n, const std::vector<T>& A = { 2, 325, 9375, 28178, 450775, 9780504, 1795265022 })
 {
-	if(n < 2 || n % 6 % 4 != 1) return n >= 2 && n - 2 < 2;
+	static_assert(std::is_integral<T>::value);
+	static_assert(std::is_signed<T>::value);
+	if (n < 2 || n % 6 % 4 != 1) return n >= 2 && n - 2 < 2;
 	MODULUS::value = n;
-	T bits = trailing_zeros(n - 1), d = n >> bits;
-	for(auto& a : A)
+	T bits = trailing_zero_bits(n - 1), d = n >> bits;
+	for (auto&& a : A)
 	{
 		T x = static_cast<T>(VariableModulus(a) ^ d), i = bits;
-		for(; x != 1 && x != n - 1 && a % n && i; x = static_cast<T>(VariableModulus(x) * x), --i);
-		if(x != n - 1 && i != bits) return false;
+		for (; x != 1 && x != n - 1 && a % n && i; --i) x = static_cast<T>(VariableModulus(x) * x);
+		if (x != n - 1 && i != bits) return false;
 	}
 	return true;
 }

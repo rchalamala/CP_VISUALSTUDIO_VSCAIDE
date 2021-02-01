@@ -1,0 +1,6 @@
+#ifndef QUADRATIC_DIOPHANTINE_H
+#define QUADRATIC_DIOPHANTINE_H
+
+
+
+#endif

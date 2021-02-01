@@ -1,27 +1,31 @@
 #ifndef DSU_HPP
 #define DSU_HPP
 
+// https://codeforces.com/blog/entry/82400
 // Verification:
 //
 
 #include <algorithm>
 #include <cstddef>
-#include <numeric>
+#include <type_traits>
 #include <vector>
 
-// https://codeforces.com/blog/entry/82400
-template<typename T, typename = typename std::enable_if<std::is_integral<T>::value && std::is_signed<T>::value, T>::type> class DSU
+template<class T> class DSU
 {
 	std::vector<T> m_parent_or_sizes;
 	std::size_t m_component_count;
 public:
 
-	explicit DSU(const std::size_t& size) : m_parent_or_sizes(size, -1), m_component_count{size} {}
+	explicit DSU(const std::size_t& size) : m_parent_or_sizes(size, -1), m_component_count{ size }
+	{
+		static_assert(std::is_integral<T>::value);
+		static_assert(std::is_signed<T>::value);
+	}
 
 	T root(const std::size_t& i)
 	{
 		assert(0 <= i && i < m_parent_or_sizes.size());
-		if(m_parent_or_sizes[i] < 0) return i;
+		if (m_parent_or_sizes[i] < 0) return i;
 		return m_parent_or_sizes[i] = root(m_parent_or_sizes[i]);
 	}
 
@@ -29,8 +33,8 @@ public:
 	{
 		assert(0 <= i && i < m_parent_or_sizes.size());
 		assert(0 <= j && j < m_parent_or_sizes.size());
-		if((i = root(i)) == (j = root(j))) return false;
-		if(-m_parent_or_sizes[i] < -m_parent_or_sizes[j])
+		if ((i = root(i)) == (j = root(j))) return false;
+		if (-m_parent_or_sizes[i] < -m_parent_or_sizes[j])
 		{
 			m_parent_or_sizes[i] += m_parent_or_sizes[j];
 			m_parent_or_sizes[j] = i;
@@ -59,15 +63,15 @@ public:
 	std::vector<std::vector<std::size_t>> generate_components()
 	{
 		std::vector<std::size_t> head(m_parent_or_sizes.size(), 0), sizes(m_parent_or_sizes.size(), 0);
-		for(std::size_t i = 0; i < m_parent_or_sizes.size(); ++sizes[(head[i] = root(i))], ++i);
+		for (std::size_t i = 0; i < m_parent_or_sizes.size(); ++sizes[(head[i] = root(i))], ++i);
 		std::vector<std::vector<std::size_t>> result(m_parent_or_sizes.size());
-		for(std::size_t i = 0; i < m_parent_or_sizes.size(); result[i].reserve(sizes[i]), ++i);
-		for(std::size_t i = 0; i < m_parent_or_sizes.size(); result[head[i]].push_back(i), ++i);
+		for (std::size_t i = 0; i < m_parent_or_sizes.size(); result[i].reserve(sizes[i]), ++i);
+		for (std::size_t i = 0; i < m_parent_or_sizes.size(); result[head[i]].push_back(i), ++i);
 		result.erase(std::remove_if(result.begin(), result.end(), [](const std::vector<T>& component) -> bool { return component.empty(); }), result.end());
 		return result;
 	}
 
-	std::size_t component_count() { return m_component_count; }
+	[[nodiscard]] std::size_t component_count() const { return m_component_count; }
 };
 
 #endif

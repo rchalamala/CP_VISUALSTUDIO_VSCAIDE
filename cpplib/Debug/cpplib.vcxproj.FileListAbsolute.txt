@@ -1,0 +1,2 @@
+C:\Users\Rahul\source\repos\cp\cp\cpplib\Debug\cpplib.lib
+C:\Users\Rahul\source\repos\cp\cp\cpplib\Debug\cpplib.pdb

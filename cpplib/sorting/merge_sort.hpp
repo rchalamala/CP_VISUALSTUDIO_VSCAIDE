@@ -10,7 +10,7 @@
 template<typename Iterator, typename Comparator = std::less<typename std::iterator_traits<Iterator>::value_type>> void merge_sort(Iterator first, Iterator last, Comparator compare = Comparator())
 {
 	auto size = std::distance(first, last);
-	if(size > 1)
+	if (size > 1)
 	{
 		Iterator midpoint = std::next(first, size / 2);
 		merge_sort(first, midpoint, compare);

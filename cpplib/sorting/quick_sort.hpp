@@ -9,7 +9,7 @@
 
 template<typename Iterator, typename Comparator = std::less<typename std::iterator_traits<Iterator>::value_type>> void quick_sort(Iterator first, Iterator last, Comparator compare = Comparator())
 {
-	if(first != last)
+	if (first != last)
 	{
 		auto midpoint = std::next(first, distance(first, last) / 2);
 		auto pivot = std::max(std::min(*first, *midpoint), std::min(std::max(*first, *midpoint), *std::prev(last)));

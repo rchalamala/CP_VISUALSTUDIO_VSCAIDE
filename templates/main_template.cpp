@@ -41,22 +41,25 @@ std::string getLatest() {
 
 void solve(std::istream& in, std::ostream& out);
 int main() {
-    using namespace std;
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	std::cout.tie(nullptr);
+#ifdef LOCAL
+	std::cin.exceptions(std::ios::eofbit | std::ios::failbit | std::ios::badbit);
+#endif
 
 #if defined(CAIDE_STDIN)
-    istream& in = cin;
+    std::istream& in = std::cin;
 #elif defined(CAIDE_IN_PATTERN)
-    ifstream in(getLatest());
+    std::ifstream in(getLatest());
 #else
-    ifstream in(CAIDE_IN_FILE);
+    std::ifstream in(CAIDE_IN_FILE);
 #endif
 
 #ifdef CAIDE_STDOUT
-    ostream& out = cout;
+    std::ostream& out = std::cout;
 #else
-    ofstream out(CAIDE_OUT_FILE);
+    std::ofstream out(CAIDE_OUT_FILE);
 #endif
     solve(in, out);
     return 0;

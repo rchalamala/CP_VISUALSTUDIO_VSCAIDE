@@ -1,6 +1,9 @@
 #ifndef QUADRATIC_DIOPHANTINE_HPP
 #define QUADRATIC_DIOPHANTINE_HPP
 
+// Verification:
+//
+
 template<typename T> class quadratic_diophantine
 {
 public:

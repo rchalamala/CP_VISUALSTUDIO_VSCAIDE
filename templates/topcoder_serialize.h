@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TOPCODER_SERIALIZE_H
+#define TOPCODER_SERIALIZE_H
+
 #include <istream>
 #include <ostream>
 #include <stdexcept>
@@ -99,3 +101,4 @@ struct Serializer<std::vector<T> > {
 
 }
 
+#endif
