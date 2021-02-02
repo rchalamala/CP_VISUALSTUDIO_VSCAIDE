@@ -17,6 +17,7 @@ def main():
                     dirpath +
                     "/" +
                     filename)
+    os.remove(".clang-format")
 
 
 if __name__ == '__main__':
