@@ -20,7 +20,7 @@ jobs:
         pip install autopep8
     - name: Analysing the code with pylint
       run: |
-        pylint `ls -R|grep .py$|xargs`
+        find . -type f -name "*.py" | xargs pylint 
     - name: Reformatting all code
       run: |
         python reformat.py
