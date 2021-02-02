@@ -42,76 +42,84 @@
 #pragma GCC system_header
 
 #include <bits/c++config.h>
-#include <bits/stl_iterator_base_types.h>    // for traits and tags
+#include <bits/stl_iterator_base_types.h>  // for traits and tags
 
-namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
-{
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
+  _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-local-typedefs"
 
-#define _IsUnused __attribute__ ((__unused__))
+#define _IsUnused __attribute__((__unused__))
 
-// When the C-C code is in use, we would like this function to do as little
-// as possible at runtime, use as few resources as possible, and hopefully
-// be elided out of existence... hmmm.
-template <class _Concept>
-_GLIBCXX14_CONSTEXPR inline void __function_requires()
-{
-  void (_Concept::*__x)() _IsUnused = &_Concept::__constraints;
-}
+  // When the C-C code is in use, we would like this function to do as little
+  // as possible at runtime, use as few resources as possible, and hopefully
+  // be elided out of existence... hmmm.
+  template <class _Concept>
+  _GLIBCXX14_CONSTEXPR inline void __function_requires() {
+    void (_Concept::*__x)() _IsUnused = &_Concept::__constraints;
+  }
 
-// No definition: if this is referenced, there's a problem with
-// the instantiating type not being one of the required integer types.
-// Unfortunately, this results in a link-time error, not a compile-time error.
-void __error_type_must_be_an_integer_type();
-void __error_type_must_be_an_unsigned_integer_type();
-void __error_type_must_be_a_signed_integer_type();
+  // No definition: if this is referenced, there's a problem with
+  // the instantiating type not being one of the required integer types.
+  // Unfortunately, this results in a link-time error, not a compile-time error.
+  void __error_type_must_be_an_integer_type();
+  void __error_type_must_be_an_unsigned_integer_type();
+  void __error_type_must_be_a_signed_integer_type();
 
 // ??? Should the "concept_checking*" structs begin with more than _ ?
-#define _GLIBCXX_CLASS_REQUIRES(_type_var, _ns, _concept) \
-  typedef void (_ns::_concept <_type_var>::* _func##_type_var##_concept)(); \
-  template <_func##_type_var##_concept _Tp1> \
-  struct _concept_checking##_type_var##_concept { }; \
-  typedef _concept_checking##_type_var##_concept< \
-    &_ns::_concept <_type_var>::__constraints> \
-    _concept_checking_typedef##_type_var##_concept
+#define _GLIBCXX_CLASS_REQUIRES(_type_var, _ns, _concept)                 \
+  typedef void (_ns::_concept<_type_var>::*_func##_type_var##_concept)(); \
+  template <_func##_type_var##_concept _Tp1>                              \
+  struct _concept_checking##_type_var##_concept {};                       \
+  typedef _concept_checking##_type_var##_concept<                         \
+      &_ns::_concept<_type_var>::__constraints>                           \
+      _concept_checking_typedef##_type_var##_concept
 
 #define _GLIBCXX_CLASS_REQUIRES2(_type_var1, _type_var2, _ns, _concept) \
-  typedef void (_ns::_concept <_type_var1,_type_var2>::* _func##_type_var1##_type_var2##_concept)(); \
-  template <_func##_type_var1##_type_var2##_concept _Tp1> \
-  struct _concept_checking##_type_var1##_type_var2##_concept { }; \
-  typedef _concept_checking##_type_var1##_type_var2##_concept< \
-    &_ns::_concept <_type_var1,_type_var2>::__constraints> \
-    _concept_checking_typedef##_type_var1##_type_var2##_concept
+  typedef void (_ns::_concept<_type_var1, _type_var2>::*                \
+                    _func##_type_var1##_type_var2##_concept)();         \
+  template <_func##_type_var1##_type_var2##_concept _Tp1>               \
+  struct _concept_checking##_type_var1##_type_var2##_concept {};        \
+  typedef _concept_checking##_type_var1##_type_var2##_concept<          \
+      &_ns::_concept<_type_var1, _type_var2>::__constraints>            \
+      _concept_checking_typedef##_type_var1##_type_var2##_concept
 
-#define _GLIBCXX_CLASS_REQUIRES3(_type_var1, _type_var2, _type_var3, _ns, _concept) \
-  typedef void (_ns::_concept <_type_var1,_type_var2,_type_var3>::* _func##_type_var1##_type_var2##_type_var3##_concept)(); \
-  template <_func##_type_var1##_type_var2##_type_var3##_concept _Tp1> \
-  struct _concept_checking##_type_var1##_type_var2##_type_var3##_concept { }; \
-  typedef _concept_checking##_type_var1##_type_var2##_type_var3##_concept< \
-    &_ns::_concept <_type_var1,_type_var2,_type_var3>::__constraints>  \
-  _concept_checking_typedef##_type_var1##_type_var2##_type_var3##_concept
+#define _GLIBCXX_CLASS_REQUIRES3(_type_var1, _type_var2, _type_var3, _ns,    \
+                                 _concept)                                   \
+  typedef void (_ns::_concept<_type_var1, _type_var2, _type_var3>::*         \
+                    _func##_type_var1##_type_var2##_type_var3##_concept)();  \
+  template <_func##_type_var1##_type_var2##_type_var3##_concept _Tp1>        \
+  struct _concept_checking##_type_var1##_type_var2##_type_var3##_concept {}; \
+  typedef _concept_checking##_type_var1##_type_var2##_type_var3##_concept<   \
+      &_ns::_concept<_type_var1, _type_var2, _type_var3>::__constraints>     \
+      _concept_checking_typedef##_type_var1##_type_var2##_type_var3##_concept
 
-#define _GLIBCXX_CLASS_REQUIRES4(_type_var1, _type_var2, _type_var3, _type_var4, _ns, _concept) \
-  typedef void (_ns::_concept <_type_var1,_type_var2,_type_var3,_type_var4>::* _func##_type_var1##_type_var2##_type_var3##_type_var4##_concept)(); \
-  template <_func##_type_var1##_type_var2##_type_var3##_type_var4##_concept _Tp1> \
-  struct _concept_checking##_type_var1##_type_var2##_type_var3##_type_var4##_concept { }; \
+#define _GLIBCXX_CLASS_REQUIRES4(_type_var1, _type_var2, _type_var3,                   \
+                                 _type_var4, _ns, _concept)                            \
+  typedef void (                                                                       \
+      _ns::_concept<_type_var1, _type_var2, _type_var3, _type_var4>::*                 \
+          _func##_type_var1##_type_var2##_type_var3##_type_var4##_concept)();          \
+  template <                                                                           \
+      _func##_type_var1##_type_var2##_type_var3##_type_var4##_concept _Tp1>            \
+  struct                                                                               \
+      _concept_checking##_type_var1##_type_var2##_type_var3##_type_var4##_concept {    \
+  };                                                                                   \
   typedef _concept_checking##_type_var1##_type_var2##_type_var3##_type_var4##_concept< \
-  &_ns::_concept <_type_var1,_type_var2,_type_var3,_type_var4>::__constraints> \
-    _concept_checking_typedef##_type_var1##_type_var2##_type_var3##_type_var4##_concept
-
-
-template <class _Tp1, class _Tp2>
-struct _Aux_require_same { };
-
-template <class _Tp>
-struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
+      &_ns::_concept<_type_var1, _type_var2, _type_var3,                               \
+                     _type_var4>::__constraints>                                       \
+      _concept_checking_typedef##_type_var1##_type_var2##_type_var3##_type_var4##_concept
 
   template <class _Tp1, class _Tp2>
-  struct _SameTypeConcept
-  {
+  struct _Aux_require_same {};
+
+  template <class _Tp>
+  struct _Aux_require_same<_Tp, _Tp> {
+    typedef _Tp _Type;
+  };
+
+  template <class _Tp1, class _Tp2>
+  struct _SameTypeConcept {
     void __constraints() {
       typedef typename _Aux_require_same<_Tp1, _Tp2>::_Type _Required;
     }
@@ -119,66 +127,101 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
 
   template <class _Tp>
   struct _IntegerConcept {
-    void __constraints() {
-      __error_type_must_be_an_integer_type();
-    }
+    void __constraints() { __error_type_must_be_an_integer_type(); }
   };
-  template <> struct _IntegerConcept<short> { void __constraints() {} };
-  template <> struct _IntegerConcept<unsigned short> { void __constraints(){} };
-  template <> struct _IntegerConcept<int> { void __constraints() {} };
-  template <> struct _IntegerConcept<unsigned int> { void __constraints() {} };
-  template <> struct _IntegerConcept<long> { void __constraints() {} };
-  template <> struct _IntegerConcept<unsigned long> { void __constraints() {} };
-  template <> struct _IntegerConcept<long long> { void __constraints() {} };
-  template <> struct _IntegerConcept<unsigned long long>
-                                                { void __constraints() {} };
+  template <>
+  struct _IntegerConcept<short> {
+    void __constraints() {}
+  };
+  template <>
+  struct _IntegerConcept<unsigned short> {
+    void __constraints() {}
+  };
+  template <>
+  struct _IntegerConcept<int> {
+    void __constraints() {}
+  };
+  template <>
+  struct _IntegerConcept<unsigned int> {
+    void __constraints() {}
+  };
+  template <>
+  struct _IntegerConcept<long> {
+    void __constraints() {}
+  };
+  template <>
+  struct _IntegerConcept<unsigned long> {
+    void __constraints() {}
+  };
+  template <>
+  struct _IntegerConcept<long long> {
+    void __constraints() {}
+  };
+  template <>
+  struct _IntegerConcept<unsigned long long> {
+    void __constraints() {}
+  };
 
   template <class _Tp>
   struct _SignedIntegerConcept {
-    void __constraints() {
-      __error_type_must_be_a_signed_integer_type();
-    }
+    void __constraints() { __error_type_must_be_a_signed_integer_type(); }
   };
-  template <> struct _SignedIntegerConcept<short> { void __constraints() {} };
-  template <> struct _SignedIntegerConcept<int> { void __constraints() {} };
-  template <> struct _SignedIntegerConcept<long> { void __constraints() {} };
-  template <> struct _SignedIntegerConcept<long long> { void __constraints(){}};
+  template <>
+  struct _SignedIntegerConcept<short> {
+    void __constraints() {}
+  };
+  template <>
+  struct _SignedIntegerConcept<int> {
+    void __constraints() {}
+  };
+  template <>
+  struct _SignedIntegerConcept<long> {
+    void __constraints() {}
+  };
+  template <>
+  struct _SignedIntegerConcept<long long> {
+    void __constraints() {}
+  };
 
   template <class _Tp>
   struct _UnsignedIntegerConcept {
-    void __constraints() {
-      __error_type_must_be_an_unsigned_integer_type();
-    }
+    void __constraints() { __error_type_must_be_an_unsigned_integer_type(); }
   };
-  template <> struct _UnsignedIntegerConcept<unsigned short>
-    { void __constraints() {} };
-  template <> struct _UnsignedIntegerConcept<unsigned int>
-    { void __constraints() {} };
-  template <> struct _UnsignedIntegerConcept<unsigned long>
-    { void __constraints() {} };
-  template <> struct _UnsignedIntegerConcept<unsigned long long>
-    { void __constraints() {} };
+  template <>
+  struct _UnsignedIntegerConcept<unsigned short> {
+    void __constraints() {}
+  };
+  template <>
+  struct _UnsignedIntegerConcept<unsigned int> {
+    void __constraints() {}
+  };
+  template <>
+  struct _UnsignedIntegerConcept<unsigned long> {
+    void __constraints() {}
+  };
+  template <>
+  struct _UnsignedIntegerConcept<unsigned long long> {
+    void __constraints() {}
+  };
 
   //===========================================================================
   // Basic Concepts
 
   template <class _Tp>
-  struct _DefaultConstructibleConcept
-  {
+  struct _DefaultConstructibleConcept {
     void __constraints() {
-      _Tp __a _IsUnused;                // require default constructor
+      _Tp __a _IsUnused;  // require default constructor
     }
   };
 
   template <class _Tp>
-  struct _AssignableConcept
-  {
+  struct _AssignableConcept {
     void __constraints() {
-      __a = __a;                        // require assignment operator
+      __a = __a;  // require assignment operator
       __const_constraints(__a);
     }
     void __const_constraints(const _Tp& __b) {
-      __a = __b;                   // const required for argument to assignment
+      __a = __b;  // const required for argument to assignment
     }
     _Tp __a;
     // possibly should be "Tp* a;" and then dereference "a" in constraint
@@ -186,42 +229,37 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _Tp>
-  struct _CopyConstructibleConcept
-  {
+  struct _CopyConstructibleConcept {
     void __constraints() {
-      _Tp __a(__b);                     // require copy constructor
-      _Tp* __ptr _IsUnused = &__a;      // require address of operator
+      _Tp __a(__b);                 // require copy constructor
+      _Tp* __ptr _IsUnused = &__a;  // require address of operator
       __const_constraints(__a);
     }
     void __const_constraints(const _Tp& __a) {
-      _Tp __c _IsUnused(__a);           // require const copy constructor
-      const _Tp* __ptr _IsUnused = &__a; // require const address of operator
+      _Tp __c _IsUnused(__a);             // require const copy constructor
+      const _Tp* __ptr _IsUnused = &__a;  // require const address of operator
     }
     _Tp __b;
   };
 
   // The SGI STL version of Assignable requires copy constructor and operator=
   template <class _Tp>
-  struct _SGIAssignableConcept
-  {
+  struct _SGIAssignableConcept {
     void __constraints() {
       _Tp __b _IsUnused(__a);
-      __a = __a;                        // require assignment operator
+      __a = __a;  // require assignment operator
       __const_constraints(__a);
     }
     void __const_constraints(const _Tp& __b) {
       _Tp __c _IsUnused(__b);
-      __a = __b;              // const required for argument to assignment
+      __a = __b;  // const required for argument to assignment
     }
     _Tp __a;
   };
 
   template <class _From, class _To>
-  struct _ConvertibleConcept
-  {
-    void __constraints() {
-      _To __y _IsUnused = __x;
-    }
+  struct _ConvertibleConcept {
+    void __constraints() { _To __y _IsUnused = __x; }
     _From __x;
   };
 
@@ -239,29 +277,22 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
     bool __x _IsUnused = __t;
   }
 
-// FIXME
+  // FIXME
   template <class _Tp>
-  struct _EqualityComparableConcept
-  {
-    void __constraints() {
-      __aux_require_boolean_expr(__a == __b);
-    }
+  struct _EqualityComparableConcept {
+    void __constraints() { __aux_require_boolean_expr(__a == __b); }
     _Tp __a, __b;
   };
 
   template <class _Tp>
-  struct _LessThanComparableConcept
-  {
-    void __constraints() {
-      __aux_require_boolean_expr(__a < __b);
-    }
+  struct _LessThanComparableConcept {
+    void __constraints() { __aux_require_boolean_expr(__a < __b); }
     _Tp __a, __b;
   };
 
   // This is equivalent to SGI STL's LessThanComparable.
   template <class _Tp>
-  struct _ComparableConcept
-  {
+  struct _ComparableConcept {
     void __constraints() {
       __aux_require_boolean_expr(__a < __b);
       __aux_require_boolean_expr(__a > __b);
@@ -271,26 +302,22 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
     _Tp __a, __b;
   };
 
-#define _GLIBCXX_DEFINE_BINARY_PREDICATE_OP_CONSTRAINT(_OP,_NAME) \
-  template <class _First, class _Second> \
-  struct _NAME { \
-    void __constraints() { (void)__constraints_(); } \
-    bool __constraints_() {  \
-      return  __a _OP __b; \
-    } \
-    _First __a; \
-    _Second __b; \
+#define _GLIBCXX_DEFINE_BINARY_PREDICATE_OP_CONSTRAINT(_OP, _NAME) \
+  template <class _First, class _Second>                           \
+  struct _NAME {                                                   \
+    void __constraints() { (void)__constraints_(); }               \
+    bool __constraints_() { return __a _OP __b; }                  \
+    _First __a;                                                    \
+    _Second __b;                                                   \
   }
 
-#define _GLIBCXX_DEFINE_BINARY_OPERATOR_CONSTRAINT(_OP,_NAME) \
-  template <class _Ret, class _First, class _Second> \
-  struct _NAME { \
-    void __constraints() { (void)__constraints_(); } \
-    _Ret __constraints_() {  \
-      return __a _OP __b; \
-    } \
-    _First __a; \
-    _Second __b; \
+#define _GLIBCXX_DEFINE_BINARY_OPERATOR_CONSTRAINT(_OP, _NAME) \
+  template <class _Ret, class _First, class _Second>           \
+  struct _NAME {                                               \
+    void __constraints() { (void)__constraints_(); }           \
+    _Ret __constraints_() { return __a _OP __b; }              \
+    _First __a;                                                \
+    _Second __b;                                               \
   }
 
   _GLIBCXX_DEFINE_BINARY_PREDICATE_OP_CONSTRAINT(==, _EqualOpConcept);
@@ -313,29 +340,26 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   // Function Object Concepts
 
   template <class _Func, class _Return>
-  struct _GeneratorConcept
-  {
+  struct _GeneratorConcept {
     void __constraints() {
-      const _Return& __r _IsUnused = __f();// require operator() member function
+      const _Return& __r _IsUnused =
+          __f();  // require operator() member function
     }
     _Func __f;
   };
 
-
   template <class _Func>
-  struct _GeneratorConcept<_Func,void>
-  {
+  struct _GeneratorConcept<_Func, void> {
     void __constraints() {
-      __f();                            // require operator() member function
+      __f();  // require operator() member function
     }
     _Func __f;
   };
 
   template <class _Func, class _Return, class _Arg>
-  struct _UnaryFunctionConcept
-  {
+  struct _UnaryFunctionConcept {
     void __constraints() {
-      __r = __f(__arg);                  // require operator()
+      __r = __f(__arg);  // require operator()
     }
     _Func __f;
     _Arg __arg;
@@ -345,17 +369,16 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   template <class _Func, class _Arg>
   struct _UnaryFunctionConcept<_Func, void, _Arg> {
     void __constraints() {
-      __f(__arg);                       // require operator()
+      __f(__arg);  // require operator()
     }
     _Func __f;
     _Arg __arg;
   };
 
   template <class _Func, class _Return, class _First, class _Second>
-  struct _BinaryFunctionConcept
-  {
+  struct _BinaryFunctionConcept {
     void __constraints() {
-      __r = __f(__first, __second);     // require operator()
+      __r = __f(__first, __second);  // require operator()
     }
     _Func __f;
     _First __first;
@@ -364,10 +387,9 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _Func, class _First, class _Second>
-  struct _BinaryFunctionConcept<_Func, void, _First, _Second>
-  {
+  struct _BinaryFunctionConcept<_Func, void, _First, _Second> {
     void __constraints() {
-      __f(__first, __second);           // require operator()
+      __f(__first, __second);  // require operator()
     }
     _Func __f;
     _First __first;
@@ -375,20 +397,18 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _Func, class _Arg>
-  struct _UnaryPredicateConcept
-  {
+  struct _UnaryPredicateConcept {
     void __constraints() {
-      __aux_require_boolean_expr(__f(__arg)); // require op() returning bool
+      __aux_require_boolean_expr(__f(__arg));  // require op() returning bool
     }
     _Func __f;
     _Arg __arg;
   };
 
   template <class _Func, class _First, class _Second>
-  struct _BinaryPredicateConcept
-  {
+  struct _BinaryPredicateConcept {
     void __constraints() {
-      __aux_require_boolean_expr(__f(__a, __b)); // require op() returning bool
+      __aux_require_boolean_expr(__f(__a, __b));  // require op() returning bool
     }
     _Func __f;
     _First __a;
@@ -398,9 +418,7 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   // use this when functor is used inside a container class like std::set
   template <class _Func, class _First, class _Second>
   struct _Const_BinaryPredicateConcept {
-    void __constraints() {
-      __const_constraints(__f);
-    }
+    void __constraints() { __const_constraints(__f); }
     void __const_constraints(const _Func& __fun) {
       __function_requires<_BinaryPredicateConcept<_Func, _First, _Second> >();
       // operator() must be a const member function
@@ -415,70 +433,65 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   // Iterator Concepts
 
   template <class _Tp>
-  struct _TrivialIteratorConcept
-  {
+  struct _TrivialIteratorConcept {
     void __constraints() {
-//    __function_requires< _DefaultConstructibleConcept<_Tp> >();
-      __function_requires< _AssignableConcept<_Tp> >();
-      __function_requires< _EqualityComparableConcept<_Tp> >();
-//      typedef typename std::iterator_traits<_Tp>::value_type _V;
-      (void)*__i;                       // require dereference operator
+      //    __function_requires< _DefaultConstructibleConcept<_Tp> >();
+      __function_requires<_AssignableConcept<_Tp> >();
+      __function_requires<_EqualityComparableConcept<_Tp> >();
+      //      typedef typename std::iterator_traits<_Tp>::value_type _V;
+      (void)*__i;  // require dereference operator
     }
     _Tp __i;
   };
 
   template <class _Tp>
-  struct _Mutable_TrivialIteratorConcept
-  {
+  struct _Mutable_TrivialIteratorConcept {
     void __constraints() {
-      __function_requires< _TrivialIteratorConcept<_Tp> >();
-      *__i = *__j;                      // require dereference and assignment
+      __function_requires<_TrivialIteratorConcept<_Tp> >();
+      *__i = *__j;  // require dereference and assignment
     }
     _Tp __i, __j;
   };
 
   template <class _Tp>
-  struct _InputIteratorConcept
-  {
+  struct _InputIteratorConcept {
     void __constraints() {
-      __function_requires< _TrivialIteratorConcept<_Tp> >();
+      __function_requires<_TrivialIteratorConcept<_Tp> >();
       // require iterator_traits typedef's
       typedef typename std::iterator_traits<_Tp>::difference_type _Diff;
-//      __function_requires< _SignedIntegerConcept<_Diff> >();
+      //      __function_requires< _SignedIntegerConcept<_Diff> >();
       typedef typename std::iterator_traits<_Tp>::reference _Ref;
       typedef typename std::iterator_traits<_Tp>::pointer _Pt;
       typedef typename std::iterator_traits<_Tp>::iterator_category _Cat;
-      __function_requires< _ConvertibleConcept<
-        typename std::iterator_traits<_Tp>::iterator_category,
-        std::input_iterator_tag> >();
-      ++__i;                            // require preincrement operator
-      __i++;                            // require postincrement operator
+      __function_requires<_ConvertibleConcept<
+          typename std::iterator_traits<_Tp>::iterator_category,
+          std::input_iterator_tag> >();
+      ++__i;  // require preincrement operator
+      __i++;  // require postincrement operator
     }
     _Tp __i;
   };
 
   template <class _Tp, class _ValueT>
-  struct _OutputIteratorConcept
-  {
+  struct _OutputIteratorConcept {
     void __constraints() {
-      __function_requires< _AssignableConcept<_Tp> >();
-      ++__i;                            // require preincrement operator
-      __i++;                            // require postincrement operator
-      *__i++ = __t;                     // require postincrement and assignment
+      __function_requires<_AssignableConcept<_Tp> >();
+      ++__i;         // require preincrement operator
+      __i++;         // require postincrement operator
+      *__i++ = __t;  // require postincrement and assignment
     }
     _Tp __i;
     _ValueT __t;
   };
 
   template <class _Tp>
-  struct _ForwardIteratorConcept
-  {
+  struct _ForwardIteratorConcept {
     void __constraints() {
-      __function_requires< _InputIteratorConcept<_Tp> >();
-      __function_requires< _DefaultConstructibleConcept<_Tp> >();
-      __function_requires< _ConvertibleConcept<
-        typename std::iterator_traits<_Tp>::iterator_category,
-        std::forward_iterator_tag> >();
+      __function_requires<_InputIteratorConcept<_Tp> >();
+      __function_requires<_DefaultConstructibleConcept<_Tp> >();
+      __function_requires<_ConvertibleConcept<
+          typename std::iterator_traits<_Tp>::iterator_category,
+          std::forward_iterator_tag> >();
       typedef typename std::iterator_traits<_Tp>::reference _Ref;
       _Ref __r _IsUnused = *__i;
     }
@@ -486,60 +499,56 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _Tp>
-  struct _Mutable_ForwardIteratorConcept
-  {
+  struct _Mutable_ForwardIteratorConcept {
     void __constraints() {
-      __function_requires< _ForwardIteratorConcept<_Tp> >();
-      *__i++ = *__i;                    // require postincrement and assignment
+      __function_requires<_ForwardIteratorConcept<_Tp> >();
+      *__i++ = *__i;  // require postincrement and assignment
     }
     _Tp __i;
   };
 
   template <class _Tp>
-  struct _BidirectionalIteratorConcept
-  {
+  struct _BidirectionalIteratorConcept {
     void __constraints() {
-      __function_requires< _ForwardIteratorConcept<_Tp> >();
-      __function_requires< _ConvertibleConcept<
-        typename std::iterator_traits<_Tp>::iterator_category,
-        std::bidirectional_iterator_tag> >();
-      --__i;                            // require predecrement operator
-      __i--;                            // require postdecrement operator
+      __function_requires<_ForwardIteratorConcept<_Tp> >();
+      __function_requires<_ConvertibleConcept<
+          typename std::iterator_traits<_Tp>::iterator_category,
+          std::bidirectional_iterator_tag> >();
+      --__i;  // require predecrement operator
+      __i--;  // require postdecrement operator
     }
     _Tp __i;
   };
 
   template <class _Tp>
-  struct _Mutable_BidirectionalIteratorConcept
-  {
+  struct _Mutable_BidirectionalIteratorConcept {
     void __constraints() {
-      __function_requires< _BidirectionalIteratorConcept<_Tp> >();
-      __function_requires< _Mutable_ForwardIteratorConcept<_Tp> >();
-      *__i-- = *__i;                    // require postdecrement and assignment
+      __function_requires<_BidirectionalIteratorConcept<_Tp> >();
+      __function_requires<_Mutable_ForwardIteratorConcept<_Tp> >();
+      *__i-- = *__i;  // require postdecrement and assignment
     }
     _Tp __i;
   };
 
-
   template <class _Tp>
-  struct _RandomAccessIteratorConcept
-  {
+  struct _RandomAccessIteratorConcept {
     void __constraints() {
-      __function_requires< _BidirectionalIteratorConcept<_Tp> >();
-      __function_requires< _ComparableConcept<_Tp> >();
-      __function_requires< _ConvertibleConcept<
-        typename std::iterator_traits<_Tp>::iterator_category,
-        std::random_access_iterator_tag> >();
+      __function_requires<_BidirectionalIteratorConcept<_Tp> >();
+      __function_requires<_ComparableConcept<_Tp> >();
+      __function_requires<_ConvertibleConcept<
+          typename std::iterator_traits<_Tp>::iterator_category,
+          std::random_access_iterator_tag> >();
       // ??? We don't use _Ref, are we just checking for "referenceability"?
       typedef typename std::iterator_traits<_Tp>::reference _Ref;
 
-      __i += __n;                       // require assignment addition operator
-      __i = __i + __n; __i = __n + __i; // require addition with difference type
-      __i -= __n;                       // require assignment subtraction op
-      __i = __i - __n;                  // require subtraction with
-                                        //            difference type
-      __n = __i - __j;                  // require difference operator
-      (void)__i[__n];                   // require element access operator
+      __i += __n;  // require assignment addition operator
+      __i = __i + __n;
+      __i = __n + __i;  // require addition with difference type
+      __i -= __n;       // require assignment subtraction op
+      __i = __i - __n;  // require subtraction with
+                        //            difference type
+      __n = __i - __j;  // require difference operator
+      (void)__i[__n];   // require element access operator
     }
     _Tp __a, __b;
     _Tp __i, __j;
@@ -547,12 +556,11 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _Tp>
-  struct _Mutable_RandomAccessIteratorConcept
-  {
+  struct _Mutable_RandomAccessIteratorConcept {
     void __constraints() {
-      __function_requires< _RandomAccessIteratorConcept<_Tp> >();
-      __function_requires< _Mutable_BidirectionalIteratorConcept<_Tp> >();
-      __i[__n] = *__i;                  // require element access and assignment
+      __function_requires<_RandomAccessIteratorConcept<_Tp> >();
+      __function_requires<_Mutable_BidirectionalIteratorConcept<_Tp> >();
+      __i[__n] = *__i;  // require element access and assignment
     }
     _Tp __i;
     typename std::iterator_traits<_Tp>::difference_type __n;
@@ -562,8 +570,7 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   // Container Concepts
 
   template <class _Container>
-  struct _ContainerConcept
-  {
+  struct _ContainerConcept {
     typedef typename _Container::value_type _Value_type;
     typedef typename _Container::difference_type _Difference_type;
     typedef typename _Container::size_type _Size_type;
@@ -572,8 +579,8 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
     typedef typename _Container::const_iterator _Const_iterator;
 
     void __constraints() {
-      __function_requires< _InputIteratorConcept<_Const_iterator> >();
-      __function_requires< _AssignableConcept<_Container> >();
+      __function_requires<_InputIteratorConcept<_Const_iterator> >();
+      __function_requires<_AssignableConcept<_Container> >();
       const _Container __c;
       __i = __c.begin();
       __i = __c.end();
@@ -587,17 +594,16 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _Container>
-  struct _Mutable_ContainerConcept
-  {
+  struct _Mutable_ContainerConcept {
     typedef typename _Container::value_type _Value_type;
     typedef typename _Container::reference _Reference;
     typedef typename _Container::iterator _Iterator;
     typedef typename _Container::pointer _Pointer;
 
     void __constraints() {
-      __function_requires< _ContainerConcept<_Container> >();
-      __function_requires< _AssignableConcept<_Value_type> >();
-      __function_requires< _InputIteratorConcept<_Iterator> >();
+      __function_requires<_ContainerConcept<_Container> >();
+      __function_requires<_AssignableConcept<_Value_type> >();
+      __function_requires<_InputIteratorConcept<_Iterator> >();
 
       __i = __c.begin();
       __i = __c.end();
@@ -608,38 +614,35 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _ForwardContainer>
-  struct _ForwardContainerConcept
-  {
+  struct _ForwardContainerConcept {
     void __constraints() {
-      __function_requires< _ContainerConcept<_ForwardContainer> >();
+      __function_requires<_ContainerConcept<_ForwardContainer> >();
       typedef typename _ForwardContainer::const_iterator _Const_iterator;
-      __function_requires< _ForwardIteratorConcept<_Const_iterator> >();
+      __function_requires<_ForwardIteratorConcept<_Const_iterator> >();
     }
   };
 
   template <class _ForwardContainer>
-  struct _Mutable_ForwardContainerConcept
-  {
+  struct _Mutable_ForwardContainerConcept {
     void __constraints() {
-      __function_requires< _ForwardContainerConcept<_ForwardContainer> >();
-      __function_requires< _Mutable_ContainerConcept<_ForwardContainer> >();
+      __function_requires<_ForwardContainerConcept<_ForwardContainer> >();
+      __function_requires<_Mutable_ContainerConcept<_ForwardContainer> >();
       typedef typename _ForwardContainer::iterator _Iterator;
-      __function_requires< _Mutable_ForwardIteratorConcept<_Iterator> >();
+      __function_requires<_Mutable_ForwardIteratorConcept<_Iterator> >();
     }
   };
 
   template <class _ReversibleContainer>
-  struct _ReversibleContainerConcept
-  {
+  struct _ReversibleContainerConcept {
     typedef typename _ReversibleContainer::const_iterator _Const_iterator;
     typedef typename _ReversibleContainer::const_reverse_iterator
-      _Const_reverse_iterator;
+        _Const_reverse_iterator;
 
     void __constraints() {
-      __function_requires< _ForwardContainerConcept<_ReversibleContainer> >();
-      __function_requires< _BidirectionalIteratorConcept<_Const_iterator> >();
+      __function_requires<_ForwardContainerConcept<_ReversibleContainer> >();
+      __function_requires<_BidirectionalIteratorConcept<_Const_iterator> >();
       __function_requires<
-        _BidirectionalIteratorConcept<_Const_reverse_iterator> >();
+          _BidirectionalIteratorConcept<_Const_reverse_iterator> >();
 
       const _ReversibleContainer __c;
       _Const_reverse_iterator __i = __c.rbegin();
@@ -648,18 +651,17 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _ReversibleContainer>
-  struct _Mutable_ReversibleContainerConcept
-  {
+  struct _Mutable_ReversibleContainerConcept {
     typedef typename _ReversibleContainer::iterator _Iterator;
     typedef typename _ReversibleContainer::reverse_iterator _Reverse_iterator;
 
     void __constraints() {
       __function_requires<_ReversibleContainerConcept<_ReversibleContainer> >();
       __function_requires<
-        _Mutable_ForwardContainerConcept<_ReversibleContainer> >();
+          _Mutable_ForwardContainerConcept<_ReversibleContainer> >();
       __function_requires<_Mutable_BidirectionalIteratorConcept<_Iterator> >();
       __function_requires<
-        _Mutable_BidirectionalIteratorConcept<_Reverse_iterator> >();
+          _Mutable_BidirectionalIteratorConcept<_Reverse_iterator> >();
 
       _Reverse_iterator __i = __c.rbegin();
       __i = __c.rend();
@@ -668,20 +670,19 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _RandomAccessContainer>
-  struct _RandomAccessContainerConcept
-  {
+  struct _RandomAccessContainerConcept {
     typedef typename _RandomAccessContainer::size_type _Size_type;
     typedef typename _RandomAccessContainer::const_reference _Const_reference;
     typedef typename _RandomAccessContainer::const_iterator _Const_iterator;
     typedef typename _RandomAccessContainer::const_reverse_iterator
-      _Const_reverse_iterator;
+        _Const_reverse_iterator;
 
     void __constraints() {
       __function_requires<
-        _ReversibleContainerConcept<_RandomAccessContainer> >();
-      __function_requires< _RandomAccessIteratorConcept<_Const_iterator> >();
+          _ReversibleContainerConcept<_RandomAccessContainer> >();
+      __function_requires<_RandomAccessIteratorConcept<_Const_iterator> >();
       __function_requires<
-        _RandomAccessIteratorConcept<_Const_reverse_iterator> >();
+          _RandomAccessIteratorConcept<_Const_reverse_iterator> >();
 
       const _RandomAccessContainer __c;
       _Const_reference __r _IsUnused = __c[__n];
@@ -690,8 +691,7 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _RandomAccessContainer>
-  struct _Mutable_RandomAccessContainerConcept
-  {
+  struct _Mutable_RandomAccessContainerConcept {
     typedef typename _RandomAccessContainer::size_type _Size_type;
     typedef typename _RandomAccessContainer::reference _Reference;
     typedef typename _RandomAccessContainer::iterator _Iterator;
@@ -699,12 +699,12 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
 
     void __constraints() {
       __function_requires<
-        _RandomAccessContainerConcept<_RandomAccessContainer> >();
+          _RandomAccessContainerConcept<_RandomAccessContainer> >();
       __function_requires<
-        _Mutable_ReversibleContainerConcept<_RandomAccessContainer> >();
-      __function_requires< _Mutable_RandomAccessIteratorConcept<_Iterator> >();
+          _Mutable_ReversibleContainerConcept<_RandomAccessContainer> >();
+      __function_requires<_Mutable_RandomAccessIteratorConcept<_Iterator> >();
       __function_requires<
-        _Mutable_RandomAccessIteratorConcept<_Reverse_iterator> >();
+          _Mutable_RandomAccessIteratorConcept<_Reverse_iterator> >();
 
       _Reference __r _IsUnused = __c[__i];
     }
@@ -714,8 +714,7 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
 
   // A Sequence is inherently mutable
   template <class _Sequence>
-  struct _SequenceConcept
-  {
+  struct _SequenceConcept {
     typedef typename _Sequence::reference _Reference;
     typedef typename _Sequence::const_reference _Const_reference;
 
@@ -723,12 +722,10 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
       // Matt Austern's book puts DefaultConstructible here, the C++
       // standard places it in Container
       //    function_requires< DefaultConstructible<Sequence> >();
-      __function_requires< _Mutable_ForwardContainerConcept<_Sequence> >();
-      __function_requires< _DefaultConstructibleConcept<_Sequence> >();
+      __function_requires<_Mutable_ForwardContainerConcept<_Sequence> >();
+      __function_requires<_DefaultConstructibleConcept<_Sequence> >();
 
-      _Sequence
-	__c _IsUnused(__n, __t),
-        __c2 _IsUnused(__first, __last);
+      _Sequence __c _IsUnused(__n, __t), __c2 _IsUnused(__first, __last);
 
       __c.insert(__p, __t);
       __c.insert(__p, __n, __t);
@@ -751,10 +748,9 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _FrontInsertionSequence>
-  struct _FrontInsertionSequenceConcept
-  {
+  struct _FrontInsertionSequenceConcept {
     void __constraints() {
-      __function_requires< _SequenceConcept<_FrontInsertionSequence> >();
+      __function_requires<_SequenceConcept<_FrontInsertionSequence> >();
 
       __c.push_front(__t);
       __c.pop_front();
@@ -764,13 +760,12 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
   };
 
   template <class _BackInsertionSequence>
-  struct _BackInsertionSequenceConcept
-  {
+  struct _BackInsertionSequenceConcept {
     typedef typename _BackInsertionSequence::reference _Reference;
     typedef typename _BackInsertionSequence::const_reference _Const_reference;
 
     void __constraints() {
-      __function_requires< _SequenceConcept<_BackInsertionSequence> >();
+      __function_requires<_SequenceConcept<_BackInsertionSequence> >();
 
       __c.push_back(__t);
       __c.pop_back();
@@ -783,12 +778,10 @@ struct _Aux_require_same<_Tp,_Tp> { typedef _Tp _Type; };
     typename _BackInsertionSequence::value_type __t;
   };
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace
+  _GLIBCXX_END_NAMESPACE_VERSION
+}  // namespace )
 
 #pragma GCC diagnostic pop
 #undef _IsUnused
 
-#endif // _GLIBCXX_BOOST_CONCEPT_CHECK
-
-
+#endif  // _GLIBCXX_BOOST_CONCEPT_CHECK

@@ -45,7 +45,7 @@
     _Static_assert(sizeof(__val) == sizeof(__Bits));                           \
     _Static_assert(sizeof(__Bits) == 2 * sizeof(int));                         \
     __Bits __tmp;                                                              \
-    memcpy(&__tmp, &__val, sizeof(__val));                                \
+    memcpy(&__tmp, &__val, sizeof(__val));                                     \
     __tmp.__a = ::__FnName(__tmp.__a, __offset, __width);                      \
     __tmp.__b = ::__FnName(__tmp.__b, __offset, __width);                      \
     long long __ret;                                                           \
@@ -96,7 +96,7 @@ __MAKE_SHUFFLES(__shfl_xor, __nvvm_shfl_bfly_i32, __nvvm_shfl_bfly_f32, 0x1f,
                 int);
 #pragma pop_macro("__MAKE_SHUFFLES")
 
-#endif // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 300
+#endif  // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 300
 
 #if CUDA_VERSION >= 9000
 #if (!defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 300)
@@ -225,7 +225,7 @@ inline __device__ unsigned int __fns(unsigned mask, unsigned base, int offset) {
   return __nvvm_fns(mask, base, offset);
 }
 
-#endif // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 300
+#endif  // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 300
 
 // Define __match* builtins CUDA-9 headers expect to see.
 #if !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 700
@@ -234,24 +234,25 @@ inline __device__ unsigned int __match32_any_sync(unsigned int mask,
   return __nvvm_match_any_sync_i32(mask, value);
 }
 
-inline __device__ unsigned long long
-__match64_any_sync(unsigned int mask, unsigned long long value) {
+inline __device__ unsigned long long __match64_any_sync(
+    unsigned int mask, unsigned long long value) {
   return __nvvm_match_any_sync_i64(mask, value);
 }
 
-inline __device__ unsigned int
-__match32_all_sync(unsigned int mask, unsigned int value, int *pred) {
+inline __device__ unsigned int __match32_all_sync(unsigned int mask,
+                                                  unsigned int value,
+                                                  int *pred) {
   return __nvvm_match_all_sync_i32p(mask, value, pred);
 }
 
-inline __device__ unsigned long long
-__match64_all_sync(unsigned int mask, unsigned long long value, int *pred) {
+inline __device__ unsigned long long __match64_all_sync(
+    unsigned int mask, unsigned long long value, int *pred) {
   return __nvvm_match_all_sync_i64p(mask, value, pred);
 }
 #include "crt/sm_70_rt.hpp"
 
-#endif // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 700
-#endif // __CUDA_VERSION >= 9000
+#endif  // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 700
+#endif  // __CUDA_VERSION >= 9000
 
 // sm_32 intrinsics: __ldg and __funnelshift_{l,lc,r,rc}.
 
@@ -481,6 +482,6 @@ inline __device__ unsigned __funnelshift_rc(unsigned low32, unsigned high32,
   return ret;
 }
 
-#endif // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 320
+#endif  // !defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 320
 
-#endif // defined(__CLANG_CUDA_INTRINSICS_H__)
+#endif  // defined(__CLANG_CUDA_INTRINSICS_H__)

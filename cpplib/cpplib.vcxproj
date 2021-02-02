@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="datastructures\bit.h" />
+    <ClInclude Include="general\base.h" />
+    <ClInclude Include="general\chash.h" />
+    <ClInclude Include="general\debug.h" />
+    <ClInclude Include="general\input.h" />
+    <ClInclude Include="general\output.h" />
+    <ClInclude Include="general\prng.h" />
+    <ClInclude Include="general\timer.h" />
+    <ClInclude Include="general\to_string.h" />
+    <ClInclude Include="general\y_combinator.h" />
+    <ClInclude Include="graph\base\edges\bi_edge.h" />
+    <ClInclude Include="graph\base\edges\edge.h" />
+    <ClInclude Include="graph\base\edges\weighted_bi_edge.h" />
+    <ClInclude Include="graph\base\edges\weighted_edge.h" />
+    <ClInclude Include="graph\base\graph.h" />
+    <ClInclude Include="graph\desopo_pape.h" />
+    <ClInclude Include="graph\desopo_pape.hpp" />
+    <ClInclude Include="graph\dijkstra.h" />
+    <ClInclude Include="graph\dijkstra.hpp" />
+    <ClInclude Include="graph\dsu.h" />
+    <ClInclude Include="graph\dsu.hpp" />
+    <ClInclude Include="graph\kosarajus_sccs.h" />
+    <ClInclude Include="graph\kosarajus_sccs.hpp" />
+    <ClInclude Include="numerical\arbitrary_precision_integer.h" />
+    <ClInclude Include="numerical\arbitrary_precision_integer.hpp" />
+    <ClInclude Include="numerical\choose.h" />
+    <ClInclude Include="numerical\choose.hpp" />
+    <ClInclude Include="numerical\compress.h" />
+    <ClInclude Include="numerical\compress.hpp" />
+    <ClInclude Include="numerical\digit_sum.h" />
+    <ClInclude Include="numerical\digit_sum.hpp" />
+    <ClInclude Include="numerical\factorize.h" />
+    <ClInclude Include="numerical\factorize.hpp" />
+    <ClInclude Include="numerical\gcd.h" />
+    <ClInclude Include="numerical\gcd.hpp" />
+    <ClInclude Include="numerical\lcm.h" />
+    <ClInclude Include="numerical\lcm.hpp" />
+    <ClInclude Include="numerical\linear_diophantine.h" />
+    <ClInclude Include="numerical\linear_diophantine.hpp" />
+    <ClInclude Include="numerical\miller_rabin.h" />
+    <ClInclude Include="numerical\miller_rabin.hpp" />
+    <ClInclude Include="numerical\modular.h" />
+    <ClInclude Include="numerical\modular.hpp" />
+    <ClInclude Include="numerical\pollards_rho.h" />
+    <ClInclude Include="numerical\pollards_rho.hpp" />
+    <ClInclude Include="numerical\polynomial.h" />
+    <ClInclude Include="numerical\polynomial.hpp" />
+    <ClInclude Include="numerical\power.h" />
+    <ClInclude Include="numerical\power.hpp" />
+    <ClInclude Include="numerical\quadratic_diophantine.h" />
+    <ClInclude Include="numerical\quadratic_diophantine.hpp" />
+    <ClInclude Include="numerical\trailing_zero_bits.h" />
+    <ClInclude Include="numerical\trailing_zero_bits.hpp" />
+    <ClInclude Include="offline\distinctelements.h" />
+    <ClInclude Include="offline\distinctelements.hpp" />
+    <ClInclude Include="sorting\binary_insertion_sort.h" />
+    <ClInclude Include="sorting\binary_insertion_sort.hpp" />
+    <ClInclude Include="sorting\bubble_sort.h" />
+    <ClInclude Include="sorting\bubble_sort.hpp" />
+    <ClInclude Include="sorting\counting_sort.h" />
+    <ClInclude Include="sorting\counting_sort.hpp" />
+    <ClInclude Include="sorting\heap_sort.h" />
+    <ClInclude Include="sorting\heap_sort.hpp" />
+    <ClInclude Include="sorting\insertion_sort.h" />
+    <ClInclude Include="sorting\insertion_sort.hpp" />
+    <ClInclude Include="sorting\merge_sort.h" />
+    <ClInclude Include="sorting\merge_sort.hpp" />
+    <ClInclude Include="sorting\quick_sort.h" />
+    <ClInclude Include="sorting\quick_sort.hpp" />
+    <ClInclude Include="sorting\selection_sort.h" />
+    <ClInclude Include="sorting\selection_sort.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="datastructures\bit.cpp" />
+    <ClCompile Include="general\chash.cpp" />
+    <ClCompile Include="general\debug.cpp" />
+    <ClCompile Include="general\input.cpp" />
+    <ClCompile Include="general\output.cpp" />
+    <ClCompile Include="general\prng.cpp" />
+    <ClCompile Include="general\timer.cpp" />
+    <ClCompile Include="general\to_string.cpp" />
+    <ClCompile Include="general\y_combinator.cpp" />
+    <ClCompile Include="graph\base\edges\bi_edge.cpp" />
+    <ClCompile Include="graph\base\edges\edge.cpp" />
+    <ClCompile Include="graph\base\edges\weighted_bi_edge.cpp" />
+    <ClCompile Include="graph\base\edges\weighted_edge.cpp" />
+    <ClCompile Include="graph\base\graph.cpp" />
+    <ClCompile Include="graph\desopo_pape.cpp" />
+    <ClCompile Include="graph\dijkstra.cpp" />
+    <ClCompile Include="graph\dsu.cpp" />
+    <ClCompile Include="graph\kosarajus_sccs.cpp" />
+    <ClCompile Include="numerical\arbitrary_precision_integer.cpp" />
+    <ClCompile Include="numerical\choose.cpp" />
+    <ClCompile Include="numerical\compress.cpp" />
+    <ClCompile Include="numerical\digit_sum.cpp" />
+    <ClCompile Include="numerical\factorize.cpp" />
+    <ClCompile Include="numerical\gcd.cpp" />
+    <ClCompile Include="numerical\lcm.cpp" />
+    <ClCompile Include="numerical\linear_diophantine.cpp" />
+    <ClCompile Include="numerical\miller_rabin.cpp" />
+    <ClCompile Include="numerical\modular.cpp" />
+    <ClCompile Include="numerical\pollards_rho.cpp" />
+    <ClCompile Include="numerical\polynomial.cpp" />
+    <ClCompile Include="numerical\power.cpp" />
+    <ClCompile Include="numerical\quadratic_diophantine.cpp" />
+    <ClCompile Include="numerical\trailing_zero_bits.cpp" />
+    <ClCompile Include="offline\distinctelements.cpp" />
+    <ClCompile Include="sorting\binary_insertion_sort.cpp" />
+    <ClCompile Include="sorting\bubble_sort.cpp" />
+    <ClCompile Include="sorting\counting_sort.cpp" />
+    <ClCompile Include="sorting\heap_sort.cpp" />
+    <ClCompile Include="sorting\insertion_sort.cpp" />
+    <ClCompile Include="sorting\merge_sort.cpp" />
+    <ClCompile Include="sorting\quick_sort.cpp" />
+    <ClCompile Include="sorting\selection_sort.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{481E5440-D03D-52B1-92EC-E95F3BB538AA}</ProjectGuid>
+    <RootNamespace>cpplib</RootNamespace>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '16.0'">v142</PlatformToolset>
+    <PlatformToolset Condition="'$(PlatformToolset)' == ''">v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(WindowsTargetPlatformVersion)'=='' and '$(PlatformToolset)' != 'v120' and '$(PlatformToolset)' != 'v140'">
+    <LatestTargetPlatformVersion>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</LatestTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
+    <TargetPlatformVersion>$(WindowsTargetPlatformVersion)</TargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="..\vs_common.props" Condition="exists('..\vs_common.props')" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

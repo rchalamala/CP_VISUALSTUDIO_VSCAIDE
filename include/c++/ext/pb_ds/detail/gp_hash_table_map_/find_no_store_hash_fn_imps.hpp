@@ -42,7 +42,5 @@
 #ifdef PB_DS_CLASS_C_DEC
 
 PB_DS_CLASS_T_DEC
-inline typename PB_DS_CLASS_C_DEC::pointer
-PB_DS_CLASS_C_DEC::
-find_key_pointer(key_const_reference r_key, false_type)
-
+inline typename PB_DS_CLASS_C_DEC::pointer PB_DS_CLASS_C_DEC::find_key_pointer(
+    key_const_reference r_key, false_type)

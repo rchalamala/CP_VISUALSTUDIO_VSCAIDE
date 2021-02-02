@@ -14,21 +14,19 @@
 
 #include "execution_defs.h"
 
-namespace std
-{
+namespace std {
 // Type trait
 using __pstl::execution::is_execution_policy;
 #if _PSTL_CPP14_VARIABLE_TEMPLATES_PRESENT
-#    if __INTEL_COMPILER
+#if __INTEL_COMPILER
 template <class T>
 constexpr bool is_execution_policy_v = is_execution_policy<T>::value;
-#    else
+#else
 using __pstl::execution::is_execution_policy_v;
-#    endif
+#endif
 #endif
 
-namespace execution
-{
+namespace execution {
 // Standard C++ policy classes
 using __pstl::execution::parallel_policy;
 using __pstl::execution::parallel_unsequenced_policy;
@@ -44,8 +42,8 @@ using __pstl::execution::seq;
 // we include it into namespace std::execution as well
 using __pstl::execution::unseq;
 using __pstl::execution::unsequenced_policy;
-} // namespace execution
-} // namespace std
+}  // namespace execution
+}  // namespace std
 
 #include "algorithm_impl.h"
 #include "numeric_impl.h"

@@ -2,4 +2,3 @@
 //
 
 #include "quadratic_diophantine.h"
-

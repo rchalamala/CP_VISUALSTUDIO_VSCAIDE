@@ -47,9 +47,8 @@
 
 #include <bits/c++config.h>
 
-namespace std _GLIBCXX_VISIBILITY(default)
-{
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace std _GLIBCXX_VISIBILITY(default) {
+  _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    * @defgroup allocators Allocators
@@ -60,23 +59,23 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * @{
    */
 
-  template<typename>
-    class allocator;
+  template <typename>
+  class allocator;
 
 #if __cplusplus <= 201703L
-  template<>
-    class allocator<void>;
+  template <>
+  class allocator<void>;
 #endif
 
 #if __cplusplus >= 201103L
   /// Declare uses_allocator so it can be specialized in \<queue\> etc.
-  template<typename, typename>
-    struct uses_allocator;
+  template <typename, typename>
+  struct uses_allocator;
 #endif
 
   /// @} group memory
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace std
+  _GLIBCXX_END_NAMESPACE_VERSION
+}  // namespace )
 
 #endif

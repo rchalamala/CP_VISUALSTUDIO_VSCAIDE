@@ -7,9 +7,9 @@
 #define _UNISTD_H
 #define __UNISTD_H_SOURCED__ 1
 
+#include <getopt.h>
 #include <io.h>
 #include <process.h>
-#include <getopt.h>
 
 /* These are also defined in stdio.h. */
 #ifndef SEEK_SET
@@ -20,7 +20,7 @@
 
 /* These are also defined in stdio.h. */
 #ifndef STDIN_FILENO
-#define STDIN_FILENO  0
+#define STDIN_FILENO 0
 #define STDOUT_FILENO 1
 #define STDERR_FILENO 2
 #endif
@@ -30,8 +30,8 @@
 
 /* MySql connector already defined SHUT_RDWR. */
 #ifndef SHUT_RDWR
-#define SHUT_RD   0x00
-#define SHUT_WR   0x01
+#define SHUT_RD 0x00
+#define SHUT_WR 0x01
 #define SHUT_RDWR 0x02
 #endif
 
@@ -43,14 +43,14 @@ extern "C" {
 
 #pragma push_macro("sleep")
 #undef sleep
-unsigned int __cdecl sleep (unsigned int);
+unsigned int __cdecl sleep(unsigned int);
 #pragma pop_macro("sleep")
 
 #if !defined __NO_ISOCEXT
 #include <sys/types.h> /* For useconds_t. */
 
 int __cdecl __MINGW_NOTHROW usleep(useconds_t);
-#endif  /* Not __NO_ISOCEXT */
+#endif /* Not __NO_ISOCEXT */
 
 #ifndef FTRUNCATE_DEFINED
 #define FTRUNCATE_DEFINED
@@ -62,9 +62,8 @@ int ftruncate64(int, off64_t);
 int truncate(const char *, off32_t);
 int truncate64(const char *, off64_t);
 #ifndef __CRT__NO_INLINE
-__CRT_INLINE int ftruncate(int __fd, off32_t __length)
-{
-  return _chsize (__fd, __length);
+__CRT_INLINE int ftruncate(int __fd, off32_t __length) {
+  return _chsize(__fd, __length);
 }
 #endif /* !__CRT__NO_INLINE */
 #else
@@ -73,9 +72,8 @@ int ftruncate64(int, _off64_t);
 int truncate(const char *, _off_t);
 int truncate64(const char *, _off64_t);
 #ifndef __CRT__NO_INLINE
-__CRT_INLINE int ftruncate(int __fd, _off_t __length)
-{
-  return _chsize (__fd, __length);
+__CRT_INLINE int ftruncate(int __fd, _off_t __length) {
+  return _chsize(__fd, __length);
 }
 #endif /* !__CRT__NO_INLINE */
 #endif
@@ -90,13 +88,14 @@ __CRT_INLINE int ftruncate(int __fd, _off_t __length)
 
 #ifndef _CRT_SWAB_DEFINED
 #define _CRT_SWAB_DEFINED /* Also in stdlib.h */
-  void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+void __cdecl swab(char *_Buf1, char *_Buf2,
+                  int _SizeInBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #if defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP) || defined(WINSTORECOMPAT)
 #ifndef _CRT_GETPID_DEFINED
-#define _CRT_GETPID_DEFINED  /* Also in process.h */
-  int __cdecl getpid(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#define _CRT_GETPID_DEFINED /* Also in process.h */
+int __cdecl getpid(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP || WINSTORECOMPAT */
 
@@ -108,4 +107,3 @@ __CRT_INLINE int ftruncate(int __fd, _off_t __length)
 
 #undef __UNISTD_H_SOURCED__
 #endif /* _UNISTD_H */
-

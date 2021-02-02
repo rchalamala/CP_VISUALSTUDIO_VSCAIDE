@@ -2,4 +2,3 @@
 //
 
 #include "kosarajus_sccs.h"
-

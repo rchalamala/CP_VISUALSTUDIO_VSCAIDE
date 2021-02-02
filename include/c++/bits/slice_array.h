@@ -34,9 +34,8 @@
 
 #pragma GCC system_header
 
-namespace std _GLIBCXX_VISIBILITY(default)
-{
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace std _GLIBCXX_VISIBILITY(default) {
+  _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    * @addtogroup numeric_arrays
@@ -56,9 +55,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  For example, with an array of size 10, and a slice with offset 1, size 3
    *  and stride 2, the subset consists of array elements 1, 3, and 5.
    */
-  class slice
-  {
-  public:
+  class slice {
+   public:
     ///  Construct an empty slice.
     slice();
 
@@ -83,33 +81,24 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     friend bool operator==(const slice&, const slice&) = default;
 #endif
 
-  private:
-    size_t _M_off;                      // offset
-    size_t _M_sz;			// size
-    size_t _M_st;			// stride unit
+   private:
+    size_t _M_off;  // offset
+    size_t _M_sz;   // size
+    size_t _M_st;   // stride unit
   };
 
   // _GLIBCXX_RESOLVE_LIB_DEFECTS
   // 543. valarray slice default constructor
-  inline
-  slice::slice() 
-  : _M_off(0), _M_sz(0), _M_st(0) {}
+  inline slice::slice() : _M_off(0), _M_sz(0), _M_st(0) {}
 
-  inline
-  slice::slice(size_t __o, size_t __d, size_t __s)
-  : _M_off(__o), _M_sz(__d), _M_st(__s) {}
+  inline slice::slice(size_t __o, size_t __d, size_t __s)
+      : _M_off(__o), _M_sz(__d), _M_st(__s) {}
 
-  inline size_t
-  slice::start() const
-  { return _M_off; }
+  inline size_t slice::start() const { return _M_off; }
 
-  inline size_t
-  slice::size() const
-  { return _M_sz; }
+  inline size_t slice::size() const { return _M_sz; }
 
-  inline size_t
-  slice::stride() const
-  { return _M_st; }
+  inline size_t slice::stride() const { return _M_st; }
 
   /**
    *  @brief  Reference to one-dimensional subset of an array.
@@ -124,161 +113,155 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *
    *  @param  Tp  Element type.
    */
-  template<typename _Tp>
-    class slice_array
-    {
-    public:
-      typedef _Tp value_type;
+  template <typename _Tp>
+  class slice_array {
+   public:
+    typedef _Tp value_type;
 
-      // _GLIBCXX_RESOLVE_LIB_DEFECTS
-      // 253. valarray helper functions are almost entirely useless
+    // _GLIBCXX_RESOLVE_LIB_DEFECTS
+    // 253. valarray helper functions are almost entirely useless
 
-      ///  Copy constructor.  Both slices refer to the same underlying array.
-      slice_array(const slice_array&);
+    ///  Copy constructor.  Both slices refer to the same underlying array.
+    slice_array(const slice_array&);
 
-      ///  Assignment operator.  Assigns slice elements to corresponding
-      ///  elements of @a a.
-      slice_array& operator=(const slice_array&);
+    ///  Assignment operator.  Assigns slice elements to corresponding
+    ///  elements of @a a.
+    slice_array& operator=(const slice_array&);
 
-      ///  Assign slice elements to corresponding elements of @a v.
-      void operator=(const valarray<_Tp>&) const;
-      ///  Multiply slice elements by corresponding elements of @a v.
-      void operator*=(const valarray<_Tp>&) const;
-      ///  Divide slice elements by corresponding elements of @a v.
-      void operator/=(const valarray<_Tp>&) const;
-      ///  Modulo slice elements by corresponding elements of @a v.
-      void operator%=(const valarray<_Tp>&) const;
-      ///  Add corresponding elements of @a v to slice elements.
-      void operator+=(const valarray<_Tp>&) const;
-      ///  Subtract corresponding elements of @a v from slice elements.
-      void operator-=(const valarray<_Tp>&) const;
-      ///  Logical xor slice elements with corresponding elements of @a v.
-      void operator^=(const valarray<_Tp>&) const;
-      ///  Logical and slice elements with corresponding elements of @a v.
-      void operator&=(const valarray<_Tp>&) const;
-      ///  Logical or slice elements with corresponding elements of @a v.
-      void operator|=(const valarray<_Tp>&) const;
-      ///  Left shift slice elements by corresponding elements of @a v.
-      void operator<<=(const valarray<_Tp>&) const;
-      ///  Right shift slice elements by corresponding elements of @a v.
-      void operator>>=(const valarray<_Tp>&) const;
-      ///  Assign all slice elements to @a t.
-      void operator=(const _Tp &) const;
-      //        ~slice_array ();
+    ///  Assign slice elements to corresponding elements of @a v.
+    void operator=(const valarray<_Tp>&) const;
+    ///  Multiply slice elements by corresponding elements of @a v.
+    void operator*=(const valarray<_Tp>&) const;
+    ///  Divide slice elements by corresponding elements of @a v.
+    void operator/=(const valarray<_Tp>&) const;
+    ///  Modulo slice elements by corresponding elements of @a v.
+    void operator%=(const valarray<_Tp>&) const;
+    ///  Add corresponding elements of @a v to slice elements.
+    void operator+=(const valarray<_Tp>&) const;
+    ///  Subtract corresponding elements of @a v from slice elements.
+    void operator-=(const valarray<_Tp>&) const;
+    ///  Logical xor slice elements with corresponding elements of @a v.
+    void operator^=(const valarray<_Tp>&) const;
+    ///  Logical and slice elements with corresponding elements of @a v.
+    void operator&=(const valarray<_Tp>&) const;
+    ///  Logical or slice elements with corresponding elements of @a v.
+    void operator|=(const valarray<_Tp>&) const;
+    ///  Left shift slice elements by corresponding elements of @a v.
+    void operator<<=(const valarray<_Tp>&) const;
+    ///  Right shift slice elements by corresponding elements of @a v.
+    void operator>>=(const valarray<_Tp>&) const;
+    ///  Assign all slice elements to @a t.
+    void operator=(const _Tp&) const;
+    //        ~slice_array ();
 
-      template<class _Dom>
-        void operator=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator*=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator/=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator%=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator+=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator-=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator^=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator&=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator|=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator<<=(const _Expr<_Dom, _Tp>&) const;
-      template<class _Dom>
-	void operator>>=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator*=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator/=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator%=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator+=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator-=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator^=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator&=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator|=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator<<=(const _Expr<_Dom, _Tp>&) const;
+    template <class _Dom>
+    void operator>>=(const _Expr<_Dom, _Tp>&) const;
 
-    private:
-      friend class valarray<_Tp>;
-      slice_array(_Array<_Tp>, const slice&);
+   private:
+    friend class valarray<_Tp>;
+    slice_array(_Array<_Tp>, const slice&);
 
-      const size_t      _M_sz;
-      const size_t      _M_stride;
-      const _Array<_Tp> _M_array;
+    const size_t _M_sz;
+    const size_t _M_stride;
+    const _Array<_Tp> _M_array;
 
 #if __cplusplus < 201103L
-      // not implemented
-      slice_array();
+    // not implemented
+    slice_array();
 #else
-    public:
-      slice_array() = delete;
+   public:
+    slice_array() = delete;
 #endif
-    };
+  };
 
-  template<typename _Tp>
-    inline
-    slice_array<_Tp>::slice_array(_Array<_Tp> __a, const slice& __s)
-    : _M_sz(__s.size()), _M_stride(__s.stride()),
-      _M_array(__a.begin() + __s.start()) {}
+  template <typename _Tp>
+  inline slice_array<_Tp>::slice_array(_Array<_Tp> __a, const slice& __s)
+      : _M_sz(__s.size()),
+        _M_stride(__s.stride()),
+        _M_array(__a.begin() + __s.start()) {}
 
-  template<typename _Tp>
-    inline
-    slice_array<_Tp>::slice_array(const slice_array<_Tp>& __a)
-    : _M_sz(__a._M_sz), _M_stride(__a._M_stride), _M_array(__a._M_array) {}
+  template <typename _Tp>
+  inline slice_array<_Tp>::slice_array(const slice_array<_Tp>& __a)
+      : _M_sz(__a._M_sz), _M_stride(__a._M_stride), _M_array(__a._M_array) {}
 
   //    template<typename _Tp>
   //    inline slice_array<_Tp>::~slice_array () {}
 
-  template<typename _Tp>
-    inline slice_array<_Tp>&
-    slice_array<_Tp>::operator=(const slice_array<_Tp>& __a)
-    {
-      std::__valarray_copy(__a._M_array, __a._M_sz, __a._M_stride,
-			   _M_array, _M_stride);
-      return *this;
-    }
+  template <typename _Tp>
+  inline slice_array<_Tp>& slice_array<_Tp>::operator=(
+      const slice_array<_Tp>& __a) {
+    std::__valarray_copy(__a._M_array, __a._M_sz, __a._M_stride, _M_array,
+                         _M_stride);
+    return *this;
+  }
 
-  template<typename _Tp>
-    inline void
-    slice_array<_Tp>::operator=(const _Tp& __t) const
-    { std::__valarray_fill(_M_array, _M_sz, _M_stride, __t); }
+  template <typename _Tp>
+  inline void slice_array<_Tp>::operator=(const _Tp& __t) const {
+    std::__valarray_fill(_M_array, _M_sz, _M_stride, __t);
+  }
 
-  template<typename _Tp>
-    inline void
-    slice_array<_Tp>::operator=(const valarray<_Tp>& __v) const
-    { std::__valarray_copy(_Array<_Tp>(__v), _M_array, _M_sz, _M_stride); }
+  template <typename _Tp>
+  inline void slice_array<_Tp>::operator=(const valarray<_Tp>& __v) const {
+    std::__valarray_copy(_Array<_Tp>(__v), _M_array, _M_sz, _M_stride);
+  }
 
-  template<typename _Tp>
-  template<class _Dom>
-    inline void
-    slice_array<_Tp>::operator=(const _Expr<_Dom,_Tp>& __e) const
-    { std::__valarray_copy(__e, _M_sz, _M_array, _M_stride); }
+  template <typename _Tp>
+  template <class _Dom>
+  inline void slice_array<_Tp>::operator=(const _Expr<_Dom, _Tp>& __e) const {
+    std::__valarray_copy(__e, _M_sz, _M_array, _M_stride);
+  }
 
 #undef _DEFINE_VALARRAY_OPERATOR
-#define _DEFINE_VALARRAY_OPERATOR(_Op,_Name)				\
-  template<typename _Tp>						\
-    inline void								\
-    slice_array<_Tp>::operator _Op##=(const valarray<_Tp>& __v) const	\
-    {									\
-      _Array_augmented_##_Name(_M_array, _M_sz, _M_stride, _Array<_Tp>(__v));\
-    }									\
-									\
-  template<typename _Tp>                                                \
-    template<class _Dom>				                \
-      inline void							\
-      slice_array<_Tp>::operator _Op##=(const _Expr<_Dom,_Tp>& __e) const\
-      {									\
-	  _Array_augmented_##_Name(_M_array, _M_stride, __e, _M_sz);	\
-      }
+#define _DEFINE_VALARRAY_OPERATOR(_Op, _Name)                                \
+  template <typename _Tp>                                                    \
+  inline void slice_array<_Tp>::operator _Op##=(const valarray<_Tp>& __v)    \
+      const {                                                                \
+    _Array_augmented_##_Name(_M_array, _M_sz, _M_stride, _Array<_Tp>(__v));  \
+  }                                                                          \
+                                                                             \
+  template <typename _Tp>                                                    \
+  template <class _Dom>                                                      \
+  inline void slice_array<_Tp>::operator _Op##=(const _Expr<_Dom, _Tp>& __e) \
+      const {                                                                \
+    _Array_augmented_##_Name(_M_array, _M_stride, __e, _M_sz);               \
+  }
 
-
-_DEFINE_VALARRAY_OPERATOR(*, __multiplies)
-_DEFINE_VALARRAY_OPERATOR(/, __divides)
-_DEFINE_VALARRAY_OPERATOR(%, __modulus)
-_DEFINE_VALARRAY_OPERATOR(+, __plus)
-_DEFINE_VALARRAY_OPERATOR(-, __minus)
-_DEFINE_VALARRAY_OPERATOR(^, __bitwise_xor)
-_DEFINE_VALARRAY_OPERATOR(&, __bitwise_and)
-_DEFINE_VALARRAY_OPERATOR(|, __bitwise_or)
-_DEFINE_VALARRAY_OPERATOR(<<, __shift_left)
-_DEFINE_VALARRAY_OPERATOR(>>, __shift_right)
+  _DEFINE_VALARRAY_OPERATOR(*, __multiplies)
+  _DEFINE_VALARRAY_OPERATOR(/, __divides)
+  _DEFINE_VALARRAY_OPERATOR(%, __modulus)
+  _DEFINE_VALARRAY_OPERATOR(+, __plus)
+  _DEFINE_VALARRAY_OPERATOR(-, __minus)
+  _DEFINE_VALARRAY_OPERATOR(^, __bitwise_xor)
+  _DEFINE_VALARRAY_OPERATOR(&, __bitwise_and)
+  _DEFINE_VALARRAY_OPERATOR(|, __bitwise_or)
+  _DEFINE_VALARRAY_OPERATOR(<<, __shift_left)
+  _DEFINE_VALARRAY_OPERATOR(>>, __shift_right)
 
 #undef _DEFINE_VALARRAY_OPERATOR
 
   // @} group numeric_arrays
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace
+  _GLIBCXX_END_NAMESPACE_VERSION
+}  // namespace )
 
 #endif /* _SLICE_ARRAY_H */

@@ -5,4 +5,3 @@
 #include <math.h>
 
 #endif /* _IEEE_FP_H_ */
-

@@ -3,12 +3,11 @@
 
 #include <cstddef>
 
-struct Edge
-{
-	static constexpr bool reversable = false;
-	std::size_t to;
+struct Edge {
+  static constexpr bool reversable = false;
+  std::size_t to;
 
-	explicit Edge(const std::size_t& u_to);
+  explicit Edge(const std::size_t& u_to);
 };
 
 #endif

@@ -3,12 +3,11 @@
 
 #include <cstddef>
 
-struct BiEdge
-{
-	static constexpr bool reversable = true;
-	std::size_t to;
+struct BiEdge {
+  static constexpr bool reversable = true;
+  std::size_t to;
 
-	explicit BiEdge(const std::size_t& u_to);
+  explicit BiEdge(const std::size_t& u_to);
 };
 
 #endif

@@ -37,37 +37,36 @@
 
 #pragma GCC system_header
 
-#include <cwchar> // For mbstate_t
+#include <cwchar>  // For mbstate_t
 
 // XXX If <stdint.h> is really needed, make sure to define the macros
 // before including it, in order not to break <tr1/cstdint> (and <cstdint>
 // in C++11).  Reconsider all this as soon as possible...
-#if (defined(_GLIBCXX_HAVE_INT64_T) && !defined(_GLIBCXX_HAVE_INT64_T_LONG) \
-     && !defined(_GLIBCXX_HAVE_INT64_T_LONG_LONG))
+#if (defined(_GLIBCXX_HAVE_INT64_T) && !defined(_GLIBCXX_HAVE_INT64_T_LONG) && \
+     !defined(_GLIBCXX_HAVE_INT64_T_LONG_LONG))
 
 #ifndef __STDC_LIMIT_MACROS
-# define _UNDEF__STDC_LIMIT_MACROS
-# define __STDC_LIMIT_MACROS
+#define _UNDEF__STDC_LIMIT_MACROS
+#define __STDC_LIMIT_MACROS
 #endif
 #ifndef __STDC_CONSTANT_MACROS
-# define _UNDEF__STDC_CONSTANT_MACROS
-# define __STDC_CONSTANT_MACROS
+#define _UNDEF__STDC_CONSTANT_MACROS
+#define __STDC_CONSTANT_MACROS
 #endif
-#include <stdint.h> // For int64_t
+#include <stdint.h>  // For int64_t
 #ifdef _UNDEF__STDC_LIMIT_MACROS
-# undef __STDC_LIMIT_MACROS
-# undef _UNDEF__STDC_LIMIT_MACROS
+#undef __STDC_LIMIT_MACROS
+#undef _UNDEF__STDC_LIMIT_MACROS
 #endif
 #ifdef _UNDEF__STDC_CONSTANT_MACROS
-# undef __STDC_CONSTANT_MACROS
-# undef _UNDEF__STDC_CONSTANT_MACROS
+#undef __STDC_CONSTANT_MACROS
+#undef _UNDEF__STDC_CONSTANT_MACROS
 #endif
 
 #endif
 
-namespace std _GLIBCXX_VISIBILITY(default)
-{
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace std _GLIBCXX_VISIBILITY(default) {
+  _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   // The types streamoff, streampos and wstreampos and the class
   // template fpos<> are described in clauses 21.1.2, 21.1.3, 27.1.2,
@@ -83,19 +82,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  implementation defined type.
    *  Note: In versions of GCC up to and including GCC 3.3, streamoff
    *  was typedef long.
-  */  
+   */
 #ifdef _GLIBCXX_HAVE_INT64_T_LONG
-  typedef long          streamoff;
+  typedef long streamoff;
 #elif defined(_GLIBCXX_HAVE_INT64_T_LONG_LONG)
-  typedef long long     streamoff;
-#elif defined(_GLIBCXX_HAVE_INT64_T) 
-  typedef int64_t       streamoff;
+  typedef long long streamoff;
+#elif defined(_GLIBCXX_HAVE_INT64_T)
+  typedef int64_t streamoff;
 #else
-  typedef long long     streamoff;
+  typedef long long streamoff;
 #endif
 
   /// Integral type for I/O operation counts and buffer sizes.
-  typedef ptrdiff_t	streamsize; // Signed integral type
+  typedef ptrdiff_t streamsize;  // Signed integral type
 
   /**
    *  @brief  Class representing stream positions.
@@ -108,124 +107,111 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *
    *  @param  StateT  Type passed to and returned from state().
    */
-  template<typename _StateT>
-    class fpos
-    {
-    private:
-      streamoff	                _M_off;
-      _StateT			_M_state;
+  template <typename _StateT>
+  class fpos {
+   private:
+    streamoff _M_off;
+    _StateT _M_state;
 
-    public:
-      // The standard doesn't require that fpos objects can be default
-      // constructed. This implementation provides a default
-      // constructor that initializes the offset to 0 and default
-      // constructs the state.
-      fpos()
-      : _M_off(0), _M_state() { }
+   public:
+    // The standard doesn't require that fpos objects can be default
+    // constructed. This implementation provides a default
+    // constructor that initializes the offset to 0 and default
+    // constructs the state.
+    fpos() : _M_off(0), _M_state() {}
 
-      // The standard requires that fpos objects can be constructed
-      // from streamoff objects using the constructor syntax, and
-      // fails to give any meaningful semantics. In this
-      // implementation implicit conversion is also allowed, and this
-      // constructor stores the streamoff as the offset and default
-      // constructs the state.
-      /// Construct position from offset.
-      fpos(streamoff __off)
-      : _M_off(__off), _M_state() { }
+    // The standard requires that fpos objects can be constructed
+    // from streamoff objects using the constructor syntax, and
+    // fails to give any meaningful semantics. In this
+    // implementation implicit conversion is also allowed, and this
+    // constructor stores the streamoff as the offset and default
+    // constructs the state.
+    /// Construct position from offset.
+    fpos(streamoff __off) : _M_off(__off), _M_state() {}
 
 #if __cplusplus >= 201103L
-      fpos(const fpos&) = default;
-      fpos& operator=(const fpos&) = default;
-      ~fpos() = default;
+    fpos(const fpos&) = default;
+    fpos& operator=(const fpos&) = default;
+    ~fpos() = default;
 #endif
 
-      /// Convert to streamoff.
-      operator streamoff() const { return _M_off; }
+    /// Convert to streamoff.
+    operator streamoff() const { return _M_off; }
 
-      /// Remember the value of @a st.
-      void
-      state(_StateT __st)
-      { _M_state = __st; }
+    /// Remember the value of @a st.
+    void state(_StateT __st) { _M_state = __st; }
 
-      /// Return the last set value of @a st.
-      _StateT
-      state() const
-      { return _M_state; }
+    /// Return the last set value of @a st.
+    _StateT state() const { return _M_state; }
 
-      // The standard requires that this operator must be defined, but
-      // gives no semantics. In this implementation it just adds its
-      // argument to the stored offset and returns *this.
-      /// Add offset to this position.
-      fpos&
-      operator+=(streamoff __off)
-      {
-	_M_off += __off;
-	return *this;
-      }
+    // The standard requires that this operator must be defined, but
+    // gives no semantics. In this implementation it just adds its
+    // argument to the stored offset and returns *this.
+    /// Add offset to this position.
+    fpos& operator+=(streamoff __off) {
+      _M_off += __off;
+      return *this;
+    }
 
-      // The standard requires that this operator must be defined, but
-      // gives no semantics. In this implementation it just subtracts
-      // its argument from the stored offset and returns *this.
-      /// Subtract offset from this position.
-      fpos&
-      operator-=(streamoff __off)
-      {
-	_M_off -= __off;
-	return *this;
-      }
+    // The standard requires that this operator must be defined, but
+    // gives no semantics. In this implementation it just subtracts
+    // its argument from the stored offset and returns *this.
+    /// Subtract offset from this position.
+    fpos& operator-=(streamoff __off) {
+      _M_off -= __off;
+      return *this;
+    }
 
-      // The standard requires that this operator must be defined, but
-      // defines its semantics only in terms of operator-. In this
-      // implementation it constructs a copy of *this, adds the
-      // argument to that copy using operator+= and then returns the
-      // copy.
-      /// Add position and offset.
-      fpos
-      operator+(streamoff __off) const
-      {
-	fpos __pos(*this);
-	__pos += __off;
-	return __pos;
-      }
+    // The standard requires that this operator must be defined, but
+    // defines its semantics only in terms of operator-. In this
+    // implementation it constructs a copy of *this, adds the
+    // argument to that copy using operator+= and then returns the
+    // copy.
+    /// Add position and offset.
+    fpos operator+(streamoff __off) const {
+      fpos __pos(*this);
+      __pos += __off;
+      return __pos;
+    }
 
-      // The standard requires that this operator must be defined, but
-      // defines its semantics only in terms of operator+. In this
-      // implementation it constructs a copy of *this, subtracts the
-      // argument from that copy using operator-= and then returns the
-      // copy.
-      /// Subtract offset from position.
-      fpos
-      operator-(streamoff __off) const
-      {
-	fpos __pos(*this);
-	__pos -= __off;
-	return __pos;
-      }
+    // The standard requires that this operator must be defined, but
+    // defines its semantics only in terms of operator+. In this
+    // implementation it constructs a copy of *this, subtracts the
+    // argument from that copy using operator-= and then returns the
+    // copy.
+    /// Subtract offset from position.
+    fpos operator-(streamoff __off) const {
+      fpos __pos(*this);
+      __pos -= __off;
+      return __pos;
+    }
 
-      // The standard requires that this operator must be defined, but
-      // defines its semantics only in terms of operator+. In this
-      // implementation it returns the difference between the offset
-      // stored in *this and in the argument.
-      /// Subtract position to return offset.
-      streamoff
-      operator-(const fpos& __other) const
-      { return _M_off - __other._M_off; }
-    };
+    // The standard requires that this operator must be defined, but
+    // defines its semantics only in terms of operator+. In this
+    // implementation it returns the difference between the offset
+    // stored in *this and in the argument.
+    /// Subtract position to return offset.
+    streamoff operator-(const fpos& __other) const {
+      return _M_off - __other._M_off;
+    }
+  };
 
   // The standard only requires that operator== must be an
   // equivalence relation. In this implementation two fpos<StateT>
   // objects belong to the same equivalence class if the contained
   // offsets compare equal.
   /// Test if equivalent to another position.
-  template<typename _StateT>
-    inline bool
-    operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
-    { return streamoff(__lhs) == streamoff(__rhs); }
+  template <typename _StateT>
+  inline bool operator==(const fpos<_StateT>& __lhs,
+                         const fpos<_StateT>& __rhs) {
+    return streamoff(__lhs) == streamoff(__rhs);
+  }
 
-  template<typename _StateT>
-    inline bool
-    operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
-    { return streamoff(__lhs) != streamoff(__rhs); }
+  template <typename _StateT>
+  inline bool operator!=(const fpos<_StateT>& __lhs,
+                         const fpos<_StateT>& __rhs) {
+    return streamoff(__lhs) != streamoff(__rhs);
+  }
 
   // Clauses 21.1.3.1 and 21.1.3.2 describe streampos and wstreampos
   // as implementation defined types, but clause 27.2 requires that
@@ -247,7 +233,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   typedef fpos<mbstate_t> u32streampos;
 #endif
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace
+  _GLIBCXX_END_NAMESPACE_VERSION
+}  // namespace )
 
 #endif

@@ -2,4 +2,3 @@
 //
 
 #include "miller_rabin.h"
-

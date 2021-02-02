@@ -15,7 +15,7 @@
 #define __CETINTRIN_H
 
 /* Define the default attributes for the functions in this file. */
-#define __DEFAULT_FN_ATTRS                                                     \
+#define __DEFAULT_FN_ATTRS \
   __attribute__((__always_inline__, __nodebug__, __target__("shstk")))
 
 static __inline__ void __DEFAULT_FN_ATTRS _incsspd(int __a) {
@@ -43,7 +43,8 @@ static __inline__ unsigned int __DEFAULT_FN_ATTRS _rdsspd(unsigned int __a) {
 }
 
 #ifdef __x86_64__
-static __inline__ unsigned long long __DEFAULT_FN_ATTRS _rdsspq(unsigned long long __a) {
+static __inline__ unsigned long long __DEFAULT_FN_ATTRS
+_rdsspq(unsigned long long __a) {
   return __builtin_ia32_rdsspq(__a);
 }
 #endif /* __x86_64__ */
@@ -62,26 +63,28 @@ static __inline__ void __DEFAULT_FN_ATTRS _saveprevssp() {
   __builtin_ia32_saveprevssp();
 }
 
-static __inline__ void __DEFAULT_FN_ATTRS _rstorssp(void * __p) {
+static __inline__ void __DEFAULT_FN_ATTRS _rstorssp(void* __p) {
   __builtin_ia32_rstorssp(__p);
 }
 
-static __inline__ void __DEFAULT_FN_ATTRS _wrssd(unsigned int __a, void * __p) {
+static __inline__ void __DEFAULT_FN_ATTRS _wrssd(unsigned int __a, void* __p) {
   __builtin_ia32_wrssd(__a, __p);
 }
 
 #ifdef __x86_64__
-static __inline__ void __DEFAULT_FN_ATTRS _wrssq(unsigned long long __a, void * __p) {
+static __inline__ void __DEFAULT_FN_ATTRS _wrssq(unsigned long long __a,
+                                                 void* __p) {
   __builtin_ia32_wrssq(__a, __p);
 }
 #endif /* __x86_64__ */
 
-static __inline__ void __DEFAULT_FN_ATTRS _wrussd(unsigned int __a, void * __p) {
+static __inline__ void __DEFAULT_FN_ATTRS _wrussd(unsigned int __a, void* __p) {
   __builtin_ia32_wrussd(__a, __p);
 }
 
 #ifdef __x86_64__
-static __inline__ void __DEFAULT_FN_ATTRS _wrussq(unsigned long long __a, void * __p) {
+static __inline__ void __DEFAULT_FN_ATTRS _wrussq(unsigned long long __a,
+                                                  void* __p) {
   __builtin_ia32_wrussq(__a, __p);
 }
 #endif /* __x86_64__ */
@@ -90,7 +93,7 @@ static __inline__ void __DEFAULT_FN_ATTRS _setssbsy() {
   __builtin_ia32_setssbsy();
 }
 
-static __inline__ void __DEFAULT_FN_ATTRS _clrssbsy(void * __p) {
+static __inline__ void __DEFAULT_FN_ATTRS _clrssbsy(void* __p) {
   __builtin_ia32_clrssbsy(__p);
 }
 

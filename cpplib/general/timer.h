@@ -3,15 +3,15 @@
 
 #include <chrono>
 
-class Timer
-{
-	std::chrono::time_point<std::chrono::high_resolution_clock> m_start;
-public:
-	Timer();
+class Timer {
+  std::chrono::time_point<std::chrono::high_resolution_clock> m_start;
 
-	void reset();
+ public:
+  Timer();
 
-	[[nodiscard]] long double elapsed() const;
+  void reset();
+
+  [[nodiscard]] long double elapsed() const;
 };
 
 #endif

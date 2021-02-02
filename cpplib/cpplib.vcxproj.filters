@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="datastructures">
+      <UniqueIdentifier>{7404c730-30ca-4412-918e-d4a2e96e2606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="general">
+      <UniqueIdentifier>{2727cac9-5ec5-4b36-a8cc-ff2199e05177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graph">
+      <UniqueIdentifier>{1bdb7afa-b0b7-4cba-88b9-32e182a15cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graph\base">
+      <UniqueIdentifier>{38ce43dc-3d3a-4c9e-b7ba-6b39c49518dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graph\base\edges">
+      <UniqueIdentifier>{c840289e-efc3-47d0-8c83-2dcfe2e5e43a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="numerical">
+      <UniqueIdentifier>{131fe3f8-36a9-422f-a4c5-1ee5d926c87b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="offline">
+      <UniqueIdentifier>{d617902c-bd34-4b33-9976-c516a6555430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sorting">
+      <UniqueIdentifier>{84be4cbd-842b-4d79-8000-7070006115b7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="datastructures\bit.h">
+      <Filter>datastructures</Filter>
+    </ClInclude>
+    <ClInclude Include="general\base.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\chash.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\debug.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\input.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\output.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\prng.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\timer.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\to_string.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="general\y_combinator.h">
+      <Filter>general</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\desopo_pape.h">
+      <Filter>graph</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\dijkstra.h">
+      <Filter>graph</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\dsu.h">
+      <Filter>graph</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\kosarajus_sccs.h">
+      <Filter>graph</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\base\graph.h">
+      <Filter>graph\base</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\base\edges\bi_edge.h">
+      <Filter>graph\base\edges</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\base\edges\edge.h">
+      <Filter>graph\base\edges</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\base\edges\weighted_bi_edge.h">
+      <Filter>graph\base\edges</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\base\edges\weighted_edge.h">
+      <Filter>graph\base\edges</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\arbitrary_precision_integer.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\choose.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\compress.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\digit_sum.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\factorize.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\gcd.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\lcm.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\linear_diophantine.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\miller_rabin.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\modular.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\pollards_rho.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\polynomial.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\power.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\quadratic_diophantine.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="numerical\trailing_zero_bits.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="offline\distinctelements.h">
+      <Filter>offline</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\binary_insertion_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\bubble_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\counting_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\heap_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\insertion_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\merge_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\quick_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="sorting\selection_sort.h">
+      <Filter>sorting</Filter>
+    </ClInclude>
+    <ClInclude Include="graph\desopo_pape.hpp" />
+    <ClInclude Include="graph\dijkstra.hpp" />
+    <ClInclude Include="graph\dsu.hpp" />
+    <ClInclude Include="graph\kosarajus_sccs.hpp" />
+    <ClInclude Include="numerical\arbitrary_precision_integer.hpp" />
+    <ClInclude Include="numerical\choose.hpp" />
+    <ClInclude Include="numerical\compress.hpp" />
+    <ClInclude Include="numerical\digit_sum.hpp" />
+    <ClInclude Include="numerical\factorize.hpp" />
+    <ClInclude Include="numerical\gcd.hpp" />
+    <ClInclude Include="numerical\lcm.hpp" />
+    <ClInclude Include="numerical\linear_diophantine.hpp" />
+    <ClInclude Include="numerical\miller_rabin.hpp" />
+    <ClInclude Include="numerical\modular.hpp" />
+    <ClInclude Include="numerical\pollards_rho.hpp" />
+    <ClInclude Include="numerical\polynomial.hpp" />
+    <ClInclude Include="numerical\power.hpp" />
+    <ClInclude Include="numerical\quadratic_diophantine.hpp" />
+    <ClInclude Include="numerical\trailing_zero_bits.hpp" />
+    <ClInclude Include="offline\distinctelements.hpp" />
+    <ClInclude Include="sorting\binary_insertion_sort.hpp" />
+    <ClInclude Include="sorting\bubble_sort.hpp" />
+    <ClInclude Include="sorting\counting_sort.hpp" />
+    <ClInclude Include="sorting\heap_sort.hpp" />
+    <ClInclude Include="sorting\insertion_sort.hpp" />
+    <ClInclude Include="sorting\merge_sort.hpp" />
+    <ClInclude Include="sorting\quick_sort.hpp" />
+    <ClInclude Include="sorting\selection_sort.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="datastructures\bit.cpp">
+      <Filter>datastructures</Filter>
+    </ClCompile>
+    <ClCompile Include="general\chash.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="general\debug.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="general\input.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="general\output.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="general\prng.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="general\timer.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="general\to_string.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="general\y_combinator.cpp">
+      <Filter>general</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\desopo_pape.cpp">
+      <Filter>graph</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\dijkstra.cpp">
+      <Filter>graph</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\dsu.cpp">
+      <Filter>graph</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\kosarajus_sccs.cpp">
+      <Filter>graph</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\base\graph.cpp">
+      <Filter>graph\base</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\base\edges\bi_edge.cpp">
+      <Filter>graph\base\edges</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\base\edges\edge.cpp">
+      <Filter>graph\base\edges</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\base\edges\weighted_bi_edge.cpp">
+      <Filter>graph\base\edges</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\base\edges\weighted_edge.cpp">
+      <Filter>graph\base\edges</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\arbitrary_precision_integer.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\choose.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\compress.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\digit_sum.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\factorize.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\gcd.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\lcm.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\linear_diophantine.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\miller_rabin.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\modular.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\pollards_rho.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\polynomial.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\power.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\quadratic_diophantine.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="numerical\trailing_zero_bits.cpp">
+      <Filter>numerical</Filter>
+    </ClCompile>
+    <ClCompile Include="offline\distinctelements.cpp">
+      <Filter>offline</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\binary_insertion_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\bubble_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\counting_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\heap_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\insertion_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\merge_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\quick_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting\selection_sort.cpp">
+      <Filter>sorting</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

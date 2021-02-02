@@ -38,9 +38,10 @@
 
 // Include some standard headers to avoid CUDA headers including them
 // while some required macros (like __THROW) are in a weird state.
+#include <stdlib.h>
+
 #include <cmath>
 #include <cstdlib>
-#include <stdlib.h>
 #undef __CUDACC__
 
 // Preserve common macros that will be changed below by us or by CUDA
@@ -140,9 +141,7 @@
 // ends up not being there because of the games we play here.  Just define it
 // ourselves; it's simple enough.
 #ifdef __APPLE__
-inline __host__ double __signbitd(double x) {
-  return std::signbit(x);
-}
+inline __host__ double __signbitd(double x) { return std::signbit(x); }
 #endif
 
 // CUDA 9.1 no longer provides declarations for libdevice functions, so we need
@@ -266,8 +265,8 @@ static inline __device__ void __brkpt(int __c) { __brkpt(); }
 #undef __DEVICE_FUNCTIONS_HPP__
 #include "device_atomic_functions.hpp"
 #if CUDA_VERSION >= 9000
-#include "crt/device_functions.hpp"
 #include "crt/device_double_functions.hpp"
+#include "crt/device_functions.hpp"
 #else
 #include "device_functions.hpp"
 #define __CUDABE__
@@ -364,7 +363,7 @@ __device__ static inline void __assert_fail(const char *__message,
 // Clang will convert printf into vprintf, but we still need
 // device-side declaration for it.
 __device__ int printf(const char *, ...);
-} // extern "C"
+}  // extern "C"
 
 // We also need device-side std::malloc and std::free.
 namespace std {
@@ -372,7 +371,7 @@ __device__ static inline void free(void *__ptr) { ::free(__ptr); }
 __device__ static inline void *malloc(size_t __size) {
   return ::malloc(__size);
 }
-} // namespace std
+}  // namespace std
 
 // Out-of-line implementations from __clang_cuda_builtin_vars.h.  These need to
 // come after we've pulled in the definition of uint3 and dim3.
@@ -402,8 +401,8 @@ __device__ inline __cuda_builtin_gridDim_t::operator dim3() const {
 }
 
 #include <__clang_cuda_cmath.h>
-#include <__clang_cuda_intrinsics.h>
 #include <__clang_cuda_complex_builtins.h>
+#include <__clang_cuda_intrinsics.h>
 
 // curand_mtgp32_kernel helpfully redeclares blockDim and threadIdx in host
 // mode, giving them their "proper" types of dim3 and uint3.  This is
@@ -431,5 +430,5 @@ extern "C" unsigned __cudaPushCallConfiguration(dim3 gridDim, dim3 blockDim,
                                                 void *stream = 0);
 #endif
 
-#endif // __CUDA__
-#endif // __CLANG_CUDA_RUNTIME_WRAPPER_H__
+#endif  // __CUDA__
+#endif  // __CLANG_CUDA_RUNTIME_WRAPPER_H__

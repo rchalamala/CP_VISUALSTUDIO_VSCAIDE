@@ -2,4 +2,3 @@
 //
 
 #include "gcd.h"
-

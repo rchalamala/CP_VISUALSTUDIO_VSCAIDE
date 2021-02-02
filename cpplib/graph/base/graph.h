@@ -5,71 +5,74 @@
 #include <initializer_list>
 #include <vector>
 
-template<class Edge> class Graph
-{
-	std::vector<std::vector<Edge>> graph;
-public:
-	explicit Graph(const std::size_t& N);
+template <class Edge>
+class Graph {
+  std::vector<std::vector<Edge>> graph;
 
-	template<typename...Args> void add_edge(const std::size_t& from, const std::size_t& to, Args& ... args);
+ public:
+  explicit Graph(const std::size_t& N);
 
-	void extend();
+  template <typename... Args>
+  void add_edge(const std::size_t& from, const std::size_t& to, Args&... args);
 
-	[[nodiscard]] std::size_t size() const noexcept;
+  void extend();
 
-	[[nodiscard]] bool empty() const noexcept;
+  [[nodiscard]] std::size_t size() const noexcept;
 
-	template<typename InputIterator> void assign(InputIterator first, InputIterator last);
+  [[nodiscard]] bool empty() const noexcept;
 
-	void assign(const std::size_t& N, const std::vector<Edge>& value);
+  template <typename InputIterator>
+  void assign(InputIterator first, InputIterator last);
 
-	void assign(const std::initializer_list<std::vector<Edge>>& elements);
+  void assign(const std::size_t& N, const std::vector<Edge>& value);
 
-	auto begin() noexcept;
+  void assign(const std::initializer_list<std::vector<Edge>>& elements);
 
-	auto begin() const noexcept;
+  auto begin() noexcept;
 
-	auto end() noexcept;
+  auto begin() const noexcept;
 
-	auto end() const noexcept;
+  auto end() noexcept;
 
-	auto rbegin() noexcept;
+  auto end() const noexcept;
 
-	auto rbegin() const noexcept;
+  auto rbegin() noexcept;
 
-	auto rend() noexcept;
+  auto rbegin() const noexcept;
 
-	auto rend() const noexcept;
+  auto rend() noexcept;
 
-	auto cbegin() const noexcept;
+  auto rend() const noexcept;
 
-	auto cend() const noexcept;
+  auto cbegin() const noexcept;
 
-	auto crbegin() const noexcept;
+  auto cend() const noexcept;
 
-	auto crend() const noexcept;
+  auto crbegin() const noexcept;
 
-	auto& operator[](const std::size_t& at);
+  auto crend() const noexcept;
 
-	const auto& operator[](const std::size_t& at) const;
+  auto& operator[](const std::size_t& at);
 
-	auto& at(const std::size_t& at);
+  const auto& operator[](const std::size_t& at) const;
 
-	const auto& at(const std::size_t& at) const;
+  auto& at(const std::size_t& at);
 
-	auto& front();
+  const auto& at(const std::size_t& at) const;
 
-	const auto& front() const;
+  auto& front();
 
-	auto& back();
+  const auto& front() const;
 
-	const auto& back() const;
+  auto& back();
 
-	void clear() noexcept;
+  const auto& back() const;
 
-	void resize(const std::size_t& N);
+  void clear() noexcept;
 
-	void resize(const std::size_t& N, const std::vector<Edge>& value);
+  void resize(const std::size_t& N);
+
+  void resize(const std::size_t& N, const std::vector<Edge>& value);
 };
 
 #endif

@@ -10,7 +10,7 @@
 #include <wchar.h>
 #include <yvals.h>
 
-#pragma pack(push,_CRT_PACKING)
+#pragma pack(push, _CRT_PACKING)
 
 _C_STD_BEGIN
 _C_LIB_DECL
@@ -66,21 +66,28 @@ _CRTIMP _Collvec __cdecl _Getcoll();
 _CRTIMP _Ctypevec __cdecl _Getctype();
 _CRTIMP _Cvtvec __cdecl _Getcvt();
 _CRTIMP int __cdecl _Getdateorder();
-_CRTIMP int __cdecl _Mbrtowc(wchar_t *,const char *,size_t,mbstate_t *,const _Cvtvec *);
-_CRTIMP float __cdecl _Stof(const char *,char **,long);
-_CRTIMP double __cdecl _Stod(const char *,char **,long);
-_CRTIMP long double __cdecl _Stold(const char *,char **,long);
-_CRTIMP int __cdecl _Strcoll(const char *,const char *,const char *,const char *,const _Collvec *);
-_CRTIMP size_t __cdecl _Strxfrm(char *_String1,char *_End1,const char *,const char *,const _Collvec *);
-_CRTIMP int __cdecl _Tolower(int,const _Ctypevec *);
-_CRTIMP int __cdecl _Toupper(int,const _Ctypevec *);
-_CRTIMP int __cdecl _Wcrtomb(char *,wchar_t,mbstate_t *,const _Cvtvec *);
-_CRTIMP int __cdecl _Wcscoll(const wchar_t *,const wchar_t *,const wchar_t *,const wchar_t *,const _Collvec *);
-_CRTIMP size_t __cdecl _Wcsxfrm(wchar_t *_String1,wchar_t *_End1,const wchar_t *,const wchar_t *,const _Collvec *);
-_CRTIMP short __cdecl _Getwctype(wchar_t,const _Ctypevec *);
-_CRTIMP const wchar_t *__cdecl _Getwctypes(const wchar_t *,const wchar_t *,short*,const _Ctypevec*);
-_CRTIMP wchar_t __cdecl _Towlower(wchar_t,const _Ctypevec *);
-_CRTIMP wchar_t __cdecl _Towupper(wchar_t,const _Ctypevec *);
+_CRTIMP int __cdecl _Mbrtowc(wchar_t *, const char *, size_t, mbstate_t *,
+                             const _Cvtvec *);
+_CRTIMP float __cdecl _Stof(const char *, char **, long);
+_CRTIMP double __cdecl _Stod(const char *, char **, long);
+_CRTIMP long double __cdecl _Stold(const char *, char **, long);
+_CRTIMP int __cdecl _Strcoll(const char *, const char *, const char *,
+                             const char *, const _Collvec *);
+_CRTIMP size_t __cdecl _Strxfrm(char *_String1, char *_End1, const char *,
+                                const char *, const _Collvec *);
+_CRTIMP int __cdecl _Tolower(int, const _Ctypevec *);
+_CRTIMP int __cdecl _Toupper(int, const _Ctypevec *);
+_CRTIMP int __cdecl _Wcrtomb(char *, wchar_t, mbstate_t *, const _Cvtvec *);
+_CRTIMP int __cdecl _Wcscoll(const wchar_t *, const wchar_t *, const wchar_t *,
+                             const wchar_t *, const _Collvec *);
+_CRTIMP size_t __cdecl _Wcsxfrm(wchar_t *_String1, wchar_t *_End1,
+                                const wchar_t *, const wchar_t *,
+                                const _Collvec *);
+_CRTIMP short __cdecl _Getwctype(wchar_t, const _Ctypevec *);
+_CRTIMP const wchar_t *__cdecl _Getwctypes(const wchar_t *, const wchar_t *,
+                                           short *, const _Ctypevec *);
+_CRTIMP wchar_t __cdecl _Towlower(wchar_t, const _Ctypevec *);
+_CRTIMP wchar_t __cdecl _Towupper(wchar_t, const _Ctypevec *);
 _END_C_LIB_DECL
 _C_STD_END
 
@@ -88,7 +95,8 @@ _C_LIB_DECL
 _CRTIMP void *__cdecl _Gettnames();
 _CRTIMP char *__cdecl _Getdays();
 _CRTIMP char *__cdecl _Getmonths();
-_CRTIMP size_t __cdecl _Strftime(char *,size_t _Maxsize,const char *,const struct tm *,void *);
+_CRTIMP size_t __cdecl _Strftime(char *, size_t _Maxsize, const char *,
+                                 const struct tm *, void *);
 _END_C_LIB_DECL
 
 _C_LIB_DECL

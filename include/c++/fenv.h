@@ -33,7 +33,7 @@
 
 #include <bits/c++config.h>
 #if _GLIBCXX_HAVE_FENV_H
-# include_next <fenv.h>
+#include_next <fenv.h>
 #endif
 
 #if __cplusplus >= 201103L
@@ -52,30 +52,29 @@
 #undef fesetenv
 #undef feupdateenv
 
-namespace std
-{
-  // types
-  using ::fenv_t;
-  using ::fexcept_t;
+namespace std {
+// types
+using ::fenv_t;
+using ::fexcept_t;
 
-  // functions
-  using ::feclearexcept;
-  using ::fegetexceptflag;
-  using ::feraiseexcept;
-  using ::fesetexceptflag;
-  using ::fetestexcept;
+// functions
+using ::feclearexcept;
+using ::fegetexceptflag;
+using ::feraiseexcept;
+using ::fesetexceptflag;
+using ::fetestexcept;
 
-  using ::fegetround;
-  using ::fesetround;
+using ::fegetround;
+using ::fesetround;
 
-  using ::fegetenv;
-  using ::feholdexcept;
-  using ::fesetenv;
-  using ::feupdateenv;
-} // namespace
+using ::fegetenv;
+using ::feholdexcept;
+using ::fesetenv;
+using ::feupdateenv;
+}  // namespace std
 
-#endif // _GLIBCXX_USE_C99_FENV_TR1
+#endif  // _GLIBCXX_USE_C99_FENV_TR1
 
-#endif // C++11
+#endif  // C++11
 
-#endif // _GLIBCXX_FENV_H
+#endif  // _GLIBCXX_FENV_H

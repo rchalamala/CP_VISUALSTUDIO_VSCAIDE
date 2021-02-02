@@ -2,4 +2,3 @@
 //
 
 #include "linear_diophantine.h"
-

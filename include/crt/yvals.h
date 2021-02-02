@@ -8,7 +8,7 @@
 
 #include <crtdefs.h>
 
-#pragma pack(push,_CRT_PACKING)
+#pragma pack(push, _CRT_PACKING)
 
 #define _CPPLIB_VER 405
 #define __PURE_APPDOMAIN_GLOBAL
@@ -53,13 +53,34 @@
 
 #define _SCL_SECURE_INVALID_PARAMETER(expr) ::_invalid_parameter_noinfo()
 
-#define _SCL_SECURE_INVALID_ARGUMENT_NO_ASSERT _SCL_SECURE_INVALID_PARAMETER("invalid argument")
-#define _SCL_SECURE_OUT_OF_RANGE_NO_ASSERT _SCL_SECURE_INVALID_PARAMETER("out of range")
-#define _SCL_SECURE_ALWAYS_VALIDATE(cond) { if (!(cond)) { _ASSERTE((#cond,0)); _SCL_SECURE_INVALID_ARGUMENT_NO_ASSERT; } }
+#define _SCL_SECURE_INVALID_ARGUMENT_NO_ASSERT \
+  _SCL_SECURE_INVALID_PARAMETER("invalid argument")
+#define _SCL_SECURE_OUT_OF_RANGE_NO_ASSERT \
+  _SCL_SECURE_INVALID_PARAMETER("out of range")
+#define _SCL_SECURE_ALWAYS_VALIDATE(cond)     \
+  {                                           \
+    if (!(cond)) {                            \
+      _ASSERTE((#cond, 0));                   \
+      _SCL_SECURE_INVALID_ARGUMENT_NO_ASSERT; \
+    }                                         \
+  }
 
-#define _SCL_SECURE_ALWAYS_VALIDATE_RANGE(cond) { if (!(cond)) { _ASSERTE((#cond,0)); _SCL_SECURE_OUT_OF_RANGE_NO_ASSERT; } }
+#define _SCL_SECURE_ALWAYS_VALIDATE_RANGE(cond) \
+  {                                             \
+    if (!(cond)) {                              \
+      _ASSERTE((#cond, 0));                     \
+      _SCL_SECURE_OUT_OF_RANGE_NO_ASSERT;       \
+    }                                           \
+  }
 
-#define _SCL_SECURE_CRT_VALIDATE(cond,retvalue) { if (!(cond)) { _ASSERTE((#cond,0)); _SCL_SECURE_INVALID_PARAMETER(cond); return (retvalue); } }
+#define _SCL_SECURE_CRT_VALIDATE(cond, retvalue) \
+  {                                              \
+    if (!(cond)) {                               \
+      _ASSERTE((#cond, 0));                      \
+      _SCL_SECURE_INVALID_PARAMETER(cond);       \
+      return (retvalue);                         \
+    }                                            \
+  }
 
 #define _SCL_SECURE_VALIDATE(cond)
 #define _SCL_SECURE_VALIDATE_RANGE(cond)
@@ -67,8 +88,10 @@
 #define _SCL_SECURE_INVALID_ARGUMENT
 #define _SCL_SECURE_OUT_OF_RANGE
 
-#define _SCL_SECURE_MOVE(func,dst,size,src,count) func((dst),(src),(count))
-#define _SCL_SECURE_COPY(func,dst,size,src,count) func((dst),(src),(count))
+#define _SCL_SECURE_MOVE(func, dst, size, src, count) \
+  func((dst), (src), (count))
+#define _SCL_SECURE_COPY(func, dst, size, src, count) \
+  func((dst), (src), (count))
 
 #define _SECURE_VALIDATION _Secure_validation
 
@@ -80,10 +103,14 @@
 #define _SCL_SECURE_TRAITS_INVALID_ARGUMENT
 #define _SCL_SECURE_TRAITS_OUT_OF_RANGE
 
-#define _CRT_SECURE_MEMCPY(dest,destsize,source,count) ::memcpy((dest),(source),(count))
-#define _CRT_SECURE_MEMMOVE(dest,destsize,source,count) ::memmove((dest),(source),(count))
-#define _CRT_SECURE_WMEMCPY(dest,destsize,source,count) ::wmemcpy((dest),(source),(count))
-#define _CRT_SECURE_WMEMMOVE(dest,destsize,source,count) ::wmemmove((dest),(source),(count))
+#define _CRT_SECURE_MEMCPY(dest, destsize, source, count) \
+  ::memcpy((dest), (source), (count))
+#define _CRT_SECURE_MEMMOVE(dest, destsize, source, count) \
+  ::memmove((dest), (source), (count))
+#define _CRT_SECURE_WMEMCPY(dest, destsize, source, count) \
+  ::wmemcpy((dest), (source), (count))
+#define _CRT_SECURE_WMEMMOVE(dest, destsize, source, count) \
+  ::wmemmove((dest), (source), (count))
 
 #ifndef _VC6SP2
 #define _VC6SP2 0
@@ -205,48 +232,55 @@ __MINGW_EXTENSION typedef _ULONGLONG _ULonglong;
 _STD_BEGIN
 
 class _CRTIMP _Lockit {
-public:
+ public:
   explicit __thiscall _Lockit();
   explicit __thiscall _Lockit(int);
   __thiscall ~_Lockit();
   static void __cdecl _Lockit_ctor(int);
   static void __cdecl _Lockit_dtor(int);
-private:
+
+ private:
   static void __cdecl _Lockit_ctor(_Lockit *);
-  static void __cdecl _Lockit_ctor(_Lockit *,int);
+  static void __cdecl _Lockit_ctor(_Lockit *, int);
   static void __cdecl _Lockit_dtor(_Lockit *);
-  _Lockit(const _Lockit&);
-  _Lockit& operator=(const _Lockit&);
+  _Lockit(const _Lockit &);
+  _Lockit &operator=(const _Lockit &);
   int _Locktype;
 };
 
-#define _BEGIN_LOCK(_Kind) { _STD _Lockit _Lock(_Kind);
+#define _BEGIN_LOCK(_Kind) \
+  {                        \
+    _STD _Lockit _Lock(_Kind);
 #define _END_LOCK() }
-#define _BEGIN_LOCINFO(_VarName) { _Locinfo _VarName;
+#define _BEGIN_LOCINFO(_VarName) \
+  {                              \
+    _Locinfo _VarName;
 #define _END_LOCINFO() }
 #define _RELIABILITY_CONTRACT
 
 class _CRTIMP _Mutex {
-public:
+ public:
   __thiscall _Mutex();
   __thiscall ~_Mutex();
   void __thiscall _Lock();
   void __thiscall _Unlock();
-private:
+
+ private:
   static void __cdecl _Mutex_ctor(_Mutex *);
   static void __cdecl _Mutex_dtor(_Mutex *);
   static void __cdecl _Mutex_Lock(_Mutex *);
   static void __cdecl _Mutex_Unlock(_Mutex *);
-  _Mutex(const _Mutex&);
-  _Mutex& operator=(const _Mutex&);
+  _Mutex(const _Mutex &);
+  _Mutex &operator=(const _Mutex &);
   void *_Mtx;
 };
 
 class _CRTIMP _Init_locks {
-public:
+ public:
   __thiscall _Init_locks();
   __thiscall ~_Init_locks();
-private:
+
+ private:
   static void __cdecl _Init_locks_ctor(_Init_locks *);
   static void __cdecl _Init_locks_dtor(_Init_locks *);
 };
@@ -259,7 +293,7 @@ _STD_END
 #endif
 
 _C_STD_BEGIN
-_CRTIMP void __cdecl _Atexit(void (__cdecl *)(void));
+_CRTIMP void __cdecl _Atexit(void(__cdecl *)(void));
 
 #if !defined(_UCRT) && !defined(__LARGE_MBSTATE_T)
 typedef int _Mbstatet;

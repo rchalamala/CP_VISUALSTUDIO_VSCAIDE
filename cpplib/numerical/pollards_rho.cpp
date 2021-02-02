@@ -2,4 +2,3 @@
 //
 
 #include "pollards_rho.h"
-

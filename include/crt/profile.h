@@ -40,13 +40,13 @@
 
 /* If compiler doesn't inline, at least avoid passing args on the stack. */
 #ifndef _WIN64
-#define _MCOUNT_CALL __attribute__ ((regparm (2)))
+#define _MCOUNT_CALL __attribute__((regparm(2)))
 #else
 #define _MCOUNT_CALL
 #endif
 
-#define _MCOUNT_DECL __attribute__((gnu_inline)) __inline__ \
-   void _MCOUNT_CALL _mcount_private
+#define _MCOUNT_DECL \
+  __attribute__((gnu_inline)) __inline__ void _MCOUNT_CALL _mcount_private
 
 /* gcc always assumes the mcount public symbol has a single leading underscore
    for our target.  See gcc/config/i386.h; it isn't overridden in
@@ -58,5 +58,4 @@ extern void __MINGW_LSYMBOL(mcount)(void);
    Older versions of GCC (pre-4.1) will still fail with regparm since the
    compiler used %edx to store an unneeded counter variable.  */
 
-#define	MCOUNT
-
+#define MCOUNT

@@ -76,31 +76,23 @@ __DEVICE__ double _Complex __muldc3(double __a, double __b, double __c,
     if (_ISINFd(__a) || _ISINFd(__b)) {
       __a = _COPYSIGNd(_ISINFd(__a) ? 1 : 0, __a);
       __b = _COPYSIGNd(_ISINFd(__b) ? 1 : 0, __b);
-      if (_ISNANd(__c))
-        __c = _COPYSIGNd(0, __c);
-      if (_ISNANd(__d))
-        __d = _COPYSIGNd(0, __d);
+      if (_ISNANd(__c)) __c = _COPYSIGNd(0, __c);
+      if (_ISNANd(__d)) __d = _COPYSIGNd(0, __d);
       __recalc = 1;
     }
     if (_ISINFd(__c) || _ISINFd(__d)) {
       __c = _COPYSIGNd(_ISINFd(__c) ? 1 : 0, __c);
       __d = _COPYSIGNd(_ISINFd(__d) ? 1 : 0, __d);
-      if (_ISNANd(__a))
-        __a = _COPYSIGNd(0, __a);
-      if (_ISNANd(__b))
-        __b = _COPYSIGNd(0, __b);
+      if (_ISNANd(__a)) __a = _COPYSIGNd(0, __a);
+      if (_ISNANd(__b)) __b = _COPYSIGNd(0, __b);
       __recalc = 1;
     }
     if (!__recalc &&
         (_ISINFd(__ac) || _ISINFd(__bd) || _ISINFd(__ad) || _ISINFd(__bc))) {
-      if (_ISNANd(__a))
-        __a = _COPYSIGNd(0, __a);
-      if (_ISNANd(__b))
-        __b = _COPYSIGNd(0, __b);
-      if (_ISNANd(__c))
-        __c = _COPYSIGNd(0, __c);
-      if (_ISNANd(__d))
-        __d = _COPYSIGNd(0, __d);
+      if (_ISNANd(__a)) __a = _COPYSIGNd(0, __a);
+      if (_ISNANd(__b)) __b = _COPYSIGNd(0, __b);
+      if (_ISNANd(__c)) __c = _COPYSIGNd(0, __c);
+      if (_ISNANd(__d)) __d = _COPYSIGNd(0, __d);
       __recalc = 1;
     }
     if (__recalc) {
@@ -126,31 +118,23 @@ __DEVICE__ float _Complex __mulsc3(float __a, float __b, float __c, float __d) {
     if (_ISINFf(__a) || _ISINFf(__b)) {
       __a = _COPYSIGNf(_ISINFf(__a) ? 1 : 0, __a);
       __b = _COPYSIGNf(_ISINFf(__b) ? 1 : 0, __b);
-      if (_ISNANf(__c))
-        __c = _COPYSIGNf(0, __c);
-      if (_ISNANf(__d))
-        __d = _COPYSIGNf(0, __d);
+      if (_ISNANf(__c)) __c = _COPYSIGNf(0, __c);
+      if (_ISNANf(__d)) __d = _COPYSIGNf(0, __d);
       __recalc = 1;
     }
     if (_ISINFf(__c) || _ISINFf(__d)) {
       __c = _COPYSIGNf(_ISINFf(__c) ? 1 : 0, __c);
       __d = _COPYSIGNf(_ISINFf(__d) ? 1 : 0, __d);
-      if (_ISNANf(__a))
-        __a = _COPYSIGNf(0, __a);
-      if (_ISNANf(__b))
-        __b = _COPYSIGNf(0, __b);
+      if (_ISNANf(__a)) __a = _COPYSIGNf(0, __a);
+      if (_ISNANf(__b)) __b = _COPYSIGNf(0, __b);
       __recalc = 1;
     }
     if (!__recalc &&
         (_ISINFf(__ac) || _ISINFf(__bd) || _ISINFf(__ad) || _ISINFf(__bc))) {
-      if (_ISNANf(__a))
-        __a = _COPYSIGNf(0, __a);
-      if (_ISNANf(__b))
-        __b = _COPYSIGNf(0, __b);
-      if (_ISNANf(__c))
-        __c = _COPYSIGNf(0, __c);
-      if (_ISNANf(__d))
-        __d = _COPYSIGNf(0, __d);
+      if (_ISNANf(__a)) __a = _COPYSIGNf(0, __a);
+      if (_ISNANf(__b)) __b = _COPYSIGNf(0, __b);
+      if (_ISNANf(__c)) __c = _COPYSIGNf(0, __c);
+      if (_ISNANf(__d)) __d = _COPYSIGNf(0, __d);
       __recalc = 1;
     }
     if (__recalc) {
@@ -232,7 +216,7 @@ __DEVICE__ float _Complex __divsc3(float __a, float __b, float __c, float __d) {
 }
 
 #if defined(__cplusplus)
-} // extern "C"
+}  // extern "C"
 #endif
 
 #undef _ISNANd
@@ -256,4 +240,4 @@ __DEVICE__ float _Complex __divsc3(float __a, float __b, float __c, float __d) {
 
 #pragma pop_macro("__DEVICE__")
 
-#endif // __CLANG_CUDA_COMPLEX_BUILTINS
+#endif  // __CLANG_CUDA_COMPLEX_BUILTINS

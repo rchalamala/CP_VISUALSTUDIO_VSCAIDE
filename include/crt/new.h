@@ -8,9 +8,9 @@
 
 #ifdef __cplusplus
 
-#include <new>
-
 #include <crtdefs.h>
+
+#include <new>
 
 #pragma push_macro("new")
 #undef new
@@ -27,7 +27,7 @@ _CRTIMP int __cdecl _query_new_mode(void);
 _CRTIMP int __cdecl _set_new_mode(int _NewMode);
 
 #ifndef _PNH_DEFINED
-typedef int (__cdecl *_PNH)(size_t);
+typedef int(__cdecl *_PNH)(size_t);
 #define _PNH_DEFINED
 #endif
 

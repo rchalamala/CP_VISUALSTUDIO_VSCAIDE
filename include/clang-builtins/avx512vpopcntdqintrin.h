@@ -8,7 +8,7 @@
  *===-----------------------------------------------------------------------===
  */
 #ifndef __IMMINTRIN_H
-#error                                                                         \
+#error \
     "Never use <avx512vpopcntdqintrin.h> directly; include <immintrin.h> instead."
 #endif
 
@@ -16,8 +16,9 @@
 #define __AVX512VPOPCNTDQINTRIN_H
 
 /* Define the default attributes for the functions in this file. */
-#define __DEFAULT_FN_ATTRS                                                     \
-  __attribute__((__always_inline__, __nodebug__, __target__("avx512vpopcntdq"), __min_vector_width__(512)))
+#define __DEFAULT_FN_ATTRS                       \
+  __attribute__((__always_inline__, __nodebug__, \
+                 __target__("avx512vpopcntdq"), __min_vector_width__(512)))
 
 static __inline__ __m512i __DEFAULT_FN_ATTRS _mm512_popcnt_epi64(__m512i __A) {
   return (__m512i)__builtin_ia32_vpopcntq_512((__v8di)__A);

@@ -28,10 +28,8 @@
 ///
 /// This intrinsic corresponds to the \c XSUSLDTRK instruction.
 ///
-static __inline__ void _DEFAULT_FN_ATTRS
-_xsusldtrk (void)
-{
-    __builtin_ia32_xsusldtrk();
+static __inline__ void _DEFAULT_FN_ATTRS _xsusldtrk(void) {
+  __builtin_ia32_xsusldtrk();
 }
 
 /// Marks the end of an TSX (RTM) suspend load address tracking region. If this
@@ -45,10 +43,8 @@ _xsusldtrk (void)
 ///
 /// This intrinsic corresponds to the \c XRESLDTRK instruction.
 ///
-static __inline__ void _DEFAULT_FN_ATTRS
-_xresldtrk (void)
-{
-    __builtin_ia32_xresldtrk();
+static __inline__ void _DEFAULT_FN_ATTRS _xresldtrk(void) {
+  __builtin_ia32_xresldtrk();
 }
 
 #undef _DEFAULT_FN_ATTRS

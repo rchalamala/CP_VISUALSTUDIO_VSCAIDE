@@ -32,9 +32,8 @@
 ///    Pointer to 64-byte command data.
 /// \returns If the command data is successfully written to \a __dst then 0 is
 ///    returned. Otherwise 1 is returned.
-static __inline__ int _DEFAULT_FN_ATTRS
-_enqcmd (void *__dst, const void *__src)
-{
+static __inline__ int _DEFAULT_FN_ATTRS _enqcmd(void *__dst,
+                                                const void *__src) {
   return __builtin_ia32_enqcmd(__dst, __src);
 }
 
@@ -52,9 +51,8 @@ _enqcmd (void *__dst, const void *__src)
 ///    Pointer to 64-byte command data.
 /// \returns If the command data is successfully written to \a __dst then 0 is
 ///    returned. Otherwise 1 is returned.
-static __inline__ int _DEFAULT_FN_ATTRS
-_enqcmds (void *__dst, const void *__src)
-{
+static __inline__ int _DEFAULT_FN_ATTRS _enqcmds(void *__dst,
+                                                 const void *__src) {
   return __builtin_ia32_enqcmds(__dst, __src);
 }
 
