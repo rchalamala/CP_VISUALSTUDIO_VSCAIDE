@@ -1,1 +1,48 @@
-﻿
+﻿  arbitrary_precision_integer.cpp
+  binary_insertion_sort.cpp
+  bit.cpp
+  bi_edge.cpp
+  bubble_sort.cpp
+  chash.cpp
+  choose.cpp
+  compress.cpp
+  counting_sort.cpp
+  debug.cpp
+  desopo_pape.cpp
+  digit_sum.cpp
+  dijkstra.cpp
+  distinctelements.cpp
+  dsu.cpp
+  edge.cpp
+  factorize.cpp
+  gcd.cpp
+  graph.cpp
+  heap_sort.cpp
+  Generating Code...
+  Compiling...
+  input.cpp
+  insertion_sort.cpp
+  kosarajus_sccs.cpp
+  lcm.cpp
+  linear_diophantine.cpp
+  merge_sort.cpp
+  miller_rabin.cpp
+  modular.cpp
+  output.cpp
+  pollards_rho.cpp
+  polynomial.cpp
+  power.cpp
+  prng.cpp
+  quadratic_diophantine.cpp
+  quick_sort.cpp
+  selection_sort.cpp
+  timer.cpp
+  to_string.cpp
+  trailing_zero_bits.cpp
+  weighted_bi_edge.cpp
+  Generating Code...
+  Compiling...
+  weighted_edge.cpp
+  y_combinator.cpp
+  Generating Code...
+  cpplib.vcxproj -> C:\Users\Rahul\source\repos\cp\cp\cpplib\Debug\cpplib.lib

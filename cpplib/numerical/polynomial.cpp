@@ -1,4 +1,0 @@
-// Verification:
-//
-
-#include "polynomial.h"

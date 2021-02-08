@@ -1,7 +1,7 @@
-#include "general/base.h"
-#include "general/debug.h"
-#include "general/input.h"
-#include "general/output.h"
+#include "lib/base.h"
+#include "lib/debug.h"
+#include "lib/input.h"
+#include "lib/output.h"
 using namespace std;
 
 //#define INTERACTIVE

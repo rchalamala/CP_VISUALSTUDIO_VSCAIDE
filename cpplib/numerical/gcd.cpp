@@ -1,4 +1,0 @@
-// Verification:
-//
-
-#include "gcd.h"

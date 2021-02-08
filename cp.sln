@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cp", "cp.vcxproj", "{DA9EF2A7-5A56-4E26-BC4E-AC3F22BC5B19}"
+	ProjectSection(ProjectDependencies) = postProject
+		{481E5440-D03D-52B1-92EC-E95F3BB538AA} = {481E5440-D03D-52B1-92EC-E95F3BB538AA}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpplib", "cpplib\cpplib.vcxproj", "{481E5440-D03D-52B1-92EC-E95F3BB538AA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "submission", "submission\submission.vcxproj", "{8F538934-DE95-4874-8DDE-BDDC29096C1F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{481E5440-D03D-52B1-92EC-E95F3BB538AA} = {481E5440-D03D-52B1-92EC-E95F3BB538AA}
+		{DA9EF2A7-5A56-4E26-BC4E-AC3F22BC5B19} = {DA9EF2A7-5A56-4E26-BC4E-AC3F22BC5B19}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,15 +33,19 @@ Global
 		{DA9EF2A7-5A56-4E26-BC4E-AC3F22BC5B19}.Release|x86.ActiveCfg = Release|Win32
 		{DA9EF2A7-5A56-4E26-BC4E-AC3F22BC5B19}.Release|x86.Build.0 = Release|Win32
 		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Debug|x64.ActiveCfg = Debug|Win32
+		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Debug|x64.Build.0 = Debug|Win32
 		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Debug|x86.ActiveCfg = Debug|Win32
 		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Debug|x86.Build.0 = Debug|Win32
 		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Release|x64.ActiveCfg = Release|Win32
+		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Release|x64.Build.0 = Release|Win32
 		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Release|x86.ActiveCfg = Release|Win32
 		{481E5440-D03D-52B1-92EC-E95F3BB538AA}.Release|x86.Build.0 = Release|Win32
 		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Debug|x64.ActiveCfg = Debug|Win32
+		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Debug|x64.Build.0 = Debug|Win32
 		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Debug|x86.ActiveCfg = Debug|Win32
 		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Debug|x86.Build.0 = Debug|Win32
 		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Release|x64.ActiveCfg = Release|Win32
+		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Release|x64.Build.0 = Release|Win32
 		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Release|x86.ActiveCfg = Release|Win32
 		{8F538934-DE95-4874-8DDE-BDDC29096C1F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
