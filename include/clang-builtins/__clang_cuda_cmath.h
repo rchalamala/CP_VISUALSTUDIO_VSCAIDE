@@ -163,23 +163,22 @@ __DEVICE__ float tanh(float __x) { return ::tanhf(__x); }
 // We can't use std::enable_if, because we want to be pre-C++11 compatible.  But
 // we go ahead and unconditionally define functions that are only available when
 // compiling for C++11 to match the behavior of the CUDA headers.
-template <bool __B, class __T = void>
+template<bool __B, class __T = void>
 struct __clang_cuda_enable_if {};
 
-template <class __T>
-struct __clang_cuda_enable_if<true, __T> {
+template <class __T> struct __clang_cuda_enable_if<true, __T> {
   typedef __T type;
 };
 
 // Defines an overload of __fn that accepts one integral argument, calls
 // __fn((double)x), and returns __retty.
-#define __CUDA_CLANG_FN_INTEGER_OVERLOAD_1(__retty, __fn)                   \
-  template <typename __T>                                                   \
-  __DEVICE__                                                                \
-      typename __clang_cuda_enable_if<std::numeric_limits<__T>::is_integer, \
-                                      __retty>::type                        \
-      __fn(__T __x) {                                                       \
-    return ::__fn((double)__x);                                             \
+#define __CUDA_CLANG_FN_INTEGER_OVERLOAD_1(__retty, __fn)                      \
+  template <typename __T>                                                      \
+  __DEVICE__                                                                   \
+      typename __clang_cuda_enable_if<std::numeric_limits<__T>::is_integer,    \
+                                      __retty>::type                           \
+      __fn(__T __x) {                                                          \
+    return ::__fn((double)__x);                                                \
   }
 
 // Defines an overload of __fn that accepts one two arithmetic arguments, calls
@@ -187,14 +186,14 @@ struct __clang_cuda_enable_if<true, __T> {
 //
 // Note this is different from OVERLOAD_1, which generates an overload that
 // accepts only *integral* arguments.
-#define __CUDA_CLANG_FN_INTEGER_OVERLOAD_2(__retty, __fn) \
-  template <typename __T1, typename __T2>                 \
-  __DEVICE__ typename __clang_cuda_enable_if<             \
-      std::numeric_limits<__T1>::is_specialized &&        \
-          std::numeric_limits<__T2>::is_specialized,      \
-      __retty>::type                                      \
-  __fn(__T1 __x, __T2 __y) {                              \
-    return __fn((double)__x, (double)__y);                \
+#define __CUDA_CLANG_FN_INTEGER_OVERLOAD_2(__retty, __fn)                      \
+  template <typename __T1, typename __T2>                                      \
+  __DEVICE__ typename __clang_cuda_enable_if<                                  \
+      std::numeric_limits<__T1>::is_specialized &&                             \
+          std::numeric_limits<__T2>::is_specialized,                           \
+      __retty>::type                                                           \
+  __fn(__T1 __x, __T2 __y) {                                                   \
+    return __fn((double)__x, (double)__y);                                     \
   }
 
 __CUDA_CLANG_FN_INTEGER_OVERLOAD_1(double, acos)
@@ -461,10 +460,10 @@ _LIBCPP_END_NAMESPACE_STD
 #ifdef _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 #endif
-}  // namespace std
+} // namespace std
 #endif
 
-#endif  // __OPENMP_NVPTX__
+#endif // __OPENMP_NVPTX__
 
 #undef __DEVICE__
 

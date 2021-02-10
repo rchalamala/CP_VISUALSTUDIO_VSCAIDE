@@ -1,287 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="lib\arbitrary_precision_integer.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\base.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\binary_insertion_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\bit.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\bi_edge.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\bubble_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\chash.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\choose.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\compress.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\counting_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\debug.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\desopo_pape.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\digit_sum.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\dijkstra.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\distinctelements.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\dsu.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\edge.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\factorize.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\gcd.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\graph.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\heap_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\input.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\insertion_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\kosarajus_sccs.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lcm.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\linear_diophantine.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\merge_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\miller_rabin.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\modular.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\output.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\pollards_rho.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\polynomial.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\power.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\prng.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\quadratic_diophantine.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\quick_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\selection_sort.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\timer.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\to_string.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\trailing_zero_bits.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\weighted_bi_edge.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\weighted_edge.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\y_combinator.h">
-      <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\arbitrary_precision_integer.hpp" />
-    <ClInclude Include="lib\choose.hpp" />
-    <ClInclude Include="lib\compress.hpp" />
-    <ClInclude Include="lib\desopo_pape.hpp" />
-    <ClInclude Include="lib\digit_sum.hpp" />
-    <ClInclude Include="lib\dijkstra.hpp" />
-    <ClInclude Include="lib\distinctelements.hpp" />
-    <ClInclude Include="lib\dsu.hpp" />
-    <ClInclude Include="lib\factorize.hpp" />
-    <ClInclude Include="lib\gcd.hpp" />
-    <ClInclude Include="lib\kosarajus_sccs.hpp" />
-    <ClInclude Include="lib\lcm.hpp" />
-    <ClInclude Include="lib\linear_diophantine.hpp" />
-    <ClInclude Include="lib\miller_rabin.hpp" />
-    <ClInclude Include="lib\modular.hpp" />
-    <ClInclude Include="lib\pollards_rho.hpp" />
-    <ClInclude Include="lib\polynomial.hpp" />
-    <ClInclude Include="lib\power.hpp" />
-    <ClInclude Include="lib\quadratic_diophantine.hpp" />
-    <ClInclude Include="lib\trailing_zero_bits.hpp" />
+    <ClCompile Include="arbitrary_precision_integer.cpp" />
+    <ClCompile Include="binary_insertion_sort.cpp" />
+    <ClCompile Include="bit.cpp" />
+    <ClCompile Include="bi_edge.cpp" />
+    <ClCompile Include="bubble_sort.cpp" />
+    <ClCompile Include="chash.cpp" />
+    <ClCompile Include="choose.cpp" />
+    <ClCompile Include="compress.cpp" />
+    <ClCompile Include="debug.cpp" />
+    <ClCompile Include="desopo_pape.cpp" />
+    <ClCompile Include="digit_sum.cpp" />
+    <ClCompile Include="dijkstra.cpp" />
+    <ClCompile Include="dsu.cpp" />
+    <ClCompile Include="edge.cpp" />
+    <ClCompile Include="factorize.cpp" />
+    <ClCompile Include="gcd.cpp" />
+    <ClCompile Include="graph.cpp" />
+    <ClCompile Include="heap_sort.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="insertion_sort.cpp" />
+    <ClCompile Include="kosarajus_sccs.cpp" />
+    <ClCompile Include="lcm.cpp" />
+    <ClCompile Include="linear_diophantine.cpp" />
+    <ClCompile Include="merge_sort.cpp" />
+    <ClCompile Include="miller_rabin.cpp" />
+    <ClCompile Include="modular.cpp" />
+    <ClCompile Include="output.cpp" />
+    <ClCompile Include="pollards_rho.cpp" />
+    <ClCompile Include="polynomial.cpp" />
+    <ClCompile Include="power.cpp" />
+    <ClCompile Include="prng.cpp" />
+    <ClCompile Include="quadratic_diophantine.cpp" />
+    <ClCompile Include="quick_sort.cpp" />
+    <ClCompile Include="selection_sort.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="to_string.cpp" />
+    <ClCompile Include="trailing_zero_bits.cpp" />
+    <ClCompile Include="weighted_bi_edge.cpp" />
+    <ClCompile Include="weighted_edge.cpp" />
+    <ClCompile Include="y_combinator.cpp" />
+    <ClCompile Include="distinct_elements.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lib\arbitrary_precision_integer.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\binary_insertion_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\bit.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\bi_edge.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\bubble_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\chash.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\choose.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\compress.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\counting_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\debug.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\desopo_pape.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\digit_sum.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\dijkstra.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\distinctelements.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\dsu.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\edge.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\factorize.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\gcd.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\graph.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\heap_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\input.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\insertion_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\kosarajus_sccs.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\lcm.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\linear_diophantine.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\merge_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\miller_rabin.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\modular.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\output.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\pollards_rho.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\polynomial.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\power.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\prng.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\quadratic_diophantine.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\quick_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\selection_sort.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\timer.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\to_string.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\trailing_zero_bits.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\weighted_bi_edge.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\weighted_edge.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\y_combinator.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{8579c696-4108-45e4-b142-893906b4058b}</UniqueIdentifier>
-    </Filter>
+    <ClInclude Include="arbitrary_precision_integer.h" />
+    <ClInclude Include="base.h" />
+    <ClInclude Include="binary_insertion_sort.h" />
+    <ClInclude Include="bit.h" />
+    <ClInclude Include="bi_edge.h" />
+    <ClInclude Include="bubble_sort.h" />
+    <ClInclude Include="chash.h" />
+    <ClInclude Include="choose.h" />
+    <ClInclude Include="compress.h" />
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="desopo_pape.h" />
+    <ClInclude Include="digit_sum.h" />
+    <ClInclude Include="dijkstra.h" />
+    <ClInclude Include="dsu.h" />
+    <ClInclude Include="edge.h" />
+    <ClInclude Include="factorize.h" />
+    <ClInclude Include="gcd.h" />
+    <ClInclude Include="graph.h" />
+    <ClInclude Include="heap_sort.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="insertion_sort.h" />
+    <ClInclude Include="kosarajus_sccs.h" />
+    <ClInclude Include="lcm.h" />
+    <ClInclude Include="linear_diophantine.h" />
+    <ClInclude Include="merge_sort.h" />
+    <ClInclude Include="miller_rabin.h" />
+    <ClInclude Include="modular.h" />
+    <ClInclude Include="output.h" />
+    <ClInclude Include="pollards_rho.h" />
+    <ClInclude Include="polynomial.h" />
+    <ClInclude Include="power.h" />
+    <ClInclude Include="prng.h" />
+    <ClInclude Include="quadratic_diophantine.h" />
+    <ClInclude Include="quick_sort.h" />
+    <ClInclude Include="selection_sort.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="to_string.h" />
+    <ClInclude Include="trailing_zero_bits.h" />
+    <ClInclude Include="weighted_bi_edge.h" />
+    <ClInclude Include="weighted_edge.h" />
+    <ClInclude Include="y_combinator.h" />
+    <ClInclude Include="distinct_elements.h" />
   </ItemGroup>
 </Project>

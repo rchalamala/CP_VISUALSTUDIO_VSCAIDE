@@ -1,48 +1,22 @@
-﻿  arbitrary_precision_integer.cpp
-  binary_insertion_sort.cpp
-  bit.cpp
-  bi_edge.cpp
-  bubble_sort.cpp
-  chash.cpp
-  choose.cpp
-  compress.cpp
-  counting_sort.cpp
-  debug.cpp
-  desopo_pape.cpp
-  digit_sum.cpp
-  dijkstra.cpp
-  distinctelements.cpp
-  dsu.cpp
-  edge.cpp
-  factorize.cpp
-  gcd.cpp
-  graph.cpp
-  heap_sort.cpp
-  Generating Code...
-  Compiling...
-  input.cpp
-  insertion_sort.cpp
-  kosarajus_sccs.cpp
-  lcm.cpp
-  linear_diophantine.cpp
-  merge_sort.cpp
-  miller_rabin.cpp
-  modular.cpp
-  output.cpp
-  pollards_rho.cpp
-  polynomial.cpp
-  power.cpp
-  prng.cpp
-  quadratic_diophantine.cpp
-  quick_sort.cpp
-  selection_sort.cpp
-  timer.cpp
-  to_string.cpp
-  trailing_zero_bits.cpp
-  weighted_bi_edge.cpp
-  Generating Code...
-  Compiling...
-  weighted_edge.cpp
-  y_combinator.cpp
-  Generating Code...
-  cpplib.vcxproj -> C:\Users\Rahul\source\repos\cp\cp\cpplib\Debug\cpplib.lib
+﻿  bi_edge.cpp
+C:\Users\Rahul\source\repos\cp\cpplib/to_string.h(13,20): warning G289DC448: inline function 'std::to_string' is not defined [clang-diagnostic-undefined-inline]
+  inline std::string to_string(const char& element);
+                     ^
+  Suppressed 41 warnings (41 in non-user code).
+  Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+  C:\Users\Rahul\source\repos\cp\cpplib\output.cpp:12:15: note: used here
+    out << std::to_string(element);
+                ^
+  cpplib.vcxproj -> C:\Users\Rahul\source\repos\cp\cpplib\Debug\cpplib.lib
+C:\Users\Rahul\source\repos\cp\cpplib\bi_edge.cpp(8): warning C26440: Function 'BiEdge::BiEdge' can be declared 'noexcept' (f.6).
+C:\Users\Rahul\source\repos\cp\cpplib\chash.cpp(11): warning C26497: The function 'chash::splitmix64' could be marked constexpr if compile-time evaluation is desired (f.4).
+C:\Users\Rahul\source\repos\cp\cpplib\chash.cpp(11): warning C26440: Function 'chash::splitmix64' can be declared 'noexcept' (f.6).
+C:\Users\Rahul\source\repos\cp\cpplib\chash.cpp(19): warning C26472: Don't use a static_cast for arithmetic conversions. Use brace initialization, gsl::narrow_cast or gsl::narrow (type.1).
+C:\Users\Rahul\source\repos\cp\cpplib\chash.cpp(26): warning C26472: Don't use a static_cast for arithmetic conversions. Use brace initialization, gsl::narrow_cast or gsl::narrow (type.1).
+C:\Users\Rahul\source\repos\cp\cpplib\edge.cpp(6): warning C26440: Function 'Edge::Edge' can be declared 'noexcept' (f.6).
+C:\Users\Rahul\source\repos\cp\cpplib\prng.cpp(8): warning C26472: Don't use a static_cast for arithmetic conversions. Use brace initialization, gsl::narrow_cast or gsl::narrow (type.1).
+C:\Users\Rahul\source\repos\cp\cpplib\timer.cpp(9): warning C26455: Default constructor may not throw. Declare it 'noexcept' (f.6).
+C:\Users\Rahul\source\repos\cp\cpplib\timer.cpp(11): warning C26440: Function 'Timer::reset' can be declared 'noexcept' (f.6).
+C:\Users\Rahul\source\repos\cp\cpplib\timer.cpp(13): warning C26440: Function 'Timer::elapsed' can be declared 'noexcept' (f.6).
+C:\Users\Rahul\source\repos\cp\cpplib\to_string.cpp(17): warning C26472: Don't use a static_cast for arithmetic conversions. Use brace initialization, gsl::narrow_cast or gsl::narrow (type.1).
+C:\Users\Rahul\source\repos\cp\cpplib\to_string.cpp(36): warning C26472: Don't use a static_cast for arithmetic conversions. Use brace initialization, gsl::narrow_cast or gsl::narrow (type.1).

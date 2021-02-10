@@ -1,7 +1,7 @@
-#include "lib/base.h"
-#include "lib/debug.h"
-#include "lib/input.h"
-#include "lib/output.h"
+#include "base.h"
+#include "debug.h"
+#include "input.h"
+#include "output.h"
 using namespace std;
 
 class Solution {

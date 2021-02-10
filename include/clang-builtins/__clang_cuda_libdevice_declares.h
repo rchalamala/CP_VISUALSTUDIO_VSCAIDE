@@ -457,6 +457,6 @@ __DEVICE__ float __nv_y1f(float __a);
 __DEVICE__ float __nv_ynf(int __a, float __b);
 __DEVICE__ double __nv_yn(int __a, double __b);
 #if defined(__cplusplus)
-}  // extern "C"
+} // extern "C"
 #endif
-#endif  // __CLANG_CUDA_LIBDEVICE_DECLARES_H__
+#endif // __CLANG_CUDA_LIBDEVICE_DECLARES_H__

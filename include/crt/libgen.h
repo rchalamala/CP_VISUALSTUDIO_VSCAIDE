@@ -13,11 +13,12 @@
 extern "C" {
 #endif
 
-char *__cdecl __MINGW_NOTHROW basename(char *);
-char *__cdecl __MINGW_NOTHROW dirname(char *);
+ char * __cdecl __MINGW_NOTHROW basename (char *);
+ char * __cdecl __MINGW_NOTHROW dirname (char *);
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
+

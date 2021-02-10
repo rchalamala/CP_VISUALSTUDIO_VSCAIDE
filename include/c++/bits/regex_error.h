@@ -30,35 +30,38 @@
  *  Do not attempt to use it directly. @headername{regex}
  */
 
-namespace std _GLIBCXX_VISIBILITY(default) {
-  _GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
-  /**
-   * @addtogroup regex
-   * @{
-   */
+/**
+ * @addtogroup regex
+ * @{
+ */
 
-  namespace regex_constants {
+namespace regex_constants
+{
   /**
    * @name 5.3 Error Types
    */
   //@{
 
-  enum error_type {
-    _S_error_collate,
-    _S_error_ctype,
-    _S_error_escape,
-    _S_error_backref,
-    _S_error_brack,
-    _S_error_paren,
-    _S_error_brace,
-    _S_error_badbrace,
-    _S_error_range,
-    _S_error_space,
-    _S_error_badrepeat,
-    _S_error_complexity,
-    _S_error_stack,
-  };
+  enum error_type
+    {
+      _S_error_collate,
+      _S_error_ctype,
+      _S_error_escape,
+      _S_error_backref,
+      _S_error_brack,
+      _S_error_paren,
+      _S_error_brace,
+      _S_error_badbrace,
+      _S_error_range,
+      _S_error_space,
+      _S_error_badrepeat,
+      _S_error_complexity,
+      _S_error_stack,
+    };
 
   /** The expression contained an invalid collating element name. */
   constexpr error_type error_collate(_S_error_collate);
@@ -117,7 +120,7 @@ namespace std _GLIBCXX_VISIBILITY(default) {
   constexpr error_type error_stack(_S_error_stack);
 
   //@}
-  }  // namespace regex_constants
+} // namespace regex_constants
 
   // [7.8] Class regex_error
   /**
@@ -126,16 +129,18 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * The regular expression library throws objects of this class on error.
    */
-  class regex_error : public std::runtime_error {
+  class regex_error : public std::runtime_error
+  {
     regex_constants::error_type _M_code;
 
-   public:
+  public:
     /**
      * @brief Constructs a regex_error object.
      *
      * @param __ecode the regex error code.
      */
-    explicit regex_error(regex_constants::error_type __ecode);
+    explicit
+    regex_error(regex_constants::error_type __ecode);
 
     virtual ~regex_error() throw();
 
@@ -144,23 +149,26 @@ namespace std _GLIBCXX_VISIBILITY(default) {
      *
      * @returns the regex error code.
      */
-    regex_constants::error_type code() const { return _M_code; }
+    regex_constants::error_type
+    code() const
+    { return _M_code; }
 
-   private:
+  private:
     regex_error(regex_constants::error_type __ecode, const char* __what)
-        : std::runtime_error(__what), _M_code(__ecode) {}
+    : std::runtime_error(__what), _M_code(__ecode)
+    { }
 
     friend void __throw_regex_error(regex_constants::error_type, const char*);
   };
 
   //@} // group regex
 
-  void __throw_regex_error(regex_constants::error_type __ecode);
+  void
+  __throw_regex_error(regex_constants::error_type __ecode);
 
-  inline void __throw_regex_error(regex_constants::error_type __ecode,
-                                  const char* __what) {
-    _GLIBCXX_THROW_OR_ABORT(regex_error(__ecode, __what));
-  }
+  inline void
+  __throw_regex_error(regex_constants::error_type __ecode, const char* __what)
+  { _GLIBCXX_THROW_OR_ABORT(regex_error(__ecode, __what)); }
 
-  _GLIBCXX_END_NAMESPACE_VERSION
-}  // namespace )
+_GLIBCXX_END_NAMESPACE_VERSION
+} // namespace std

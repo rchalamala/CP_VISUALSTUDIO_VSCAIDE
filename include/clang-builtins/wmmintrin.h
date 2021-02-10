@@ -10,8 +10,10 @@
 #ifndef __WMMINTRIN_H
 #define __WMMINTRIN_H
 
-#include <__wmmintrin_aes.h>
-#include <__wmmintrin_pclmul.h>
 #include <emmintrin.h>
+
+#include <__wmmintrin_aes.h>
+
+#include <__wmmintrin_pclmul.h>
 
 #endif /* __WMMINTRIN_H */

@@ -41,33 +41,39 @@
 #ifdef PB_DS_CLASS_C_DEC
 
 PB_DS_CLASS_T_DEC
-void PB_DS_CLASS_C_DEC::split(key_const_reference r_key,
-                              PB_DS_CLASS_C_DEC& other) {
+void
+PB_DS_CLASS_C_DEC::
+split(key_const_reference r_key, PB_DS_CLASS_C_DEC& other)
+{
   PB_DS_ASSERT_VALID((*this))
   PB_DS_ASSERT_VALID(other)
 
-  if (m_size == 0) {
-    other.clear();
-    return;
-  }
+  if (m_size == 0)
+    {
+      other.clear();
+      return;
+    }
 
-  if (Cmp_Fn::operator()(r_key, PB_DS_V2F(*begin()))) {
-    value_swap(other);
-    PB_DS_ASSERT_VALID((*this))
-    PB_DS_ASSERT_VALID(other)
-    return;
-  }
+  if (Cmp_Fn::operator()(r_key, PB_DS_V2F(*begin())))
+    {
+      value_swap(other);
+      PB_DS_ASSERT_VALID((*this))
+      PB_DS_ASSERT_VALID(other)
+      return;
+    }
 
-  if (!Cmp_Fn::operator()(r_key, PB_DS_V2F(*(end() - 1)))) {
-    return;
-  }
+  if (!Cmp_Fn::operator()(r_key, PB_DS_V2F(*(end() - 1))))
+    {
+      return;
+    }
 
-  if (m_size == 1) {
-    value_swap(other);
-    PB_DS_ASSERT_VALID((*this))
-    PB_DS_ASSERT_VALID(other)
-    return;
-  }
+  if (m_size == 1)
+    {
+      value_swap(other);
+      PB_DS_ASSERT_VALID((*this))
+      PB_DS_ASSERT_VALID(other)
+      return;
+    }
 
   iterator it = upper_bound(r_key);
   PB_DS_CLASS_C_DEC new_other(other, other);
@@ -85,34 +91,40 @@ void PB_DS_CLASS_C_DEC::split(key_const_reference r_key,
 }
 
 PB_DS_CLASS_T_DEC
-void PB_DS_CLASS_C_DEC::join(PB_DS_CLASS_C_DEC& other) {
+void
+PB_DS_CLASS_C_DEC::
+join(PB_DS_CLASS_C_DEC& other)
+{
   PB_DS_ASSERT_VALID((*this))
   PB_DS_ASSERT_VALID(other)
-  if (other.m_size == 0) return;
-
-  if (m_size == 0) {
-    value_swap(other);
-    PB_DS_ASSERT_VALID((*this))
-    PB_DS_ASSERT_VALID(other)
+  if (other.m_size == 0)
     return;
-  }
 
-  const bool greater =
-      Cmp_Fn::operator()(PB_DS_V2F(*(end() - 1)), PB_DS_V2F(*other.begin()));
+  if (m_size == 0)
+    {
+      value_swap(other);
+      PB_DS_ASSERT_VALID((*this))
+      PB_DS_ASSERT_VALID(other)
+      return;
+    }
 
-  const bool lesser =
-      Cmp_Fn::operator()(PB_DS_V2F(*(other.end() - 1)), PB_DS_V2F(*begin()));
+  const bool greater = Cmp_Fn::operator()(PB_DS_V2F(*(end() - 1)),
+					  PB_DS_V2F(*other.begin()));
 
-  if (!greater && !lesser) __throw_join_error();
+  const bool lesser = Cmp_Fn::operator()(PB_DS_V2F(*(other.end() - 1)),
+					 PB_DS_V2F(*begin()));
+
+  if (!greater && !lesser)
+    __throw_join_error();
 
   PB_DS_CLASS_C_DEC new_this(*this, *this);
 
   if (greater)
-    new_this.copy_from_ordered_range(begin(), end(), other.begin(),
-                                     other.end());
+    new_this.copy_from_ordered_range(begin(), end(),
+				     other.begin(), other.end());
   else
-    new_this.copy_from_ordered_range(other.begin(), other.end(), begin(),
-                                     end());
+    new_this.copy_from_ordered_range(other.begin(), other.end(),
+				     begin(), end());
 
   // No exceptions from this point.
   value_swap(new_this);

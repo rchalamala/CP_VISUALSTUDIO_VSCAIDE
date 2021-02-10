@@ -1,2 +1,4 @@
-C:\Users\Rahul\source\repos\cp\cp\cpplib\Debug\cpplib.lib
-C:\Users\Rahul\source\repos\cp\cp\cpplib\Debug\cpplib.pdb
+C:\Users\Rahul\source\repos\cp\cpplib\Debug\cpplib.lib
+C:\Users\Rahul\source\repos\cp\cpplib\Debug\cpplib.pdb
+C:\Users\Rahul\source\repos\cp\cpplib\Debug\cpplib.lib.lastcodeanalysissucceeded
+C:\Users\Rahul\source\repos\cp\cpplib\Debug\NativeCodeAnalysis.read.1.tlog

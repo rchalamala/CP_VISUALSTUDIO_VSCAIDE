@@ -18,10 +18,9 @@
 
 #if __HIP__
 
-#include <stdlib.h>
-
 #include <cmath>
 #include <cstdlib>
+#include <stdlib.h>
 
 #define __host__ __attribute__((host))
 #define __device__ __attribute__((device))
@@ -51,15 +50,15 @@ static inline __device__ void *free(void *__ptr) {
 #include <__clang_hip_math.h>
 
 #if !_OPENMP || __HIP_ENABLE_CUDA_WRAPPER_FOR_OPENMP__
-#include <__clang_cuda_complex_builtins.h>
 #include <__clang_cuda_math_forward_declares.h>
+#include <__clang_cuda_complex_builtins.h>
 
 #include <algorithm>
 #include <complex>
 #include <new>
-#endif  // !_OPENMP || __HIP_ENABLE_CUDA_WRAPPER_FOR_OPENMP__
+#endif // !_OPENMP || __HIP_ENABLE_CUDA_WRAPPER_FOR_OPENMP__
 
 #define __CLANG_HIP_RUNTIME_WRAPPER_INCLUDED__ 1
 
-#endif  // __HIP__
-#endif  // __CLANG_HIP_RUNTIME_WRAPPER_H__
+#endif // __HIP__
+#endif // __CLANG_HIP_RUNTIME_WRAPPER_H__

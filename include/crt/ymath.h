@@ -9,7 +9,7 @@
 _C_STD_BEGIN
 _C_LIB_DECL
 
-#pragma pack(push, _CRT_PACKING)
+#pragma pack(push,_CRT_PACKING)
 
 #define _DENORM (-2)
 #define _FINITE (-1)
@@ -30,21 +30,21 @@ typedef union {
 } _Dconst;
 
 void __cdecl _Feraise(int);
-_CRTIMP double __cdecl _Cosh(double, double);
+_CRTIMP double __cdecl _Cosh(double,double);
 _CRTIMP short __cdecl _Dtest(double *);
-_CRTIMP short __cdecl _Exp(double *, double, short);
-_CRTIMP double __cdecl _Sinh(double, double);
-extern _CRTIMP _Dconst _Denorm, _Hugeval, _Inf, _Nan, _Snan;
-_CRTIMP float __cdecl _FCosh(float, float);
+_CRTIMP short __cdecl _Exp(double *,double,short);
+_CRTIMP double __cdecl _Sinh(double,double);
+extern _CRTIMP _Dconst _Denorm,_Hugeval,_Inf,_Nan,_Snan;
+_CRTIMP float __cdecl _FCosh(float,float);
 _CRTIMP short __cdecl _FDtest(float *);
-_CRTIMP short __cdecl _FExp(float *, float, short);
-_CRTIMP float __cdecl _FSinh(float, float);
-extern _CRTIMP _Dconst _FDenorm, _FInf, _FNan, _FSnan;
-_CRTIMP long double __cdecl _LCosh(long double, long double);
+_CRTIMP short __cdecl _FExp(float *,float,short);
+_CRTIMP float __cdecl _FSinh(float,float);
+extern _CRTIMP _Dconst _FDenorm,_FInf,_FNan,_FSnan;
+_CRTIMP long double __cdecl _LCosh(long double,long double);
 _CRTIMP short __cdecl _LDtest(long double *);
-_CRTIMP short __cdecl _LExp(long double *, long double, short);
-_CRTIMP long double __cdecl _LSinh(long double, long double);
-extern _CRTIMP _Dconst _LDenorm, _LInf, _LNan, _LSnan;
+_CRTIMP short __cdecl _LExp(long double *,long double,short);
+_CRTIMP long double __cdecl _LSinh(long double,long double);
+extern _CRTIMP _Dconst _LDenorm,_LInf,_LNan,_LSnan;
 _END_C_LIB_DECL
 _C_STD_END
 

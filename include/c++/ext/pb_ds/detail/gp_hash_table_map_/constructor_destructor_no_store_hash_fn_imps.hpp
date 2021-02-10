@@ -42,9 +42,12 @@
 #ifdef PB_DS_CLASS_C_DEC
 
 PB_DS_CLASS_T_DEC
-inline void PB_DS_CLASS_C_DEC::constructor_insert_new_imp(
-    mapped_const_reference r_val, size_type pos, false_type) {
-  _GLIBCXX_DEBUG_ASSERT(m_entries[pos].m_stat != valid_entry_status) k;
+inline void
+PB_DS_CLASS_C_DEC::
+constructor_insert_new_imp(mapped_const_reference r_val, size_type pos, 
+			   false_type)
+{
+  _GLIBCXX_DEBUG_ASSERT(m_entries[pos].m_stat != valid_entry_status)k;
   entry* const p_e = m_entries + pos;
   new (&p_e->m_value) mapped_value_type(r_val);
   p_e->m_stat = valid_entry_status;

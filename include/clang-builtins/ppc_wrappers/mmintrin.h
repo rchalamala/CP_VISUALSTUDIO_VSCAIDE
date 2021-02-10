@@ -28,7 +28,7 @@
    efficient standard C or GNU C extensions with 64-bit scalar
    operations, or 128-bit SSE/Altivec operations, which are more
    recommended. */
-#error \
+#error                                                                         \
     "Please read comment above.  Use -DNO_WARN_X86_INTRINSICS to disable this error."
 #endif
 

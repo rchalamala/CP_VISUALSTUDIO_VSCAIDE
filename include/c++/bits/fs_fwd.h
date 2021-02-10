@@ -32,33 +32,37 @@
 
 #if __cplusplus >= 201703L
 
-#include <chrono>
-#include <cstdint>
 #include <system_error>
+#include <cstdint>
+#include <chrono>
 
-namespace std _GLIBCXX_VISIBILITY(default) {
-  _GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
-  /** @addtogroup filesystem
-   *  @{
-   */
+/** @addtogroup filesystem
+ *  @{
+ */
 
-  /// ISO C++ 2017 namespace for File System library
-  namespace filesystem {
+/// ISO C++ 2017 namespace for File System library
+namespace filesystem
+{
 #if _GLIBCXX_USE_CXX11_ABI
-  inline namespace __cxx11 __attribute__((__abi_tag__("cxx11"))) {}
+inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
 #endif
 
+
   class file_status;
-  _GLIBCXX_BEGIN_NAMESPACE_CXX11
+_GLIBCXX_BEGIN_NAMESPACE_CXX11
   class path;
   class filesystem_error;
   class directory_entry;
   class directory_iterator;
   class recursive_directory_iterator;
-  _GLIBCXX_END_NAMESPACE_CXX11
+_GLIBCXX_END_NAMESPACE_CXX11
 
-  struct space_info {
+  struct space_info
+  {
     uintmax_t capacity;
     uintmax_t free;
     uintmax_t available;
@@ -69,227 +73,227 @@ namespace std _GLIBCXX_VISIBILITY(default) {
   };
 
   enum class file_type : signed char {
-    none = 0,
-    not_found = -1,
-    regular = 1,
-    directory = 2,
-    symlink = 3,
-    block = 4,
-    character = 5,
-    fifo = 6,
-    socket = 7,
-    unknown = 8
+      none = 0, not_found = -1, regular = 1, directory = 2, symlink = 3,
+      block = 4, character = 5, fifo = 6, socket = 7, unknown = 8
   };
 
   /// Bitmask type
   enum class copy_options : unsigned short {
-    none = 0,
-    skip_existing = 1,
-    overwrite_existing = 2,
-    update_existing = 4,
-    recursive = 8,
-    copy_symlinks = 16,
-    skip_symlinks = 32,
-    directories_only = 64,
-    create_symlinks = 128,
-    create_hard_links = 256
+      none = 0,
+      skip_existing = 1, overwrite_existing = 2, update_existing = 4,
+      recursive = 8,
+      copy_symlinks = 16, skip_symlinks = 32,
+      directories_only = 64, create_symlinks = 128, create_hard_links = 256
   };
 
-  constexpr copy_options operator&(copy_options __x,
-                                   copy_options __y) noexcept {
+  constexpr copy_options
+  operator&(copy_options __x, copy_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<copy_options>::type;
-    return static_cast<copy_options>(static_cast<__utype>(__x) &
-                                     static_cast<__utype>(__y));
+    return static_cast<copy_options>(
+	static_cast<__utype>(__x) & static_cast<__utype>(__y));
   }
 
-  constexpr copy_options operator|(copy_options __x,
-                                   copy_options __y) noexcept {
+  constexpr copy_options
+  operator|(copy_options __x, copy_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<copy_options>::type;
-    return static_cast<copy_options>(static_cast<__utype>(__x) |
-                                     static_cast<__utype>(__y));
+    return static_cast<copy_options>(
+	static_cast<__utype>(__x) | static_cast<__utype>(__y));
   }
 
-  constexpr copy_options operator^(copy_options __x,
-                                   copy_options __y) noexcept {
+  constexpr copy_options
+  operator^(copy_options __x, copy_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<copy_options>::type;
-    return static_cast<copy_options>(static_cast<__utype>(__x) ^
-                                     static_cast<__utype>(__y));
+    return static_cast<copy_options>(
+	static_cast<__utype>(__x) ^ static_cast<__utype>(__y));
   }
 
-  constexpr copy_options operator~(copy_options __x) noexcept {
+  constexpr copy_options
+  operator~(copy_options __x) noexcept
+  {
     using __utype = typename std::underlying_type<copy_options>::type;
     return static_cast<copy_options>(~static_cast<__utype>(__x));
   }
 
-  inline copy_options& operator&=(copy_options& __x,
-                                  copy_options __y) noexcept {
-    return __x = __x & __y;
-  }
+  inline copy_options&
+  operator&=(copy_options& __x, copy_options __y) noexcept
+  { return __x = __x & __y; }
 
-  inline copy_options& operator|=(copy_options& __x,
-                                  copy_options __y) noexcept {
-    return __x = __x | __y;
-  }
+  inline copy_options&
+  operator|=(copy_options& __x, copy_options __y) noexcept
+  { return __x = __x | __y; }
 
-  inline copy_options& operator^=(copy_options& __x,
-                                  copy_options __y) noexcept {
-    return __x = __x ^ __y;
-  }
+  inline copy_options&
+  operator^=(copy_options& __x, copy_options __y) noexcept
+  { return __x = __x ^ __y; }
+
 
   /// Bitmask type
   enum class perms : unsigned {
-    none = 0,
-    owner_read = 0400,
-    owner_write = 0200,
-    owner_exec = 0100,
-    owner_all = 0700,
-    group_read = 040,
-    group_write = 020,
-    group_exec = 010,
-    group_all = 070,
-    others_read = 04,
-    others_write = 02,
-    others_exec = 01,
-    others_all = 07,
-    all = 0777,
-    set_uid = 04000,
-    set_gid = 02000,
-    sticky_bit = 01000,
-    mask = 07777,
-    unknown = 0xFFFF,
+      none		=  0,
+      owner_read	=  0400,
+      owner_write	=  0200,
+      owner_exec	=  0100,
+      owner_all		=  0700,
+      group_read	=   040,
+      group_write	=   020,
+      group_exec	=   010,
+      group_all		=   070,
+      others_read	=    04,
+      others_write	=    02,
+      others_exec	=    01,
+      others_all	=    07,
+      all		=  0777,
+      set_uid		= 04000,
+      set_gid		= 02000,
+      sticky_bit	= 01000,
+      mask		= 07777,
+      unknown		=  0xFFFF,
   };
 
-  constexpr perms operator&(perms __x, perms __y) noexcept {
+  constexpr perms
+  operator&(perms __x, perms __y) noexcept
+  {
     using __utype = typename std::underlying_type<perms>::type;
-    return static_cast<perms>(static_cast<__utype>(__x) &
-                              static_cast<__utype>(__y));
+    return static_cast<perms>(
+	static_cast<__utype>(__x) & static_cast<__utype>(__y));
   }
 
-  constexpr perms operator|(perms __x, perms __y) noexcept {
+  constexpr perms
+  operator|(perms __x, perms __y) noexcept
+  {
     using __utype = typename std::underlying_type<perms>::type;
-    return static_cast<perms>(static_cast<__utype>(__x) |
-                              static_cast<__utype>(__y));
+    return static_cast<perms>(
+	static_cast<__utype>(__x) | static_cast<__utype>(__y));
   }
 
-  constexpr perms operator^(perms __x, perms __y) noexcept {
+  constexpr perms
+  operator^(perms __x, perms __y) noexcept
+  {
     using __utype = typename std::underlying_type<perms>::type;
-    return static_cast<perms>(static_cast<__utype>(__x) ^
-                              static_cast<__utype>(__y));
+    return static_cast<perms>(
+	static_cast<__utype>(__x) ^ static_cast<__utype>(__y));
   }
 
-  constexpr perms operator~(perms __x) noexcept {
+  constexpr perms
+  operator~(perms __x) noexcept
+  {
     using __utype = typename std::underlying_type<perms>::type;
     return static_cast<perms>(~static_cast<__utype>(__x));
   }
 
-  inline perms& operator&=(perms& __x, perms __y) noexcept {
-    return __x = __x & __y;
-  }
+  inline perms&
+  operator&=(perms& __x, perms __y) noexcept
+  { return __x = __x & __y; }
 
-  inline perms& operator|=(perms& __x, perms __y) noexcept {
-    return __x = __x | __y;
-  }
+  inline perms&
+  operator|=(perms& __x, perms __y) noexcept
+  { return __x = __x | __y; }
 
-  inline perms& operator^=(perms& __x, perms __y) noexcept {
-    return __x = __x ^ __y;
-  }
+  inline perms&
+  operator^=(perms& __x, perms __y) noexcept
+  { return __x = __x ^ __y; }
 
   /// Bitmask type
   enum class perm_options : unsigned {
-    replace = 0x1,
-    add = 0x2,
-    remove = 0x4,
-    nofollow = 0x8
+      replace	= 0x1,
+      add	= 0x2,
+      remove	= 0x4,
+      nofollow	= 0x8
   };
 
-  constexpr perm_options operator&(perm_options __x,
-                                   perm_options __y) noexcept {
+  constexpr perm_options
+  operator&(perm_options __x, perm_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<perm_options>::type;
-    return static_cast<perm_options>(static_cast<__utype>(__x) &
-                                     static_cast<__utype>(__y));
+    return static_cast<perm_options>(
+	static_cast<__utype>(__x) & static_cast<__utype>(__y));
   }
 
-  constexpr perm_options operator|(perm_options __x,
-                                   perm_options __y) noexcept {
+  constexpr perm_options
+  operator|(perm_options __x, perm_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<perm_options>::type;
-    return static_cast<perm_options>(static_cast<__utype>(__x) |
-                                     static_cast<__utype>(__y));
+    return static_cast<perm_options>(
+	static_cast<__utype>(__x) | static_cast<__utype>(__y));
   }
 
-  constexpr perm_options operator^(perm_options __x,
-                                   perm_options __y) noexcept {
+  constexpr perm_options
+  operator^(perm_options __x, perm_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<perm_options>::type;
-    return static_cast<perm_options>(static_cast<__utype>(__x) ^
-                                     static_cast<__utype>(__y));
+    return static_cast<perm_options>(
+	static_cast<__utype>(__x) ^ static_cast<__utype>(__y));
   }
 
-  constexpr perm_options operator~(perm_options __x) noexcept {
+  constexpr perm_options
+  operator~(perm_options __x) noexcept
+  {
     using __utype = typename std::underlying_type<perm_options>::type;
     return static_cast<perm_options>(~static_cast<__utype>(__x));
   }
 
-  inline perm_options& operator&=(perm_options& __x,
-                                  perm_options __y) noexcept {
-    return __x = __x & __y;
-  }
+  inline perm_options&
+  operator&=(perm_options& __x, perm_options __y) noexcept
+  { return __x = __x & __y; }
 
-  inline perm_options& operator|=(perm_options& __x,
-                                  perm_options __y) noexcept {
-    return __x = __x | __y;
-  }
+  inline perm_options&
+  operator|=(perm_options& __x, perm_options __y) noexcept
+  { return __x = __x | __y; }
 
-  inline perm_options& operator^=(perm_options& __x,
-                                  perm_options __y) noexcept {
-    return __x = __x ^ __y;
-  }
+  inline perm_options&
+  operator^=(perm_options& __x, perm_options __y) noexcept
+  { return __x = __x ^ __y; }
 
   // Bitmask type
   enum class directory_options : unsigned char {
-    none = 0,
-    follow_directory_symlink = 1,
-    skip_permission_denied = 2
+      none = 0, follow_directory_symlink = 1, skip_permission_denied = 2
   };
 
-  constexpr directory_options operator&(directory_options __x,
-                                        directory_options __y) noexcept {
+  constexpr directory_options
+  operator&(directory_options __x, directory_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<directory_options>::type;
-    return static_cast<directory_options>(static_cast<__utype>(__x) &
-                                          static_cast<__utype>(__y));
+    return static_cast<directory_options>(
+	static_cast<__utype>(__x) & static_cast<__utype>(__y));
   }
 
-  constexpr directory_options operator|(directory_options __x,
-                                        directory_options __y) noexcept {
+  constexpr directory_options
+  operator|(directory_options __x, directory_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<directory_options>::type;
-    return static_cast<directory_options>(static_cast<__utype>(__x) |
-                                          static_cast<__utype>(__y));
+    return static_cast<directory_options>(
+	static_cast<__utype>(__x) | static_cast<__utype>(__y));
   }
 
-  constexpr directory_options operator^(directory_options __x,
-                                        directory_options __y) noexcept {
+  constexpr directory_options
+  operator^(directory_options __x, directory_options __y) noexcept
+  {
     using __utype = typename std::underlying_type<directory_options>::type;
-    return static_cast<directory_options>(static_cast<__utype>(__x) ^
-                                          static_cast<__utype>(__y));
+    return static_cast<directory_options>(
+	static_cast<__utype>(__x) ^ static_cast<__utype>(__y));
   }
 
-  constexpr directory_options operator~(directory_options __x) noexcept {
+  constexpr directory_options
+  operator~(directory_options __x) noexcept
+  {
     using __utype = typename std::underlying_type<directory_options>::type;
     return static_cast<directory_options>(~static_cast<__utype>(__x));
   }
 
-  inline directory_options& operator&=(directory_options& __x,
-                                       directory_options __y) noexcept {
-    return __x = __x & __y;
-  }
+  inline directory_options&
+  operator&=(directory_options& __x, directory_options __y) noexcept
+  { return __x = __x & __y; }
 
-  inline directory_options& operator|=(directory_options& __x,
-                                       directory_options __y) noexcept {
-    return __x = __x | __y;
-  }
+  inline directory_options&
+  operator|=(directory_options& __x, directory_options __y) noexcept
+  { return __x = __x | __y; }
 
-  inline directory_options& operator^=(directory_options& __x,
-                                       directory_options __y) noexcept {
-    return __x = __x ^ __y;
-  }
+  inline directory_options&
+  operator^=(directory_options& __x, directory_options __y) noexcept
+  { return __x = __x ^ __y; }
 
   using file_time_type = __file_clock::time_point;
 
@@ -297,11 +301,11 @@ namespace std _GLIBCXX_VISIBILITY(default) {
 
   void copy(const path& __from, const path& __to, copy_options __options);
   void copy(const path& __from, const path& __to, copy_options __options,
-            error_code&);
+	    error_code&);
 
   bool copy_file(const path& __from, const path& __to, copy_options __option);
   bool copy_file(const path& __from, const path& __to, copy_options __option,
-                 error_code&);
+		 error_code&);
 
   path current_path();
 
@@ -334,9 +338,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
   bool is_regular_file(file_status) noexcept;
   bool is_symlink(file_status) noexcept;
 
-  }  // namespace filesystem
-  // @}
-  _GLIBCXX_END_NAMESPACE_VERSION
-}  // namespace )
-#endif  // C++17
-#endif  // _GLIBCXX_FS_FWD_H
+} // namespace filesystem
+// @}
+_GLIBCXX_END_NAMESPACE_VERSION
+} // namespace std
+#endif // C++17
+#endif // _GLIBCXX_FS_FWD_H

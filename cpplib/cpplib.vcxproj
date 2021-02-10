@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup Label="ProjectConfigurations">
@@ -10,115 +10,6 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="lib\arbitrary_precision_integer.h" />
-    <ClInclude Include="lib\arbitrary_precision_integer.hpp" />
-    <ClInclude Include="lib\base.h" />
-    <ClInclude Include="lib\binary_insertion_sort.h" />
-    <ClInclude Include="lib\bit.h" />
-    <ClInclude Include="lib\bi_edge.h" />
-    <ClInclude Include="lib\bubble_sort.h" />
-    <ClInclude Include="lib\chash.h" />
-    <ClInclude Include="lib\choose.h" />
-    <ClInclude Include="lib\choose.hpp" />
-    <ClInclude Include="lib\compress.h" />
-    <ClInclude Include="lib\compress.hpp" />
-    <ClInclude Include="lib\counting_sort.h" />
-    <ClInclude Include="lib\debug.h" />
-    <ClInclude Include="lib\desopo_pape.h" />
-    <ClInclude Include="lib\desopo_pape.hpp" />
-    <ClInclude Include="lib\digit_sum.h" />
-    <ClInclude Include="lib\digit_sum.hpp" />
-    <ClInclude Include="lib\dijkstra.h" />
-    <ClInclude Include="lib\dijkstra.hpp" />
-    <ClInclude Include="lib\distinctelements.h" />
-    <ClInclude Include="lib\distinctelements.hpp" />
-    <ClInclude Include="lib\dsu.h" />
-    <ClInclude Include="lib\dsu.hpp" />
-    <ClInclude Include="lib\edge.h" />
-    <ClInclude Include="lib\factorize.h" />
-    <ClInclude Include="lib\factorize.hpp" />
-    <ClInclude Include="lib\gcd.h" />
-    <ClInclude Include="lib\gcd.hpp" />
-    <ClInclude Include="lib\graph.h" />
-    <ClInclude Include="lib\heap_sort.h" />
-    <ClInclude Include="lib\input.h" />
-    <ClInclude Include="lib\insertion_sort.h" />
-    <ClInclude Include="lib\kosarajus_sccs.h" />
-    <ClInclude Include="lib\kosarajus_sccs.hpp" />
-    <ClInclude Include="lib\lcm.h" />
-    <ClInclude Include="lib\lcm.hpp" />
-    <ClInclude Include="lib\linear_diophantine.h" />
-    <ClInclude Include="lib\linear_diophantine.hpp" />
-    <ClInclude Include="lib\merge_sort.h" />
-    <ClInclude Include="lib\miller_rabin.h" />
-    <ClInclude Include="lib\miller_rabin.hpp" />
-    <ClInclude Include="lib\modular.h" />
-    <ClInclude Include="lib\modular.hpp" />
-    <ClInclude Include="lib\output.h" />
-    <ClInclude Include="lib\pollards_rho.h" />
-    <ClInclude Include="lib\pollards_rho.hpp" />
-    <ClInclude Include="lib\polynomial.h" />
-    <ClInclude Include="lib\polynomial.hpp" />
-    <ClInclude Include="lib\power.h" />
-    <ClInclude Include="lib\power.hpp" />
-    <ClInclude Include="lib\prng.h" />
-    <ClInclude Include="lib\quadratic_diophantine.h" />
-    <ClInclude Include="lib\quadratic_diophantine.hpp" />
-    <ClInclude Include="lib\quick_sort.h" />
-    <ClInclude Include="lib\selection_sort.h" />
-    <ClInclude Include="lib\timer.h" />
-    <ClInclude Include="lib\to_string.h" />
-    <ClInclude Include="lib\trailing_zero_bits.h" />
-    <ClInclude Include="lib\trailing_zero_bits.hpp" />
-    <ClInclude Include="lib\weighted_bi_edge.h" />
-    <ClInclude Include="lib\weighted_edge.h" />
-    <ClInclude Include="lib\y_combinator.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="lib\arbitrary_precision_integer.cpp" />
-    <ClCompile Include="lib\binary_insertion_sort.cpp" />
-    <ClCompile Include="lib\bit.cpp" />
-    <ClCompile Include="lib\bi_edge.cpp" />
-    <ClCompile Include="lib\bubble_sort.cpp" />
-    <ClCompile Include="lib\chash.cpp" />
-    <ClCompile Include="lib\choose.cpp" />
-    <ClCompile Include="lib\compress.cpp" />
-    <ClCompile Include="lib\counting_sort.cpp" />
-    <ClCompile Include="lib\debug.cpp" />
-    <ClCompile Include="lib\desopo_pape.cpp" />
-    <ClCompile Include="lib\digit_sum.cpp" />
-    <ClCompile Include="lib\dijkstra.cpp" />
-    <ClCompile Include="lib\distinctelements.cpp" />
-    <ClCompile Include="lib\dsu.cpp" />
-    <ClCompile Include="lib\edge.cpp" />
-    <ClCompile Include="lib\factorize.cpp" />
-    <ClCompile Include="lib\gcd.cpp" />
-    <ClCompile Include="lib\graph.cpp" />
-    <ClCompile Include="lib\heap_sort.cpp" />
-    <ClCompile Include="lib\input.cpp" />
-    <ClCompile Include="lib\insertion_sort.cpp" />
-    <ClCompile Include="lib\kosarajus_sccs.cpp" />
-    <ClCompile Include="lib\lcm.cpp" />
-    <ClCompile Include="lib\linear_diophantine.cpp" />
-    <ClCompile Include="lib\merge_sort.cpp" />
-    <ClCompile Include="lib\miller_rabin.cpp" />
-    <ClCompile Include="lib\modular.cpp" />
-    <ClCompile Include="lib\output.cpp" />
-    <ClCompile Include="lib\pollards_rho.cpp" />
-    <ClCompile Include="lib\polynomial.cpp" />
-    <ClCompile Include="lib\power.cpp" />
-    <ClCompile Include="lib\prng.cpp" />
-    <ClCompile Include="lib\quadratic_diophantine.cpp" />
-    <ClCompile Include="lib\quick_sort.cpp" />
-    <ClCompile Include="lib\selection_sort.cpp" />
-    <ClCompile Include="lib\timer.cpp" />
-    <ClCompile Include="lib\to_string.cpp" />
-    <ClCompile Include="lib\trailing_zero_bits.cpp" />
-    <ClCompile Include="lib\weighted_bi_edge.cpp" />
-    <ClCompile Include="lib\weighted_edge.cpp" />
-    <ClCompile Include="lib\y_combinator.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{481E5440-D03D-52B1-92EC-E95F3BB538AA}</ProjectGuid>
@@ -139,8 +30,6 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   <PropertyGroup Condition="'$(WindowsTargetPlatformVersion)'=='' and '$(PlatformToolset)' != 'v120' and '$(PlatformToolset)' != 'v140'">
     <LatestTargetPlatformVersion>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</LatestTargetPlatformVersion>
     <WindowsTargetPlatformVersion>$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
@@ -157,12 +46,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -180,25 +69,111 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level4</WarningLevel>
-      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</TreatWarningAsError>
-      <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IntrinsicFunctions>
-      <UseFullPaths Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</UseFullPaths>
+      <EnablePREfast Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</EnablePREfast>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level4</WarningLevel>
-      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</TreatWarningAsError>
-      <UseFullPaths Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</UseFullPaths>
+      <EnablePREfast Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EnablePREfast>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="arbitrary_precision_integer.h" />
+    <ClInclude Include="base.h" />
+    <ClInclude Include="binary_insertion_sort.h" />
+    <ClInclude Include="bit.h" />
+    <ClInclude Include="bi_edge.h" />
+    <ClInclude Include="bubble_sort.h" />
+    <ClInclude Include="chash.h" />
+    <ClInclude Include="choose.h" />
+    <ClInclude Include="compress.h" />
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="desopo_pape.h" />
+    <ClInclude Include="digit_sum.h" />
+    <ClInclude Include="dijkstra.h" />
+    <ClInclude Include="distinct_elements.h" />
+    <ClInclude Include="dsu.h" />
+    <ClInclude Include="edge.h" />
+    <ClInclude Include="factorize.h" />
+    <ClInclude Include="gcd.h" />
+    <ClInclude Include="graph.h" />
+    <ClInclude Include="heap_sort.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="insertion_sort.h" />
+    <ClInclude Include="kosarajus_sccs.h" />
+    <ClInclude Include="lcm.h" />
+    <ClInclude Include="linear_diophantine.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="merge_sort.h" />
+    <ClInclude Include="miller_rabin.h" />
+    <ClInclude Include="modular.h" />
+    <ClInclude Include="output.h" />
+    <ClInclude Include="pollards_rho.h" />
+    <ClInclude Include="polynomial.h" />
+    <ClInclude Include="power.h" />
+    <ClInclude Include="prng.h" />
+    <ClInclude Include="quadratic_diophantine.h" />
+    <ClInclude Include="quick_sort.h" />
+    <ClInclude Include="selection_sort.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="to_string.h" />
+    <ClInclude Include="trailing_zero_bits.h" />
+    <ClInclude Include="weighted_bi_edge.h" />
+    <ClInclude Include="weighted_edge.h" />
+    <ClInclude Include="y_combinator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="arbitrary_precision_integer.cpp" />
+    <ClCompile Include="binary_insertion_sort.cpp" />
+    <ClCompile Include="bit.cpp" />
+    <ClCompile Include="bi_edge.cpp" />
+    <ClCompile Include="bubble_sort.cpp" />
+    <ClCompile Include="chash.cpp" />
+    <ClCompile Include="choose.cpp" />
+    <ClCompile Include="compress.cpp" />
+    <ClCompile Include="debug.cpp" />
+    <ClCompile Include="desopo_pape.cpp" />
+    <ClCompile Include="digit_sum.cpp" />
+    <ClCompile Include="dijkstra.cpp" />
+    <ClCompile Include="distinct_elements.cpp" />
+    <ClCompile Include="dsu.cpp" />
+    <ClCompile Include="edge.cpp" />
+    <ClCompile Include="factorize.cpp" />
+    <ClCompile Include="gcd.cpp" />
+    <ClCompile Include="graph.cpp" />
+    <ClCompile Include="heap_sort.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="insertion_sort.cpp" />
+    <ClCompile Include="kosarajus_sccs.cpp" />
+    <ClCompile Include="lcm.cpp" />
+    <ClCompile Include="linear_diophantine.cpp" />
+    <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="merge_sort.cpp" />
+    <ClCompile Include="miller_rabin.cpp" />
+    <ClCompile Include="modular.cpp" />
+    <ClCompile Include="output.cpp" />
+    <ClCompile Include="pollards_rho.cpp" />
+    <ClCompile Include="polynomial.cpp" />
+    <ClCompile Include="power.cpp" />
+    <ClCompile Include="prng.cpp" />
+    <ClCompile Include="quadratic_diophantine.cpp" />
+    <ClCompile Include="quick_sort.cpp" />
+    <ClCompile Include="selection_sort.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="to_string.cpp" />
+    <ClCompile Include="trailing_zero_bits.cpp" />
+    <ClCompile Include="weighted_bi_edge.cpp" />
+    <ClCompile Include="weighted_edge.cpp" />
+    <ClCompile Include="y_combinator.cpp" />
+  </ItemGroup>
   <Import Project="..\vs_common.props" Condition="exists('..\vs_common.props')" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

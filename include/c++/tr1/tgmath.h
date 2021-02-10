@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file tr1/tgmath.h
- *  This is a TR1 C++ Library header.
+ *  This is a TR1 C++ Library header. 
  */
 
 #ifndef _GLIBCXX_TR1_TGMATH_H
@@ -31,4 +31,4 @@
 
 #include <tr1/ctgmath>
 
-#endif  // _GLIBCXX_TR1_TGMATH_H
+#endif // _GLIBCXX_TR1_TGMATH_H

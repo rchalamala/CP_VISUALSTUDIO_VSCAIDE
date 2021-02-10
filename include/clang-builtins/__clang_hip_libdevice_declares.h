@@ -135,14 +135,14 @@ __device__ __attribute__((const)) float __ocml_fma_rtn_f32(float, float, float);
 __device__ __attribute__((const)) float __ocml_fma_rtp_f32(float, float, float);
 __device__ __attribute__((const)) float __ocml_fma_rtz_f32(float, float, float);
 
-__device__ __attribute__((const)) float __llvm_amdgcn_cos_f32(float) __asm(
-    "llvm.amdgcn.cos.f32");
-__device__ __attribute__((const)) float __llvm_amdgcn_rcp_f32(float) __asm(
-    "llvm.amdgcn.rcp.f32");
-__device__ __attribute__((const)) float __llvm_amdgcn_rsq_f32(float) __asm(
-    "llvm.amdgcn.rsq.f32");
-__device__ __attribute__((const)) float __llvm_amdgcn_sin_f32(float) __asm(
-    "llvm.amdgcn.sin.f32");
+__device__ __attribute__((const)) float
+__llvm_amdgcn_cos_f32(float) __asm("llvm.amdgcn.cos.f32");
+__device__ __attribute__((const)) float
+__llvm_amdgcn_rcp_f32(float) __asm("llvm.amdgcn.rcp.f32");
+__device__ __attribute__((const)) float
+__llvm_amdgcn_rsq_f32(float) __asm("llvm.amdgcn.rsq.f32");
+__device__ __attribute__((const)) float
+__llvm_amdgcn_sin_f32(float) __asm("llvm.amdgcn.sin.f32");
 // END INTRINSICS
 // END FLOAT
 
@@ -222,8 +222,8 @@ __device__ __attribute__((const)) double __ocml_scalbn_f64(double, int);
 __device__ __attribute__((const)) int __ocml_signbit_f64(double);
 __device__ double __ocml_sincos_f64(double,
                                     __attribute__((address_space(5))) double *);
-__device__ double __ocml_sincospi_f64(
-    double, __attribute__((address_space(5))) double *);
+__device__ double
+__ocml_sincospi_f64(double, __attribute__((address_space(5))) double *);
 __device__ double __ocml_sin_f64(double);
 __device__ __attribute__((pure)) double __ocml_sinh_f64(double);
 __device__ double __ocml_sinpi_f64(double);
@@ -265,10 +265,10 @@ __device__ __attribute__((const)) double __ocml_fma_rtp_f64(double, double,
 __device__ __attribute__((const)) double __ocml_fma_rtz_f64(double, double,
                                                             double);
 
-__device__ __attribute__((const)) double __llvm_amdgcn_rcp_f64(double) __asm(
-    "llvm.amdgcn.rcp.f64");
-__device__ __attribute__((const)) double __llvm_amdgcn_rsq_f64(double) __asm(
-    "llvm.amdgcn.rsq.f64");
+__device__ __attribute__((const)) double
+__llvm_amdgcn_rcp_f64(double) __asm("llvm.amdgcn.rcp.f64");
+__device__ __attribute__((const)) double
+__llvm_amdgcn_rsq_f64(double) __asm("llvm.amdgcn.rsq.f64");
 
 __device__ __attribute__((const)) _Float16 __ocml_ceil_f16(_Float16);
 __device__ _Float16 __ocml_cos_f16(_Float16);
@@ -310,8 +310,8 @@ __device__ __attribute__((const)) __2i16 __ocml_isnan_2f16(__2f16);
 __device__ __attribute__((pure)) __2f16 __ocml_log_2f16(__2f16);
 __device__ __attribute__((pure)) __2f16 __ocml_log10_2f16(__2f16);
 __device__ __attribute__((pure)) __2f16 __ocml_log2_2f16(__2f16);
-__device__ inline __2f16 __llvm_amdgcn_rcp_2f16(
-    __2f16 __x)  // Not currently exposed by ROCDL.
+__device__ inline __2f16
+__llvm_amdgcn_rcp_2f16(__2f16 __x) // Not currently exposed by ROCDL.
 {
   return __2f16{__llvm_amdgcn_rcp_f16(__x.x), __llvm_amdgcn_rcp_f16(__x.y)};
 }
@@ -321,6 +321,6 @@ __device__ __2f16 __ocml_sin_2f16(__2f16);
 __device__ __attribute__((const)) __2f16 __ocml_sqrt_2f16(__2f16);
 __device__ __attribute__((const)) __2f16 __ocml_trunc_2f16(__2f16);
 
-}  // extern "C"
+} // extern "C"
 
-#endif  // __CLANG_HIP_LIBDEVICE_DECLARES_H__
+#endif // __CLANG_HIP_LIBDEVICE_DECLARES_H__

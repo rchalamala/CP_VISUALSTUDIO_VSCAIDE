@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rahul\source\repos\cp\cpplib\</FILEPATH>
+      <FILENAME>chash.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26497</DEFECTCODE>
+    <DESCRIPTION>The function 'chash::splitmix64' could be marked constexpr if compile-time evaluation is desired (f.4).</DESCRIPTION>
+    <FUNCTION>chash::splitmix64</FUNCTION>
+    <DECORATED>?splitmix64@chash@@SA_K_K@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rahul\source\repos\cp\cpplib\</FILEPATH>
+      <FILENAME>chash.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'chash::splitmix64' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>chash::splitmix64</FUNCTION>
+    <DECORATED>?splitmix64@chash@@SA_K_K@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rahul\source\repos\cp\cpplib\</FILEPATH>
+      <FILENAME>chash.cpp</FILENAME>
+      <LINE>19</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26472</DEFECTCODE>
+    <DESCRIPTION>Don't use a static_cast for arithmetic conversions. Use brace initialization, gsl::narrow_cast or gsl::narrow (type.1).</DESCRIPTION>
+    <FUNCTION>chash::()</FUNCTION>
+    <DECORATED>??Rchash@@QBE_K_K@Z</DECORATED>
+    <FUNCLINE>18</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rahul\source\repos\cp\cpplib\</FILEPATH>
+      <FILENAME>chash.cpp</FILENAME>
+      <LINE>26</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26472</DEFECTCODE>
+    <DESCRIPTION>Don't use a static_cast for arithmetic conversions. Use brace initialization, gsl::narrow_cast or gsl::narrow (type.1).</DESCRIPTION>
+    <FUNCTION>chash::()</FUNCTION>
+    <DECORATED>??Rchash@@QBE_KU?$pair@_K_K@std@@@Z</DECORATED>
+    <FUNCLINE>24</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

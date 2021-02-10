@@ -12,7 +12,7 @@
 #error Only Win32 target is supported!
 #endif
 
-#pragma pack(push, _CRT_PACKING)
+#pragma pack(push,_CRT_PACKING)
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,20 +29,20 @@ extern "C" {
 #endif
 
 #ifndef _TIME32_T_DEFINED
-typedef long __time32_t;
+  typedef long __time32_t;
 #define _TIME32_T_DEFINED
 #endif
 
 #ifndef _TIME64_T_DEFINED
-__MINGW_EXTENSION typedef __int64 __time64_t;
+  __MINGW_EXTENSION typedef __int64 __time64_t;
 #define _TIME64_T_DEFINED
 #endif
 
 #ifndef _TIME_T_DEFINED
 #ifdef _USE_32BIT_TIME_T
-typedef __time32_t time_t;
+  typedef __time32_t time_t;
 #else
-typedef __time64_t time_t;
+  typedef __time64_t time_t;
 #endif
 #define _TIME_T_DEFINED
 #endif
@@ -50,33 +50,33 @@ typedef __time64_t time_t;
 #ifndef _TIMEB_DEFINED
 #define _TIMEB_DEFINED
 
-struct __timeb32 {
-  __time32_t time;
-  unsigned short millitm;
-  short timezone;
-  short dstflag;
-};
+  struct __timeb32 {
+    __time32_t time;
+    unsigned short millitm;
+    short timezone;
+    short dstflag;
+  };
 
-#ifndef NO_OLDNAMES
-struct timeb {
-  time_t time;
-  unsigned short millitm;
-  short timezone;
-  short dstflag;
-};
+#ifndef	NO_OLDNAMES
+  struct timeb {
+    time_t time;
+    unsigned short millitm;
+    short timezone;
+    short dstflag;
+  };
 #endif
 
-struct __timeb64 {
-  __time64_t time;
-  unsigned short millitm;
-  short timezone;
-  short dstflag;
-};
+  struct __timeb64 {
+    __time64_t time;
+    unsigned short millitm;
+    short timezone;
+    short dstflag;
+  };
 
 #endif
 
-_CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
-_CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);
+  _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
+  _CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);
 
 #ifndef _USE_32BIT_TIME_T
 #define _timeb __timeb64
@@ -89,29 +89,29 @@ _CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
 struct timespec {
-  time_t tv_sec; /* Seconds */
-  long tv_nsec;  /* Nanoseconds */
+  time_t  tv_sec;   /* Seconds */
+  long    tv_nsec;  /* Nanoseconds */
 };
 
 struct itimerspec {
-  struct timespec it_interval; /* Timer period */
-  struct timespec it_value;    /* Timer expiration */
+  struct timespec  it_interval;  /* Timer period */
+  struct timespec  it_value;     /* Timer expiration */
 };
 #endif
 
-#if !defined(RC_INVOKED) && !defined(NO_OLDNAMES)
-void __cdecl ftime(struct timeb *);
+#if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
+  void __cdecl ftime (struct timeb *);
 
 #ifndef __CRT__NO_INLINE
-/* TODO: Avoid structure cast here !!!! */
+  /* TODO: Avoid structure cast here !!!! */
 #ifndef _USE_32BIT_TIME_T
-__CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
-  _ftime64((struct __timeb64 *)_Tmb);
-}
+  __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
+    _ftime64((struct __timeb64 *)_Tmb);
+  }
 #else
-__CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
-  _ftime32((struct __timeb32 *)_Tmb);
-}
+  __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
+    _ftime32((struct __timeb32 *)_Tmb);
+  }
 #endif /* _USE_32BIT_TIME_T */
 #endif /* !__CRT__NO_INLINE */
 #endif

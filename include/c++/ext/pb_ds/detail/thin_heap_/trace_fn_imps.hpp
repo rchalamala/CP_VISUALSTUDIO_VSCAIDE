@@ -43,11 +43,14 @@
 #ifdef PB_DS_THIN_HEAP_TRACE_
 
 PB_DS_CLASS_T_DEC
-void PB_DS_CLASS_C_DEC::trace() const {
+void
+PB_DS_CLASS_C_DEC::
+trace() const
+{
   std::cerr << std::endl;
   std::cerr << "m_p_max " << m_p_max << std::endl;
   base_type::trace();
 }
 
-#endif  // #ifdef PB_DS_THIN_HEAP_TRACE_
+#endif // #ifdef PB_DS_THIN_HEAP_TRACE_
 #endif

@@ -23,30 +23,27 @@ extern "C" {
 
 #ifndef _CRT_TERMINATE_DEFINED
 #define _CRT_TERMINATE_DEFINED
-void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
-void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
+  void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
+  void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
 
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
-/* C99 function name */
-void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
+  /* C99 function name */
+  void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
 #ifndef __CRT__NO_INLINE
-__CRT_INLINE __MINGW_ATTRIB_NORETURN void __cdecl _Exit(int status) {
-  _exit(status);
-}
+  __CRT_INLINE __MINGW_ATTRIB_NORETURN void  __cdecl _Exit(int status)
+  {  _exit(status); }
 #endif /* !__CRT__NO_INLINE */
 #endif /* Not  __NO_ISOCEXT */
 
 #pragma push_macro("abort")
 #undef abort
-void __cdecl __MINGW_ATTRIB_NORETURN abort(void);
+  void __cdecl __MINGW_ATTRIB_NORETURN abort(void);
 #pragma pop_macro("abort")
 
 #endif /* _CRT_TERMINATE_DEFINED */
 
-_CRTIMP void __cdecl _wassert(const wchar_t *_Message, const wchar_t *_File,
-                              unsigned _Line);
-_CRTIMP void __cdecl _assert(const char *_Message, const char *_File,
-                             unsigned _Line);
+_CRTIMP void __cdecl _wassert(const wchar_t *_Message,const wchar_t *_File,unsigned _Line);
+_CRTIMP void __cdecl _assert (const char *_Message, const char *_File, unsigned _Line);
 
 #ifdef __cplusplus
 }
@@ -54,9 +51,9 @@ _CRTIMP void __cdecl _assert(const char *_Message, const char *_File,
 
 #endif /* !defined (__ASSERT_H_) */
 
-#if (defined _ISOC11_SOURCE ||                                     \
-     (defined __STDC_VERSION__ && __STDC_VERSION__ >= 201112L)) && \
-    !defined(__cplusplus)
+#if (defined _ISOC11_SOURCE \
+     || (defined __STDC_VERSION__ && __STDC_VERSION__ >= 201112L)) \
+    && !defined (__cplusplus)
 /* Static assertion.  Requires support in the compiler.  */
 #undef static_assert
 #define static_assert _Static_assert
@@ -66,12 +63,15 @@ _CRTIMP void __cdecl _assert(const char *_Message, const char *_File,
 #define assert(_Expression) ((void)0)
 #else /* !defined (NDEBUG) */
 #if defined(_UNICODE) || defined(UNICODE)
-#define assert(_Expression)                                                 \
-  (void)((!!(_Expression)) ||                                               \
-         (_wassert(_CRT_WIDE(#_Expression), _CRT_WIDE(__FILE__), __LINE__), \
-          0))
+#define assert(_Expression) \
+ (void) \
+ ((!!(_Expression)) || \
+  (_wassert(_CRT_WIDE(#_Expression),_CRT_WIDE(__FILE__),__LINE__),0))
 #else /* not unicode */
 #define assert(_Expression) \
-  (void)((!!(_Expression)) || (_assert(#_Expression, __FILE__, __LINE__), 0))
+ (void) \
+ ((!!(_Expression)) || \
+  (_assert(#_Expression,__FILE__,__LINE__),0))
 #endif /* _UNICODE||UNICODE */
 #endif /* !defined (NDEBUG) */
+

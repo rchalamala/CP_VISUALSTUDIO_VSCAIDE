@@ -1,10 +1,9 @@
-#include "lib/base.h"
-#include "lib/debug.h"
-#include "lib/input.h"
-#include "lib/output.h"
+#include "base.h"
+#include "debug.h"
+#include "input.h"
+#include "output.h"
 using namespace std;
 
-//#define INTERACTIVE
 //#define CODE_JAM
 //#define LIGHT_OJ
 

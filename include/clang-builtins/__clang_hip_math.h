@@ -10,11 +10,10 @@
 #ifndef __CLANG_HIP_MATH_H__
 #define __CLANG_HIP_MATH_H__
 
-#include <limits.h>
-#include <stdint.h>
-
 #include <algorithm>
+#include <limits.h>
 #include <limits>
+#include <stdint.h>
 
 #pragma push_macro("__DEVICE__")
 #pragma push_macro("__RETURN_TYPE")
@@ -80,7 +79,8 @@ inline uint64_t __make_mantissa_base16(const char *__tagp) {
 
 __DEVICE__
 inline uint64_t __make_mantissa(const char *__tagp) {
-  if (!__tagp) return 0u;
+  if (!__tagp)
+    return 0u;
 
   if (*__tagp == '0') {
     ++__tagp;
@@ -190,12 +190,14 @@ __DEVICE__
 inline float j1f(float __x) { return __ocml_j1_f32(__x); }
 __DEVICE__
 inline float jnf(int __n,
-                 float __x) {  // TODO: we could use Ahmes multiplication
-                               // and the Miller & Brown algorithm
+                 float __x) { // TODO: we could use Ahmes multiplication
+                              // and the Miller & Brown algorithm
   //       for linear recurrences to get O(log n) steps, but it's unclear if
   //       it'd be beneficial in this case.
-  if (__n == 0) return j0f(__x);
-  if (__n == 1) return j1f(__x);
+  if (__n == 0)
+    return j0f(__x);
+  if (__n == 1)
+    return j1f(__x);
 
   float __x0 = j0f(__x);
   float __x1 = j1f(__x);
@@ -278,9 +280,9 @@ inline float normcdff(float __x) { return __ocml_ncdf_f32(__x); }
 __DEVICE__
 inline float normcdfinvf(float __x) { return __ocml_ncdfinv_f32(__x); }
 __DEVICE__
-inline float normf(
-    int __dim,
-    const float *__a) {  // TODO: placeholder until OCML adds support.
+inline float
+normf(int __dim,
+      const float *__a) { // TODO: placeholder until OCML adds support.
   float __r = 0;
   while (__dim--) {
     __r += __a[0] * __a[0];
@@ -322,9 +324,9 @@ inline float rnorm4df(float __x, float __y, float __z, float __w) {
   return __ocml_rlen4_f32(__x, __y, __z, __w);
 }
 __DEVICE__
-inline float rnormf(
-    int __dim,
-    const float *__a) {  // TODO: placeholder until OCML adds support.
+inline float
+rnormf(int __dim,
+       const float *__a) { // TODO: placeholder until OCML adds support.
   float __r = 0;
   while (__dim--) {
     __r += __a[0] * __a[0];
@@ -384,13 +386,15 @@ __DEVICE__
 inline float y1f(float __x) { return __ocml_y1_f32(__x); }
 __DEVICE__
 inline float ynf(int __n,
-                 float __x) {  // TODO: we could use Ahmes multiplication
-                               // and the Miller & Brown algorithm
+                 float __x) { // TODO: we could use Ahmes multiplication
+                              // and the Miller & Brown algorithm
   //       for linear recurrences to get O(log n) steps, but it's unclear if
   //       it'd be beneficial in this case. Placeholder until OCML adds
   //       support.
-  if (__n == 0) return y0f(__x);
-  if (__n == 1) return y1f(__x);
+  if (__n == 0)
+    return y0f(__x);
+  if (__n == 1)
+    return y1f(__x);
 
   float __x0 = y0f(__x);
   float __x1 = y1f(__x);
@@ -644,13 +648,15 @@ __DEVICE__
 inline double j1(double __x) { return __ocml_j1_f64(__x); }
 __DEVICE__
 inline double jn(int __n,
-                 double __x) {  // TODO: we could use Ahmes multiplication
-                                // and the Miller & Brown algorithm
+                 double __x) { // TODO: we could use Ahmes multiplication
+                               // and the Miller & Brown algorithm
   //       for linear recurrences to get O(log n) steps, but it's unclear if
   //       it'd be beneficial in this case. Placeholder until OCML adds
   //       support.
-  if (__n == 0) return j0f(__x);
-  if (__n == 1) return j1f(__x);
+  if (__n == 0)
+    return j0f(__x);
+  if (__n == 1)
+    return j1f(__x);
 
   double __x0 = j0f(__x);
   double __x1 = j1f(__x);
@@ -727,9 +733,9 @@ inline double nextafter(double __x, double __y) {
   return __ocml_nextafter_f64(__x, __y);
 }
 __DEVICE__
-inline double norm(
-    int __dim,
-    const double *__a) {  // TODO: placeholder until OCML adds support.
+inline double
+norm(int __dim,
+     const double *__a) { // TODO: placeholder until OCML adds support.
   double __r = 0;
   while (__dim--) {
     __r += __a[0] * __a[0];
@@ -774,9 +780,9 @@ inline double rhypot(double __x, double __y) {
 __DEVICE__
 inline double rint(double __x) { return __ocml_rint_f64(__x); }
 __DEVICE__
-inline double rnorm(
-    int __dim,
-    const double *__a) {  // TODO: placeholder until OCML adds support.
+inline double
+rnorm(int __dim,
+      const double *__a) { // TODO: placeholder until OCML adds support.
   double __r = 0;
   while (__dim--) {
     __r += __a[0] * __a[0];
@@ -844,13 +850,15 @@ __DEVICE__
 inline double y1(double __x) { return __ocml_y1_f64(__x); }
 __DEVICE__
 inline double yn(int __n,
-                 double __x) {  // TODO: we could use Ahmes multiplication
-                                // and the Miller & Brown algorithm
+                 double __x) { // TODO: we could use Ahmes multiplication
+                               // and the Miller & Brown algorithm
   //       for linear recurrences to get O(log n) steps, but it's unclear if
   //       it'd be beneficial in this case. Placeholder until OCML adds
   //       support.
-  if (__n == 0) return j0f(__x);
-  if (__n == 1) return j1f(__x);
+  if (__n == 0)
+    return j0f(__x);
+  if (__n == 1)
+    return j1f(__x);
 
   double __x0 = j0f(__x);
   double __x1 = j1f(__x);
@@ -1014,54 +1022,50 @@ inline float fma(float __x, float __y, float __z) {
 #pragma push_macro("__HIP_OVERLOAD2")
 
 // __hip_enable_if::type is a type function which returns __T if __B is true.
-template <bool __B, class __T = void>
-struct __hip_enable_if {};
+template <bool __B, class __T = void> struct __hip_enable_if {};
 
-template <class __T>
-struct __hip_enable_if<true, __T> {
-  typedef __T type;
-};
+template <class __T> struct __hip_enable_if<true, __T> { typedef __T type; };
 
 // __HIP_OVERLOAD1 is used to resolve function calls with integer argument to
 // avoid compilation error due to ambibuity. e.g. floor(5) is resolved with
 // floor(double).
-#define __HIP_OVERLOAD1(__retty, __fn)                                      \
-  template <typename __T>                                                   \
-  __DEVICE__ typename __hip_enable_if<std::numeric_limits<__T>::is_integer, \
-                                      __retty>::type                        \
-  __fn(__T __x) {                                                           \
-    return ::__fn((double)__x);                                             \
+#define __HIP_OVERLOAD1(__retty, __fn)                                         \
+  template <typename __T>                                                      \
+  __DEVICE__ typename __hip_enable_if<std::numeric_limits<__T>::is_integer,    \
+                                      __retty>::type                           \
+  __fn(__T __x) {                                                              \
+    return ::__fn((double)__x);                                                \
   }
 
 // __HIP_OVERLOAD2 is used to resolve function calls with mixed float/double
 // or integer argument to avoid compilation error due to ambibuity. e.g.
 // max(5.0f, 6.0) is resolved with max(double, double).
-#define __HIP_OVERLOAD2(__retty, __fn)                                        \
-  template <typename __T1, typename __T2>                                     \
-  __DEVICE__                                                                  \
-      typename __hip_enable_if<std::numeric_limits<__T1>::is_specialized &&   \
-                                   std::numeric_limits<__T2>::is_specialized, \
-                               __retty>::type                                 \
-      __fn(__T1 __x, __T2 __y) {                                              \
-    return __fn((double)__x, (double)__y);                                    \
+#define __HIP_OVERLOAD2(__retty, __fn)                                         \
+  template <typename __T1, typename __T2>                                      \
+  __DEVICE__                                                                   \
+      typename __hip_enable_if<std::numeric_limits<__T1>::is_specialized &&    \
+                                   std::numeric_limits<__T2>::is_specialized,  \
+                               __retty>::type                                  \
+      __fn(__T1 __x, __T2 __y) {                                               \
+    return __fn((double)__x, (double)__y);                                     \
   }
 
 // Define cmath functions with float argument and returns float.
-#define __DEF_FUN1(__retty, __func)                         \
-  __DEVICE__                                                \
-  inline float __func(float __x) { return __func##f(__x); } \
+#define __DEF_FUN1(__retty, __func)                                            \
+  __DEVICE__                                                                   \
+  inline float __func(float __x) { return __func##f(__x); }                    \
   __HIP_OVERLOAD1(__retty, __func)
 
 // Define cmath functions with float argument and returns __retty.
-#define __DEF_FUNI(__retty, __func)                           \
-  __DEVICE__                                                  \
-  inline __retty __func(float __x) { return __func##f(__x); } \
+#define __DEF_FUNI(__retty, __func)                                            \
+  __DEVICE__                                                                   \
+  inline __retty __func(float __x) { return __func##f(__x); }                  \
   __HIP_OVERLOAD1(__retty, __func)
 
 // define cmath functions with two float arguments.
-#define __DEF_FUN2(__retty, __func)                                         \
-  __DEVICE__                                                                \
-  inline float __func(float __x, float __y) { return __func##f(__x, __y); } \
+#define __DEF_FUN2(__retty, __func)                                            \
+  __DEVICE__                                                                   \
+  inline float __func(float __x, float __y) { return __func##f(__x, __y); }    \
   __HIP_OVERLOAD2(__retty, __func)
 
 __DEF_FUN1(double, acos)
@@ -1126,18 +1130,16 @@ __DEF_FUN1(double, tgamma)
 __DEF_FUN1(double, trunc);
 
 // define cmath functions with a float and an integer argument.
-#define __DEF_FLOAT_FUN2I(__func) \
-  __DEVICE__                      \
+#define __DEF_FLOAT_FUN2I(__func)                                              \
+  __DEVICE__                                                                   \
   inline float __func(float __x, int __y) { return __func##f(__x, __y); }
 __DEF_FLOAT_FUN2I(scalbn)
 
-template <class T>
-__DEVICE__ inline T min(T __arg1, T __arg2) {
+template <class T> __DEVICE__ inline T min(T __arg1, T __arg2) {
   return (__arg1 < __arg2) ? __arg1 : __arg2;
 }
 
-template <class T>
-__DEVICE__ inline T max(T __arg1, T __arg2) {
+template <class T> __DEVICE__ inline T max(T __arg1, T __arg2) {
   return (__arg1 > __arg2) ? __arg1 : __arg2;
 }
 
@@ -1180,4 +1182,4 @@ __host__ inline static int max(int __arg1, int __arg2) {
 #pragma pop_macro("__DEVICE__")
 #pragma pop_macro("__RETURN_TYPE")
 
-#endif  // __CLANG_HIP_MATH_H__
+#endif // __CLANG_HIP_MATH_H__

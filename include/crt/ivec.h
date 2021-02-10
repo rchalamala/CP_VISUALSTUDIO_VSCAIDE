@@ -11,11 +11,11 @@
 #error This file is only supported in C++ compilations!
 #endif
 
+#include <intrin.h>
 #include <assert.h>
 #include <crtdefs.h>
-#include <intrin.h>
 
-#pragma pack(push, _CRT_PACKING)
+#pragma pack(push,_CRT_PACKING)
 
 #if defined(_ENABLE_VEC_DEBUG)
 #include <iostream>
@@ -27,23 +27,23 @@
 
 #define _MM_QW (*((__int64*)&vec))
 
-#pragma pack(push, 16)
+#pragma pack(push,16)
 
-class M64 {
- protected:
-  __m64 vec;
+class M64
+{
+protected:
+    __m64 vec;
+public:
+    M64() {}
+    M64(__m64 mm) { vec = mm; }
+    M64(__int64 mm) { _MM_QW = mm; }
+    M64(int i) { vec = _m_from_int(i); }
 
- public:
-  M64() {}
-  M64(__m64 mm) { vec = mm; }
-  M64(__int64 mm) { _MM_QW = mm; }
-  M64(int i) { vec = _m_from_int(i); }
+    operator __m64() const { return vec; }
 
-  operator __m64() const { return vec; }
-
-  M64& operator&=(const M64& a) { return *this = (M64)_m_pand(vec, a); }
-  M64& operator|=(const M64& a) { return *this = (M64)_m_por(vec, a); }
-  M64& operator^=(const M64& a) { return *this = (M64)_m_pxor(vec, a); }
+    M64& operator&=(const M64 &a) { return *this = (M64) _m_pand(vec,a); }
+    M64& operator|=(const M64 &a) { return *this = (M64) _m_por(vec,a); }
+    M64& operator^=(const M64 &a) { return *this = (M64) _m_pxor(vec,a); }
 };
 
 #pragma pack(pop)
@@ -54,3 +54,4 @@ class M64 {
 
 #endif
 #endif
+

@@ -36,7 +36,7 @@
 // because the OpenMP overlay requires constexpr functions here but prior to
 // c++14 void return functions could not be constexpr.
 #pragma push_macro("__DEVICE_VOID__")
-#ifdef __OPENMP_NVPTX__ &&defined(__cplusplus) && __cplusplus < 201402L
+#ifdef __OPENMP_NVPTX__ && defined(__cplusplus) && __cplusplus < 201402L
 #define __DEVICE_VOID__ static __attribute__((always_inline, nothrow))
 #else
 #define __DEVICE_VOID__ __DEVICE__
@@ -276,13 +276,17 @@ __DEVICE__ float rsqrtf(float __a) { return __nv_rsqrtf(__a); }
 __DEVICE__ double scalbn(double __a, int __b) { return __nv_scalbn(__a, __b); }
 __DEVICE__ float scalbnf(float __a, int __b) { return __nv_scalbnf(__a, __b); }
 __DEVICE__ double scalbln(double __a, long __b) {
-  if (__b > INT_MAX) return __a > 0 ? HUGE_VAL : -HUGE_VAL;
-  if (__b < INT_MIN) return __a > 0 ? 0.0 : -0.0;
+  if (__b > INT_MAX)
+    return __a > 0 ? HUGE_VAL : -HUGE_VAL;
+  if (__b < INT_MIN)
+    return __a > 0 ? 0.0 : -0.0;
   return scalbn(__a, (int)__b);
 }
 __DEVICE__ float scalblnf(float __a, long __b) {
-  if (__b > INT_MAX) return __a > 0 ? HUGE_VALF : -HUGE_VALF;
-  if (__b < INT_MIN) return __a > 0 ? 0.f : -0.f;
+  if (__b > INT_MAX)
+    return __a > 0 ? HUGE_VALF : -HUGE_VALF;
+  if (__b < INT_MIN)
+    return __a > 0 ? 0.f : -0.f;
   return scalbnf(__a, (int)__b);
 }
 __DEVICE__ double sin(double __a) { return __nv_sin(__a); }
@@ -340,4 +344,4 @@ __DEVICE__ float ynf(int __a, float __b) { return __nv_ynf(__a, __b); }
 #pragma pop_macro("__DEVICE_VOID__")
 #pragma pop_macro("__FAST_OR_SLOW")
 
-#endif  // __CLANG_CUDA_DEVICE_FUNCTIONS_H__
+#endif // __CLANG_CUDA_DEVICE_FUNCTIONS_H__

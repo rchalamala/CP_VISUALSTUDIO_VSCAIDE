@@ -22,81 +22,81 @@
 #define _wstati64 _wstat64
 #endif /* _USE_32BIT_TIME_T */
 
-struct _stat32 {
-  _dev_t st_dev;
-  _ino_t st_ino;
-  unsigned short st_mode;
-  short st_nlink;
-  short st_uid;
-  short st_gid;
-  _dev_t st_rdev;
-  _off_t st_size;
-  __time32_t st_atime;
-  __time32_t st_mtime;
-  __time32_t st_ctime;
-};
+  struct _stat32 {
+    _dev_t st_dev;
+   _ino_t st_ino;
+    unsigned short st_mode;
+    short st_nlink;
+    short st_uid;
+    short st_gid;
+    _dev_t st_rdev;
+    _off_t st_size;
+    __time32_t st_atime;
+    __time32_t st_mtime;
+    __time32_t st_ctime;
+  };
 
-#ifndef NO_OLDNAMES
-struct stat {
-  _dev_t st_dev;
-  _ino_t st_ino;
-  unsigned short st_mode;
-  short st_nlink;
-  short st_uid;
-  short st_gid;
-  _dev_t st_rdev;
-  _off_t st_size;
-  time_t st_atime;
-  time_t st_mtime;
-  time_t st_ctime;
-};
+#ifndef	NO_OLDNAMES
+  struct stat {
+    _dev_t st_dev;
+    _ino_t st_ino;
+    unsigned short st_mode;
+    short st_nlink;
+    short st_uid;
+    short st_gid;
+    _dev_t st_rdev;
+    _off_t st_size;
+    time_t st_atime;
+    time_t st_mtime;
+    time_t st_ctime;
+  };
 #endif /* NO_OLDNAMES */
 
-struct _stat32i64 {
-  _dev_t st_dev;
-  _ino_t st_ino;
-  unsigned short st_mode;
-  short st_nlink;
-  short st_uid;
-  short st_gid;
-  _dev_t st_rdev;
-  __MINGW_EXTENSION __int64 st_size;
-  __time32_t st_atime;
-  __time32_t st_mtime;
-  __time32_t st_ctime;
-};
+  struct _stat32i64 {
+    _dev_t st_dev;
+    _ino_t st_ino;
+    unsigned short st_mode;
+    short st_nlink;
+    short st_uid;
+    short st_gid;
+    _dev_t st_rdev;
+    __MINGW_EXTENSION __int64 st_size;
+    __time32_t st_atime;
+    __time32_t st_mtime;
+    __time32_t st_ctime;
+  };
 
-struct _stat64i32 {
-  _dev_t st_dev;
-  _ino_t st_ino;
-  unsigned short st_mode;
-  short st_nlink;
-  short st_uid;
-  short st_gid;
-  _dev_t st_rdev;
-  _off_t st_size;
-  __time64_t st_atime;
-  __time64_t st_mtime;
-  __time64_t st_ctime;
-};
+  struct _stat64i32 {
+    _dev_t st_dev;
+    _ino_t st_ino;
+    unsigned short st_mode;
+    short st_nlink;
+    short st_uid;
+    short st_gid;
+    _dev_t st_rdev;
+    _off_t st_size;
+    __time64_t st_atime;
+    __time64_t st_mtime;
+    __time64_t st_ctime;
+  };
 
-struct _stat64 {
-  _dev_t st_dev;
-  _ino_t st_ino;
-  unsigned short st_mode;
-  short st_nlink;
-  short st_uid;
-  short st_gid;
-  _dev_t st_rdev;
-  __MINGW_EXTENSION __int64 st_size;
-  __time64_t st_atime;
-  __time64_t st_mtime;
-  __time64_t st_ctime;
-};
+  struct _stat64 {
+    _dev_t st_dev;
+    _ino_t st_ino;
+    unsigned short st_mode;
+    short st_nlink;
+    short st_uid;
+    short st_gid;
+    _dev_t st_rdev;
+    __MINGW_EXTENSION __int64 st_size;
+    __time64_t st_atime;
+    __time64_t st_mtime;
+    __time64_t st_ctime;
+  };
 
 #define __stat64 _stat64
-#define stat64 _stat64 /* for POSIX */
-#define fstat64 _fstat64 /* for POSIX */
+#define stat64   _stat64  /* for POSIX */
+#define fstat64  _fstat64 /* for POSIX */
 
 #define _STAT_DEFINED
 #endif /* _STAT_DEFINED */

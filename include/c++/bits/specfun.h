@@ -39,27 +39,28 @@
 #define __cpp_lib_math_special_functions 201603L
 
 #if __cplusplus <= 201403L && __STDCPP_WANT_MATH_SPEC_FUNCS__ == 0
-#error include <cmath> and define __STDCPP_WANT_MATH_SPEC_FUNCS__
+# error include <cmath> and define __STDCPP_WANT_MATH_SPEC_FUNCS__
 #endif
 
 #include <bits/stl_algobase.h>
-
 #include <limits>
+#include <type_traits>
+
+#include <tr1/gamma.tcc>
 #include <tr1/bessel_function.tcc>
 #include <tr1/beta_function.tcc>
 #include <tr1/ell_integral.tcc>
 #include <tr1/exp_integral.tcc>
-#include <tr1/gamma.tcc>
 #include <tr1/hypergeometric.tcc>
 #include <tr1/legendre_function.tcc>
 #include <tr1/modified_bessel_func.tcc>
 #include <tr1/poly_hermite.tcc>
 #include <tr1/poly_laguerre.tcc>
 #include <tr1/riemann_zeta.tcc>
-#include <type_traits>
 
-namespace std _GLIBCXX_VISIBILITY(default) {
-  _GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    * @defgroup mathsf Mathematical Special Functions
@@ -73,17 +74,15 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @subsection mathsf_intro Introduction and History
    * The first significant library upgrade on the road to C++2011,
-   * <a
-   * href="http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2005/n1836.pdf">
+   * <a href="http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2005/n1836.pdf">
    * TR1</a>, included a set of 23 mathematical functions that significantly
-   * extended the standard transcendental functions inherited from C and
-   * declared in @<cmath@>.
+   * extended the standard transcendental functions inherited from C and declared
+   * in @<cmath@>.
    *
    * Although most components from TR1 were eventually adopted for C++11 these
    * math functions were left behind out of concern for implementability.
    * The math functions were published as a separate international standard
-   * <a
-   * href="http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2010/n3060.pdf">
+   * <a href="http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2010/n3060.pdf">
    * IS 29124 - Extensions to the C++ Library to Support Mathematical Special
    * Functions</a>.
    *
@@ -94,26 +93,16 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * - @ref assoc_laguerre "assoc_laguerre - Associated Laguerre functions"
    * - @ref assoc_legendre "assoc_legendre - Associated Legendre functions"
    * - @ref beta "beta - Beta functions"
-   * - @ref comp_ellint_1 "comp_ellint_1 - Complete elliptic functions of the
-   * first kind"
-   * - @ref comp_ellint_2 "comp_ellint_2 - Complete elliptic functions of the
-   * second kind"
-   * - @ref comp_ellint_3 "comp_ellint_3 - Complete elliptic functions of the
-   * third kind"
-   * - @ref cyl_bessel_i "cyl_bessel_i - Regular modified cylindrical Bessel
-   * functions"
-   * - @ref cyl_bessel_j "cyl_bessel_j - Cylindrical Bessel functions of the
-   * first kind"
-   * - @ref cyl_bessel_k "cyl_bessel_k - Irregular modified cylindrical Bessel
-   * functions"
-   * - @ref cyl_neumann "cyl_neumann - Cylindrical Neumann functions or
-   * Cylindrical Bessel functions of the second kind"
-   * - @ref ellint_1 "ellint_1 - Incomplete elliptic functions of the first
-   * kind"
-   * - @ref ellint_2 "ellint_2 - Incomplete elliptic functions of the second
-   * kind"
-   * - @ref ellint_3 "ellint_3 - Incomplete elliptic functions of the third
-   * kind"
+   * - @ref comp_ellint_1 "comp_ellint_1 - Complete elliptic functions of the first kind"
+   * - @ref comp_ellint_2 "comp_ellint_2 - Complete elliptic functions of the second kind"
+   * - @ref comp_ellint_3 "comp_ellint_3 - Complete elliptic functions of the third kind"
+   * - @ref cyl_bessel_i "cyl_bessel_i - Regular modified cylindrical Bessel functions"
+   * - @ref cyl_bessel_j "cyl_bessel_j - Cylindrical Bessel functions of the first kind"
+   * - @ref cyl_bessel_k "cyl_bessel_k - Irregular modified cylindrical Bessel functions"
+   * - @ref cyl_neumann "cyl_neumann - Cylindrical Neumann functions or Cylindrical Bessel functions of the second kind"
+   * - @ref ellint_1 "ellint_1 - Incomplete elliptic functions of the first kind"
+   * - @ref ellint_2 "ellint_2 - Incomplete elliptic functions of the second kind"
+   * - @ref ellint_3 "ellint_3 - Incomplete elliptic functions of the third kind"
    * - @ref expint "expint - The exponential integral"
    * - @ref hermite "hermite - Hermite polynomials"
    * - @ref laguerre "laguerre - Laguerre functions"
@@ -127,8 +116,7 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * versions of this math library because of implementation concerns.
    * However, since they were in the TR1 version and since they are popular
    * we kept them as an extension in namespace @c __gnu_cxx:
-   * - @ref __gnu_cxx::conf_hyperg "conf_hyperg - Confluent hypergeometric
-   * functions"
+   * - @ref __gnu_cxx::conf_hyperg "conf_hyperg - Confluent hypergeometric functions"
    * - @ref __gnu_cxx::hyperg "hyperg - Hypergeometric functions"
    *
    * <!-- @subsection mathsf_general General Features -->
@@ -164,15 +152,14 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * These functions have been tested against equivalent implementations
    * from the <a href="http://www.gnu.org/software/gsl">
    * Gnu Scientific Library, GSL</a> and
-   * <a
-   * href="http://www.boost.org/doc/libs/1_60_0/libs/math/doc/html/index.html">Boost</a>
+   * <a href="http://www.boost.org/doc/libs/1_60_0/libs/math/doc/html/index.html">Boost</a>
    * and the ratio
    * @f[
    *   \frac{|f - f_{test}|}{|f_{test}|}
    * @f]
    * is generally found to be within 10<sup>-15</sup> for 64-bit double on
    * linux-x86_64 systems over most of the ranges of validity.
-   *
+   * 
    * @todo Provide accuracy comparisons on a per-function basis for a small
    *       number of targets.
    *
@@ -215,9 +202,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see assoc_laguerre for more details.
    */
-  inline float assoc_laguerref(unsigned int __n, unsigned int __m, float __x) {
-    return __detail::__assoc_laguerre<float>(__n, __m, __x);
-  }
+  inline float
+  assoc_laguerref(unsigned int __n, unsigned int __m, float __x)
+  { return __detail::__assoc_laguerre<float>(__n, __m, __x); }
 
   /**
    * Return the associated Laguerre polynomial of order @c n,
@@ -225,10 +212,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see assoc_laguerre for more details.
    */
-  inline long double assoc_laguerrel(unsigned int __n, unsigned int __m,
-                                     long double __x) {
-    return __detail::__assoc_laguerre<long double>(__n, __m, __x);
-  }
+  inline long double
+  assoc_laguerrel(unsigned int __n, unsigned int __m, long double __x)
+  { return __detail::__assoc_laguerre<long double>(__n, __m, __x); }
 
   /**
    * Return the associated Laguerre polynomial of nonnegative order @c n,
@@ -261,12 +247,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param __x The argument of the Laguerre function, <tt>__x >= 0</tt>.
    * @throw std::domain_error if <tt>__x < 0</tt>.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type assoc_laguerre(
-      unsigned int __n, unsigned int __m, _Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__assoc_laguerre<__type>(__n, __m, __x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    assoc_laguerre(unsigned int __n, unsigned int __m, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__assoc_laguerre<__type>(__n, __m, __x);
+    }
 
   // Associated Legendre functions
 
@@ -276,19 +263,19 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see assoc_legendre for more details.
    */
-  inline float assoc_legendref(unsigned int __l, unsigned int __m, float __x) {
-    return __detail::__assoc_legendre_p<float>(__l, __m, __x);
-  }
+  inline float
+  assoc_legendref(unsigned int __l, unsigned int __m, float __x)
+  { return __detail::__assoc_legendre_p<float>(__l, __m, __x); }
 
   /**
    * Return the associated Legendre function of degree @c l and order @c m.
    *
    * @see assoc_legendre for more details.
    */
-  inline long double assoc_legendrel(unsigned int __l, unsigned int __m,
-                                     long double __x) {
-    return __detail::__assoc_legendre_p<long double>(__l, __m, __x);
-  }
+  inline long double
+  assoc_legendrel(unsigned int __l, unsigned int __m, long double __x)
+  { return __detail::__assoc_legendre_p<long double>(__l, __m, __x); }
+
 
   /**
    * Return the associated Legendre function of degree @c l and order @c m.
@@ -306,24 +293,24 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __x  The argument, <tt>abs(__x) <= 1</tt>.
    * @throw std::domain_error if <tt>abs(__x) > 1</tt>.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type assoc_legendre(
-      unsigned int __l, unsigned int __m, _Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__assoc_legendre_p<__type>(__l, __m, __x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    assoc_legendre(unsigned int __l, unsigned int __m, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__assoc_legendre_p<__type>(__l, __m, __x);
+    }
 
   // Beta functions
 
   /**
-   * Return the beta function, @f$ B(a,b) @f$, for @c float parameters @c a, @c
-   * b.
+   * Return the beta function, @f$ B(a,b) @f$, for @c float parameters @c a, @c b.
    *
    * @see beta for more details.
    */
-  inline float betaf(float __a, float __b) {
-    return __detail::__beta<float>(__a, __b);
-  }
+  inline float
+  betaf(float __a, float __b)
+  { return __detail::__beta<float>(__a, __b); }
 
   /**
    * Return the beta function, @f$B(a,b)@f$, for long double
@@ -331,9 +318,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see beta for more details.
    */
-  inline long double betal(long double __a, long double __b) {
-    return __detail::__beta<long double>(__a, __b);
-  }
+  inline long double
+  betal(long double __a, long double __b)
+  { return __detail::__beta<long double>(__a, __b); }
 
   /**
    * Return the beta function, @f$B(a,b)@f$, for real parameters @c a, @c b.
@@ -351,12 +338,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param __b The second argument of the beta function, <tt> __b > 0 </tt>.
    * @throw std::domain_error if <tt> __a < 0 </tt> or <tt> __b < 0 </tt>.
    */
-  template <typename _Tpa, typename _Tpb>
-  inline typename __gnu_cxx::__promote_2<_Tpa, _Tpb>::__type beta(_Tpa __a,
-                                                                  _Tpb __b) {
-    typedef typename __gnu_cxx::__promote_2<_Tpa, _Tpb>::__type __type;
-    return __detail::__beta<__type>(__a, __b);
-  }
+  template<typename _Tpa, typename _Tpb>
+    inline typename __gnu_cxx::__promote_2<_Tpa, _Tpb>::__type
+    beta(_Tpa __a, _Tpb __b)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tpa, _Tpb>::__type __type;
+      return __detail::__beta<__type>(__a, __b);
+    }
 
   // Complete elliptic integrals of the first kind
 
@@ -366,9 +354,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see comp_ellint_1 for details.
    */
-  inline float comp_ellint_1f(float __k) {
-    return __detail::__comp_ellint_1<float>(__k);
-  }
+  inline float
+  comp_ellint_1f(float __k)
+  { return __detail::__comp_ellint_1<float>(__k); }
 
   /**
    * Return the complete elliptic integral of the first kind @f$ E(k) @f$
@@ -376,9 +364,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see comp_ellint_1 for details.
    */
-  inline long double comp_ellint_1l(long double __k) {
-    return __detail::__comp_ellint_1<long double>(__k);
-  }
+  inline long double
+  comp_ellint_1l(long double __k)
+  { return __detail::__comp_ellint_1<long double>(__k); }
 
   /**
    * Return the complete elliptic integral of the first kind
@@ -398,11 +386,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __k  The modulus, <tt> abs(__k) <= 1 </tt>
    * @throw std::domain_error if <tt> abs(__k) > 1 </tt>.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type comp_ellint_1(_Tp __k) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__comp_ellint_1<__type>(__k);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    comp_ellint_1(_Tp __k)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__comp_ellint_1<__type>(__k);
+    }
 
   // Complete elliptic integrals of the second kind
 
@@ -412,9 +402,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see comp_ellint_2 for details.
    */
-  inline float comp_ellint_2f(float __k) {
-    return __detail::__comp_ellint_2<float>(__k);
-  }
+  inline float
+  comp_ellint_2f(float __k)
+  { return __detail::__comp_ellint_2<float>(__k); }
 
   /**
    * Return the complete elliptic integral of the second kind @f$ E(k) @f$
@@ -422,9 +412,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see comp_ellint_2 for details.
    */
-  inline long double comp_ellint_2l(long double __k) {
-    return __detail::__comp_ellint_2<long double>(__k);
-  }
+  inline long double
+  comp_ellint_2l(long double __k)
+  { return __detail::__comp_ellint_2<long double>(__k); }
 
   /**
    * Return the complete elliptic integral of the second kind @f$ E(k) @f$
@@ -443,11 +433,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __k  The modulus, @c abs(__k) <= 1
    * @throw std::domain_error if @c abs(__k) > 1.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type comp_ellint_2(_Tp __k) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__comp_ellint_2<__type>(__k);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    comp_ellint_2(_Tp __k)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__comp_ellint_2<__type>(__k);
+    }
 
   // Complete elliptic integrals of the third kind
 
@@ -457,9 +449,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see comp_ellint_3 for details.
    */
-  inline float comp_ellint_3f(float __k, float __nu) {
-    return __detail::__comp_ellint_3<float>(__k, __nu);
-  }
+  inline float
+  comp_ellint_3f(float __k, float __nu)
+  { return __detail::__comp_ellint_3<float>(__k, __nu); }
 
   /**
    * @brief Return the complete elliptic integral of the third kind
@@ -467,9 +459,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see comp_ellint_3 for details.
    */
-  inline long double comp_ellint_3l(long double __k, long double __nu) {
-    return __detail::__comp_ellint_3<long double>(__k, __nu);
-  }
+  inline long double
+  comp_ellint_3l(long double __k, long double __nu)
+  { return __detail::__comp_ellint_3<long double>(__k, __nu); }
 
   /**
    * Return the complete elliptic integral of the third kind
@@ -492,12 +484,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __nu  The argument
    * @throw std::domain_error if @c abs(__k) > 1.
    */
-  template <typename _Tp, typename _Tpn>
-  inline typename __gnu_cxx::__promote_2<_Tp, _Tpn>::__type comp_ellint_3(
-      _Tp __k, _Tpn __nu) {
-    typedef typename __gnu_cxx::__promote_2<_Tp, _Tpn>::__type __type;
-    return __detail::__comp_ellint_3<__type>(__k, __nu);
-  }
+  template<typename _Tp, typename _Tpn>
+    inline typename __gnu_cxx::__promote_2<_Tp, _Tpn>::__type
+    comp_ellint_3(_Tp __k, _Tpn __nu)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Tpn>::__type __type;
+      return __detail::__comp_ellint_3<__type>(__k, __nu);
+    }
 
   // Regular modified cylindrical Bessel functions
 
@@ -507,9 +500,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_bessel_i for setails.
    */
-  inline float cyl_bessel_if(float __nu, float __x) {
-    return __detail::__cyl_bessel_i<float>(__nu, __x);
-  }
+  inline float
+  cyl_bessel_if(float __nu, float __x)
+  { return __detail::__cyl_bessel_i<float>(__nu, __x); }
 
   /**
    * Return the regular modified Bessel function @f$ I_{\nu}(x) @f$
@@ -517,9 +510,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_bessel_i for setails.
    */
-  inline long double cyl_bessel_il(long double __nu, long double __x) {
-    return __detail::__cyl_bessel_i<long double>(__nu, __x);
-  }
+  inline long double
+  cyl_bessel_il(long double __nu, long double __x)
+  { return __detail::__cyl_bessel_i<long double>(__nu, __x); }
 
   /**
    * Return the regular modified Bessel function @f$ I_{\nu}(x) @f$
@@ -537,12 +530,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __x   The argument, <tt> __x >= 0 </tt>
    * @throw std::domain_error if <tt> __x < 0 </tt>.
    */
-  template <typename _Tpnu, typename _Tp>
-  inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type cyl_bessel_i(
-      _Tpnu __nu, _Tp __x) {
-    typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
-    return __detail::__cyl_bessel_i<__type>(__nu, __x);
-  }
+  template<typename _Tpnu, typename _Tp>
+    inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type
+    cyl_bessel_i(_Tpnu __nu, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
+      return __detail::__cyl_bessel_i<__type>(__nu, __x);
+    }
 
   // Cylindrical Bessel functions (of the first kind)
 
@@ -552,9 +546,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_bessel_j for setails.
    */
-  inline float cyl_bessel_jf(float __nu, float __x) {
-    return __detail::__cyl_bessel_j<float>(__nu, __x);
-  }
+  inline float
+  cyl_bessel_jf(float __nu, float __x)
+  { return __detail::__cyl_bessel_j<float>(__nu, __x); }
 
   /**
    * Return the Bessel function of the first kind @f$ J_{\nu}(x) @f$
@@ -562,9 +556,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_bessel_j for setails.
    */
-  inline long double cyl_bessel_jl(long double __nu, long double __x) {
-    return __detail::__cyl_bessel_j<long double>(__nu, __x);
-  }
+  inline long double
+  cyl_bessel_jl(long double __nu, long double __x)
+  { return __detail::__cyl_bessel_j<long double>(__nu, __x); }
 
   /**
    * Return the Bessel function @f$ J_{\nu}(x) @f$ of real order @f$ \nu @f$
@@ -582,12 +576,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __x   The argument, <tt> __x >= 0 </tt>
    * @throw std::domain_error if <tt> __x < 0 </tt>.
    */
-  template <typename _Tpnu, typename _Tp>
-  inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type cyl_bessel_j(
-      _Tpnu __nu, _Tp __x) {
-    typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
-    return __detail::__cyl_bessel_j<__type>(__nu, __x);
-  }
+  template<typename _Tpnu, typename _Tp>
+    inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type
+    cyl_bessel_j(_Tpnu __nu, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
+      return __detail::__cyl_bessel_j<__type>(__nu, __x);
+    }
 
   // Irregular modified cylindrical Bessel functions
 
@@ -597,9 +592,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_bessel_k for setails.
    */
-  inline float cyl_bessel_kf(float __nu, float __x) {
-    return __detail::__cyl_bessel_k<float>(__nu, __x);
-  }
+  inline float
+  cyl_bessel_kf(float __nu, float __x)
+  { return __detail::__cyl_bessel_k<float>(__nu, __x); }
 
   /**
    * Return the irregular modified Bessel function @f$ K_{\nu}(x) @f$
@@ -607,9 +602,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_bessel_k for setails.
    */
-  inline long double cyl_bessel_kl(long double __nu, long double __x) {
-    return __detail::__cyl_bessel_k<long double>(__nu, __x);
-  }
+  inline long double
+  cyl_bessel_kl(long double __nu, long double __x)
+  { return __detail::__cyl_bessel_k<long double>(__nu, __x); }
 
   /**
    * Return the irregular modified Bessel function @f$ K_{\nu}(x) @f$
@@ -633,12 +628,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __x   The argument, <tt> __x >= 0 </tt>
    * @throw std::domain_error if <tt> __x < 0 </tt>.
    */
-  template <typename _Tpnu, typename _Tp>
-  inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type cyl_bessel_k(
-      _Tpnu __nu, _Tp __x) {
-    typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
-    return __detail::__cyl_bessel_k<__type>(__nu, __x);
-  }
+  template<typename _Tpnu, typename _Tp>
+    inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type
+    cyl_bessel_k(_Tpnu __nu, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
+      return __detail::__cyl_bessel_k<__type>(__nu, __x);
+    }
 
   // Cylindrical Neumann functions
 
@@ -648,9 +644,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_neumann for setails.
    */
-  inline float cyl_neumannf(float __nu, float __x) {
-    return __detail::__cyl_neumann_n<float>(__nu, __x);
-  }
+  inline float
+  cyl_neumannf(float __nu, float __x)
+  { return __detail::__cyl_neumann_n<float>(__nu, __x); }
 
   /**
    * Return the Neumann function @f$ N_{\nu}(x) @f$
@@ -658,9 +654,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see cyl_neumann for setails.
    */
-  inline long double cyl_neumannl(long double __nu, long double __x) {
-    return __detail::__cyl_neumann_n<long double>(__nu, __x);
-  }
+  inline long double
+  cyl_neumannl(long double __nu, long double __x)
+  { return __detail::__cyl_neumann_n<long double>(__nu, __x); }
 
   /**
    * Return the Neumann function @f$ N_{\nu}(x) @f$
@@ -680,12 +676,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __x   The argument, <tt> __x >= 0 </tt>
    * @throw std::domain_error if <tt> __x < 0 </tt>.
    */
-  template <typename _Tpnu, typename _Tp>
-  inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type cyl_neumann(
-      _Tpnu __nu, _Tp __x) {
-    typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
-    return __detail::__cyl_neumann_n<__type>(__nu, __x);
-  }
+  template<typename _Tpnu, typename _Tp>
+    inline typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type
+    cyl_neumann(_Tpnu __nu, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tpnu, _Tp>::__type __type;
+      return __detail::__cyl_neumann_n<__type>(__nu, __x);
+    }
 
   // Incomplete elliptic integrals of the first kind
 
@@ -695,9 +692,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see ellint_1 for details.
    */
-  inline float ellint_1f(float __k, float __phi) {
-    return __detail::__ellint_1<float>(__k, __phi);
-  }
+  inline float
+  ellint_1f(float __k, float __phi)
+  { return __detail::__ellint_1<float>(__k, __phi); }
 
   /**
    * Return the incomplete elliptic integral of the first kind @f$ E(k,\phi) @f$
@@ -705,9 +702,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see ellint_1 for details.
    */
-  inline long double ellint_1l(long double __k, long double __phi) {
-    return __detail::__ellint_1<long double>(__k, __phi);
-  }
+  inline long double
+  ellint_1l(long double __k, long double __phi)
+  { return __detail::__ellint_1<long double>(__k, __phi); }
 
   /**
    * Return the incomplete elliptic integral of the first kind @f$ F(k,\phi) @f$
@@ -727,12 +724,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __phi  The integral limit argument in radians
    * @throw std::domain_error if <tt> abs(__k) > 1 </tt>.
    */
-  template <typename _Tp, typename _Tpp>
-  inline typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type ellint_1(
-      _Tp __k, _Tpp __phi) {
-    typedef typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type __type;
-    return __detail::__ellint_1<__type>(__k, __phi);
-  }
+  template<typename _Tp, typename _Tpp>
+    inline typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type
+    ellint_1(_Tp __k, _Tpp __phi)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type __type;
+      return __detail::__ellint_1<__type>(__k, __phi);
+    }
 
   // Incomplete elliptic integrals of the second kind
 
@@ -742,9 +740,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see ellint_2 for details.
    */
-  inline float ellint_2f(float __k, float __phi) {
-    return __detail::__ellint_2<float>(__k, __phi);
-  }
+  inline float
+  ellint_2f(float __k, float __phi)
+  { return __detail::__ellint_2<float>(__k, __phi); }
 
   /**
    * @brief Return the incomplete elliptic integral of the second kind
@@ -752,9 +750,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see ellint_2 for details.
    */
-  inline long double ellint_2l(long double __k, long double __phi) {
-    return __detail::__ellint_2<long double>(__k, __phi);
-  }
+  inline long double
+  ellint_2l(long double __k, long double __phi)
+  { return __detail::__ellint_2<long double>(__k, __phi); }
 
   /**
    * Return the incomplete elliptic integral of the second kind
@@ -774,12 +772,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @return  The elliptic function of the second kind.
    * @throw std::domain_error if <tt> abs(__k) > 1 </tt>.
    */
-  template <typename _Tp, typename _Tpp>
-  inline typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type ellint_2(
-      _Tp __k, _Tpp __phi) {
-    typedef typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type __type;
-    return __detail::__ellint_2<__type>(__k, __phi);
-  }
+  template<typename _Tp, typename _Tpp>
+    inline typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type
+    ellint_2(_Tp __k, _Tpp __phi)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Tpp>::__type __type;
+      return __detail::__ellint_2<__type>(__k, __phi);
+    }
 
   // Incomplete elliptic integrals of the third kind
 
@@ -789,9 +788,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see ellint_3 for details.
    */
-  inline float ellint_3f(float __k, float __nu, float __phi) {
-    return __detail::__ellint_3<float>(__k, __nu, __phi);
-  }
+  inline float
+  ellint_3f(float __k, float __nu, float __phi)
+  { return __detail::__ellint_3<float>(__k, __nu, __phi); }
 
   /**
    * @brief Return the incomplete elliptic integral of the third kind
@@ -799,10 +798,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see ellint_3 for details.
    */
-  inline long double ellint_3l(long double __k, long double __nu,
-                               long double __phi) {
-    return __detail::__ellint_3<long double>(__k, __nu, __phi);
-  }
+  inline long double
+  ellint_3l(long double __k, long double __nu, long double __phi)
+  { return __detail::__ellint_3<long double>(__k, __nu, __phi); }
 
   /**
    * @brief Return the incomplete elliptic integral of the third kind
@@ -827,12 +825,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @return  The elliptic function of the third kind.
    * @throw std::domain_error if <tt> abs(__k) > 1 </tt>.
    */
-  template <typename _Tp, typename _Tpn, typename _Tpp>
-  inline typename __gnu_cxx::__promote_3<_Tp, _Tpn, _Tpp>::__type ellint_3(
-      _Tp __k, _Tpn __nu, _Tpp __phi) {
-    typedef typename __gnu_cxx::__promote_3<_Tp, _Tpn, _Tpp>::__type __type;
-    return __detail::__ellint_3<__type>(__k, __nu, __phi);
-  }
+  template<typename _Tp, typename _Tpn, typename _Tpp>
+    inline typename __gnu_cxx::__promote_3<_Tp, _Tpn, _Tpp>::__type
+    ellint_3(_Tp __k, _Tpn __nu, _Tpp __phi)
+    {
+      typedef typename __gnu_cxx::__promote_3<_Tp, _Tpn, _Tpp>::__type __type;
+      return __detail::__ellint_3<__type>(__k, __nu, __phi);
+    }
 
   // Exponential integrals
 
@@ -841,7 +840,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see expint for details.
    */
-  inline float expintf(float __x) { return __detail::__expint<float>(__x); }
+  inline float
+  expintf(float __x)
+  { return __detail::__expint<float>(__x); }
 
   /**
    * Return the exponential integral @f$ Ei(x) @f$
@@ -849,9 +850,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see expint for details.
    */
-  inline long double expintl(long double __x) {
-    return __detail::__expint<long double>(__x);
-  }
+  inline long double
+  expintl(long double __x)
+  { return __detail::__expint<long double>(__x); }
 
   /**
    * Return the exponential integral @f$ Ei(x) @f$ for @c real argument @c x.
@@ -864,11 +865,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @tparam _Tp The floating-point type of the argument @c __x.
    * @param  __x  The argument of the exponential integral function.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type expint(_Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__expint<__type>(__x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    expint(_Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__expint<__type>(__x);
+    }
 
   // Hermite polynomials
 
@@ -878,9 +881,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see hermite for details.
    */
-  inline float hermitef(unsigned int __n, float __x) {
-    return __detail::__poly_hermite<float>(__n, __x);
-  }
+  inline float
+  hermitef(unsigned int __n, float __x)
+  { return __detail::__poly_hermite<float>(__n, __x); }
 
   /**
    * Return the Hermite polynomial @f$ H_n(x) @f$ of nonnegative order n
@@ -888,9 +891,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see hermite for details.
    */
-  inline long double hermitel(unsigned int __n, long double __x) {
-    return __detail::__poly_hermite<long double>(__n, __x);
-  }
+  inline long double
+  hermitel(unsigned int __n, long double __x)
+  { return __detail::__poly_hermite<long double>(__n, __x); }
 
   /**
    * Return the Hermite polynomial @f$ H_n(x) @f$ of order n
@@ -910,12 +913,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param __n The order
    * @param __x The argument
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type hermite(unsigned int __n,
-                                                            _Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__poly_hermite<__type>(__n, __x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    hermite(unsigned int __n, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__poly_hermite<__type>(__n, __x);
+    }
 
   // Laguerre polynomials
 
@@ -925,9 +929,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see laguerre for more details.
    */
-  inline float laguerref(unsigned int __n, float __x) {
-    return __detail::__laguerre<float>(__n, __x);
-  }
+  inline float
+  laguerref(unsigned int __n, float __x)
+  { return __detail::__laguerre<float>(__n, __x); }
 
   /**
    * Returns the Laguerre polynomial @f$ L_n(x) @f$ of nonnegative degree @c n
@@ -935,9 +939,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see laguerre for more details.
    */
-  inline long double laguerrel(unsigned int __n, long double __x) {
-    return __detail::__laguerre<long double>(__n, __x);
-  }
+  inline long double
+  laguerrel(unsigned int __n, long double __x)
+  { return __detail::__laguerre<long double>(__n, __x); }
 
   /**
    * Returns the Laguerre polynomial @f$ L_n(x) @f$
@@ -953,12 +957,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param __x The argument <tt> __x >= 0 </tt>
    * @throw std::domain_error if <tt> __x < 0 </tt>.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type laguerre(unsigned int __n,
-                                                             _Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__laguerre<__type>(__n, __x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    laguerre(unsigned int __n, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__laguerre<__type>(__n, __x);
+    }
 
   // Legendre polynomials
 
@@ -968,9 +973,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see legendre for more details.
    */
-  inline float legendref(unsigned int __l, float __x) {
-    return __detail::__poly_legendre_p<float>(__l, __x);
-  }
+  inline float
+  legendref(unsigned int __l, float __x)
+  { return __detail::__poly_legendre_p<float>(__l, __x); }
 
   /**
    * Return the Legendre polynomial @f$ P_l(x) @f$ of nonnegative
@@ -978,9 +983,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see legendre for more details.
    */
-  inline long double legendrel(unsigned int __l, long double __x) {
-    return __detail::__poly_legendre_p<long double>(__l, __x);
-  }
+  inline long double
+  legendrel(unsigned int __l, long double __x)
+  { return __detail::__poly_legendre_p<long double>(__l, __x); }
 
   /**
    * Return the Legendre polynomial @f$ P_l(x) @f$ of nonnegative
@@ -997,12 +1002,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param __x The argument @c abs(__x) <= 1
    * @throw std::domain_error if @c abs(__x) > 1
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type legendre(unsigned int __l,
-                                                             _Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__poly_legendre_p<__type>(__l, __x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    legendre(unsigned int __l, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__poly_legendre_p<__type>(__l, __x);
+    }
 
   // Riemann zeta functions
 
@@ -1012,9 +1018,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see riemann_zeta for more details.
    */
-  inline float riemann_zetaf(float __s) {
-    return __detail::__riemann_zeta<float>(__s);
-  }
+  inline float
+  riemann_zetaf(float __s)
+  { return __detail::__riemann_zeta<float>(__s); }
 
   /**
    * Return the Riemann zeta function @f$ \zeta(s) @f$
@@ -1022,9 +1028,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see riemann_zeta for more details.
    */
-  inline long double riemann_zetal(long double __s) {
-    return __detail::__riemann_zeta<long double>(__s);
-  }
+  inline long double
+  riemann_zetal(long double __s)
+  { return __detail::__riemann_zeta<long double>(__s); }
 
   /**
    * Return the Riemann zeta function @f$ \zeta(s) @f$
@@ -1047,11 +1053,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @tparam _Tp The floating-point type of the argument @c __s.
    * @param __s The argument <tt> s != 1 </tt>
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type riemann_zeta(_Tp __s) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__riemann_zeta<__type>(__s);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    riemann_zeta(_Tp __s)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__riemann_zeta<__type>(__s);
+    }
 
   // Spherical Bessel functions
 
@@ -1061,9 +1069,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see sph_bessel for more details.
    */
-  inline float sph_besself(unsigned int __n, float __x) {
-    return __detail::__sph_bessel<float>(__n, __x);
-  }
+  inline float
+  sph_besself(unsigned int __n, float __x)
+  { return __detail::__sph_bessel<float>(__n, __x); }
 
   /**
    * Return the spherical Bessel function @f$ j_n(x) @f$ of nonnegative order n
@@ -1071,9 +1079,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see sph_bessel for more details.
    */
-  inline long double sph_bessell(unsigned int __n, long double __x) {
-    return __detail::__sph_bessel<long double>(__n, __x);
-  }
+  inline long double
+  sph_bessell(unsigned int __n, long double __x)
+  { return __detail::__sph_bessel<long double>(__n, __x); }
 
   /**
    * Return the spherical Bessel function @f$ j_n(x) @f$ of nonnegative order n
@@ -1089,12 +1097,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __x  The real argument <tt> x >= 0 </tt>
    * @throw std::domain_error if <tt> __x < 0 </tt>.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type sph_bessel(unsigned int __n,
-                                                               _Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__sph_bessel<__type>(__n, __x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    sph_bessel(unsigned int __n, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__sph_bessel<__type>(__n, __x);
+    }
 
   // Spherical associated Legendre functions
 
@@ -1104,10 +1113,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see sph_legendre for details.
    */
-  inline float sph_legendref(unsigned int __l, unsigned int __m,
-                             float __theta) {
-    return __detail::__sph_legendre<float>(__l, __m, __theta);
-  }
+  inline float
+  sph_legendref(unsigned int __l, unsigned int __m, float __theta)
+  { return __detail::__sph_legendre<float>(__l, __m, __theta); }
 
   /**
    * Return the spherical Legendre function of nonnegative integral
@@ -1116,10 +1124,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see sph_legendre for details.
    */
-  inline long double sph_legendrel(unsigned int __l, unsigned int __m,
-                                   long double __theta) {
-    return __detail::__sph_legendre<long double>(__l, __m, __theta);
-  }
+  inline long double
+  sph_legendrel(unsigned int __l, unsigned int __m, long double __theta)
+  { return __detail::__sph_legendre<long double>(__l, __m, __theta); }
 
   /**
    * Return the spherical Legendre function of nonnegative integral
@@ -1137,12 +1144,13 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param __m The degree <tt> __m >= 0 </tt> and <tt> __m <= __l </tt>
    * @param __theta The radian polar angle argument
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type sph_legendre(
-      unsigned int __l, unsigned int __m, _Tp __theta) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__sph_legendre<__type>(__l, __m, __theta);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    sph_legendre(unsigned int __l, unsigned int __m, _Tp __theta)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__sph_legendre<__type>(__l, __m, __theta);
+    }
 
   // Spherical Neumann functions
 
@@ -1152,9 +1160,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see sph_neumann for details.
    */
-  inline float sph_neumannf(unsigned int __n, float __x) {
-    return __detail::__sph_neumann<float>(__n, __x);
-  }
+  inline float
+  sph_neumannf(unsigned int __n, float __x)
+  { return __detail::__sph_neumann<float>(__n, __x); }
 
   /**
    * Return the spherical Neumann function of integral order @f$ n >= 0 @f$
@@ -1162,9 +1170,9 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    *
    * @see sph_neumann for details.
    */
-  inline long double sph_neumannl(unsigned int __n, long double __x) {
-    return __detail::__sph_neumann<long double>(__n, __x);
-  }
+  inline long double
+  sph_neumannl(unsigned int __n, long double __x)
+  { return __detail::__sph_neumann<long double>(__n, __x); }
 
   /**
    * Return the spherical Neumann function of integral order @f$ n >= 0 @f$
@@ -1180,21 +1188,23 @@ namespace std _GLIBCXX_VISIBILITY(default) {
    * @param  __x  The real argument <tt> __x >= 0 </tt>
    * @throw std::domain_error if <tt> __x < 0 </tt>.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type sph_neumann(
-      unsigned int __n, _Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    return __detail::__sph_neumann<__type>(__n, __x);
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    sph_neumann(unsigned int __n, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      return __detail::__sph_neumann<__type>(__n, __x);
+    }
 
   // @} group mathsf
 
-  _GLIBCXX_END_NAMESPACE_VERSION
-}  // namespace )
+_GLIBCXX_END_NAMESPACE_VERSION
+} // namespace std
 
 #ifndef __STRICT_ANSI__
-namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
-  _GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
+{
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /** @addtogroup mathsf
    *  @{
@@ -1205,7 +1215,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
   /**
    * Return the Airy function @f$ Ai(x) @f$ of @c float argument x.
    */
-  inline float airy_aif(float __x) {
+  inline float
+  airy_aif(float __x)
+  {
     float __Ai, __Bi, __Aip, __Bip;
     std::__detail::__airy<float>(__x, __Ai, __Bi, __Aip, __Bip);
     return __Ai;
@@ -1214,7 +1226,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
   /**
    * Return the Airy function @f$ Ai(x) @f$ of <tt>long double</tt> argument x.
    */
-  inline long double airy_ail(long double __x) {
+  inline long double
+  airy_ail(long double __x)
+  {
     long double __Ai, __Bi, __Aip, __Bip;
     std::__detail::__airy<long double>(__x, __Ai, __Bi, __Aip, __Bip);
     return __Ai;
@@ -1223,18 +1237,22 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
   /**
    * Return the Airy function @f$ Ai(x) @f$ of real argument x.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type airy_ai(_Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    __type __Ai, __Bi, __Aip, __Bip;
-    std::__detail::__airy<__type>(__x, __Ai, __Bi, __Aip, __Bip);
-    return __Ai;
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    airy_ai(_Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      __type __Ai, __Bi, __Aip, __Bip;
+      std::__detail::__airy<__type>(__x, __Ai, __Bi, __Aip, __Bip);
+      return __Ai;
+    }
 
   /**
    * Return the Airy function @f$ Bi(x) @f$ of @c float argument x.
    */
-  inline float airy_bif(float __x) {
+  inline float
+  airy_bif(float __x)
+  {
     float __Ai, __Bi, __Aip, __Bip;
     std::__detail::__airy<float>(__x, __Ai, __Bi, __Aip, __Bip);
     return __Bi;
@@ -1243,7 +1261,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
   /**
    * Return the Airy function @f$ Bi(x) @f$ of <tt>long double</tt> argument x.
    */
-  inline long double airy_bil(long double __x) {
+  inline long double
+  airy_bil(long double __x)
+  {
     long double __Ai, __Bi, __Aip, __Bip;
     std::__detail::__airy<long double>(__x, __Ai, __Bi, __Aip, __Bip);
     return __Bi;
@@ -1252,13 +1272,15 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
   /**
    * Return the Airy function @f$ Bi(x) @f$ of real argument x.
    */
-  template <typename _Tp>
-  inline typename __gnu_cxx::__promote<_Tp>::__type airy_bi(_Tp __x) {
-    typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
-    __type __Ai, __Bi, __Aip, __Bip;
-    std::__detail::__airy<__type>(__x, __Ai, __Bi, __Aip, __Bip);
-    return __Bi;
-  }
+  template<typename _Tp>
+    inline typename __gnu_cxx::__promote<_Tp>::__type
+    airy_bi(_Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote<_Tp>::__type __type;
+      __type __Ai, __Bi, __Aip, __Bip;
+      std::__detail::__airy<__type>(__x, __Ai, __Bi, __Aip, __Bip);
+      return __Bi;
+    }
 
   // Confluent hypergeometric functions
 
@@ -1269,9 +1291,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
    *
    * @see conf_hyperg for details.
    */
-  inline float conf_hypergf(float __a, float __c, float __x) {
-    return std::__detail::__conf_hyperg<float>(__a, __c, __x);
-  }
+  inline float
+  conf_hypergf(float __a, float __c, float __x)
+  { return std::__detail::__conf_hyperg<float>(__a, __c, __x); }
 
   /**
    * Return the confluent hypergeometric function @f$ {}_1F_1(a;c;x) @f$
@@ -1280,10 +1302,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
    *
    * @see conf_hyperg for details.
    */
-  inline long double conf_hypergl(long double __a, long double __c,
-                                  long double __x) {
-    return std::__detail::__conf_hyperg<long double>(__a, __c, __x);
-  }
+  inline long double
+  conf_hypergl(long double __a, long double __c, long double __x)
+  { return std::__detail::__conf_hyperg<long double>(__a, __c, __x); }
 
   /**
    * Return the confluent hypergeometric function @f$ {}_1F_1(a;c;x) @f$
@@ -1301,12 +1322,13 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
    * @param __c The denominatorial parameter
    * @param __x The argument
    */
-  template <typename _Tpa, typename _Tpc, typename _Tp>
-  inline typename __gnu_cxx::__promote_3<_Tpa, _Tpc, _Tp>::__type conf_hyperg(
-      _Tpa __a, _Tpc __c, _Tp __x) {
-    typedef typename __gnu_cxx::__promote_3<_Tpa, _Tpc, _Tp>::__type __type;
-    return std::__detail::__conf_hyperg<__type>(__a, __c, __x);
-  }
+  template<typename _Tpa, typename _Tpc, typename _Tp>
+    inline typename __gnu_cxx::__promote_3<_Tpa, _Tpc, _Tp>::__type
+    conf_hyperg(_Tpa __a, _Tpc __c, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote_3<_Tpa, _Tpc, _Tp>::__type __type;
+      return std::__detail::__conf_hyperg<__type>(__a, __c, __x);
+    }
 
   // Hypergeometric functions
 
@@ -1317,9 +1339,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
    *
    * @see hyperg for details.
    */
-  inline float hypergf(float __a, float __b, float __c, float __x) {
-    return std::__detail::__hyperg<float>(__a, __b, __c, __x);
-  }
+  inline float
+  hypergf(float __a, float __b, float __c, float __x)
+  { return std::__detail::__hyperg<float>(__a, __b, __c, __x); }
 
   /**
    * Return the hypergeometric function @f$ {}_2F_1(a,b;c;x) @f$
@@ -1328,10 +1350,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
    *
    * @see hyperg for details.
    */
-  inline long double hypergl(long double __a, long double __b, long double __c,
-                             long double __x) {
-    return std::__detail::__hyperg<long double>(__a, __b, __c, __x);
-  }
+  inline long double
+  hypergl(long double __a, long double __b, long double __c, long double __x)
+  { return std::__detail::__hyperg<long double>(__a, __b, __c, __x); }
 
   /**
    * Return the hypergeometric function @f$ {}_2F_1(a,b;c;x) @f$
@@ -1350,19 +1371,20 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default) {
    * @param __c The denominatorial parameter
    * @param __x The argument
    */
-  template <typename _Tpa, typename _Tpb, typename _Tpc, typename _Tp>
-  inline typename __gnu_cxx::__promote_4<_Tpa, _Tpb, _Tpc, _Tp>::__type hyperg(
-      _Tpa __a, _Tpb __b, _Tpc __c, _Tp __x) {
-    typedef
-        typename __gnu_cxx::__promote_4<_Tpa, _Tpb, _Tpc, _Tp>::__type __type;
-    return std::__detail::__hyperg<__type>(__a, __b, __c, __x);
-  }
+  template<typename _Tpa, typename _Tpb, typename _Tpc, typename _Tp>
+    inline typename __gnu_cxx::__promote_4<_Tpa, _Tpb, _Tpc, _Tp>::__type
+    hyperg(_Tpa __a, _Tpb __b, _Tpc __c, _Tp __x)
+    {
+      typedef typename __gnu_cxx::__promote_4<_Tpa, _Tpb, _Tpc, _Tp>
+		::__type __type;
+      return std::__detail::__hyperg<__type>(__a, __b, __c, __x);
+    }
 
   // @}
-  _GLIBCXX_END_NAMESPACE_VERSION
-}  // namespace )
-#endif  // __STRICT_ANSI__
+_GLIBCXX_END_NAMESPACE_VERSION
+} // namespace __gnu_cxx
+#endif // __STRICT_ANSI__
 
 #pragma GCC visibility pop
 
-#endif  // _GLIBCXX_BITS_SPECFUN_H
+#endif // _GLIBCXX_BITS_SPECFUN_H

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rahul\source\repos\cp\cpplib\</FILEPATH>
+      <FILENAME>timer.cpp</FILENAME>
+      <LINE>9</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26455</DEFECTCODE>
+    <DESCRIPTION>Default constructor may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Timer::{ctor}</FUNCTION>
+    <DECORATED>??0Timer@@QAE@XZ</DECORATED>
+    <FUNCLINE>9</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rahul\source\repos\cp\cpplib\</FILEPATH>
+      <FILENAME>timer.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'Timer::reset' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Timer::reset</FUNCTION>
+    <DECORATED>?reset@Timer@@QAEXXZ</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rahul\source\repos\cp\cpplib\</FILEPATH>
+      <FILENAME>timer.cpp</FILENAME>
+      <LINE>13</LINE>
+      <COLUMN>33</COLUMN>
+    </SFA>
+    <DEFECTCODE>26440</DEFECTCODE>
+    <DESCRIPTION>Function 'Timer::elapsed' can be declared 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Timer::elapsed</FUNCTION>
+    <DECORATED>?elapsed@Timer@@QBEOXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

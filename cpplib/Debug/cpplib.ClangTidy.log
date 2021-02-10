@@ -1,0 +1,8 @@
+C:\Users\Rahul\source\repos\cp\cpplib/to_string.h:13:20: warning: inline function 'std::to_string' is not defined [clang-diagnostic-undefined-inline]
+inline std::string to_string(const char& element);
+                   ^
+Suppressed 41 warnings (41 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+C:\Users\Rahul\source\repos\cp\cpplib\output.cpp:12:15: note: used here
+  out << std::to_string(element);
+              ^

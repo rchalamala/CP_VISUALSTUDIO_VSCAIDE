@@ -74,6 +74,7 @@
 #define _GLIBCXX_FIND_EQUAL_SPLIT 1
 #endif
 
+
 #ifndef _GLIBCXX_TREE_INITIAL_SPLITTING
 /** @def _GLIBCXX_TREE_INITIAL_SPLITTING
  *  @brief Include the initial splitting variant for
@@ -98,5 +99,6 @@
  *  @see __gnu_parallel::_Rb_tree */
 #define _GLIBCXX_TREE_FULL_COPY 1
 #endif
+
 
 #endif /* _GLIBCXX_PARALLEL_FEATURES_H */

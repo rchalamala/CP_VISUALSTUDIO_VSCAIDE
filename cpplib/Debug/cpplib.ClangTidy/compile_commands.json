@@ -1,0 +1,207 @@
+[
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\arbitrary_precision_integer.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\arbitrary_precision_integer.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\binary_insertion_sort.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\binary_insertion_sort.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\bit.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\bit.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\bi_edge.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\bi_edge.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\bubble_sort.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\bubble_sort.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\chash.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\chash.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\choose.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\choose.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\compress.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\compress.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\debug.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\debug.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\desopo_pape.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\desopo_pape.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\digit_sum.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\digit_sum.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\dijkstra.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\dijkstra.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\distinctelements.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\distinctelements.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\dsu.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\dsu.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\edge.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\edge.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\factorize.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\factorize.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\gcd.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\gcd.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\graph.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\graph.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\heap_sort.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\heap_sort.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\input.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\input.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\insertion_sort.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\insertion_sort.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\kosarajus_sccs.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\kosarajus_sccs.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\lcm.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\lcm.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\linear_diophantine.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\linear_diophantine.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\merge_sort.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\merge_sort.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\miller_rabin.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\miller_rabin.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\modular.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\modular.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\output.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\output.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\pollards_rho.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\pollards_rho.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\polynomial.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\polynomial.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\power.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\power.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\prng.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\prng.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\quadratic_diophantine.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\quadratic_diophantine.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\quick_sort.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\quick_sort.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\selection_sort.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\selection_sort.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\timer.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\timer.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\to_string.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\to_string.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\trailing_zero_bits.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\trailing_zero_bits.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\weighted_bi_edge.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\weighted_bi_edge.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\weighted_edge.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\weighted_edge.cpp"
+  },
+  {
+    "directory": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib",
+    "command": "\"C:\\WINDOWS\\system32\\CL.exe\" \/c \/ZI \/JMC \/nologo \/W4 \/WX- \/diagnostics:column \/Od \/Oy- \/D CODE_ANALYSIS \/D _MBCS \/EHsc \/RTC1 \/MDd \/GS \/fp:precise \/std:c++17 \/Fo\"Debug\\\\\" \/Gd \/TP  \/Zc:__cplusplus  \"C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\y_combinator.cpp\"",
+    "file": "C:\\Users\\Rahul\\source\\repos\\cp\\cpplib\\y_combinator.cpp"
+  }
+]

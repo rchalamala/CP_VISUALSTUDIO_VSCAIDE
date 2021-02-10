@@ -41,14 +41,18 @@
 #ifdef PB_DS_CLASS_C_DEC
 
 PB_DS_CLASS_T_DEC
-inline void PB_DS_CLASS_C_DEC::join(PB_DS_CLASS_C_DEC& other) {
+inline void
+PB_DS_CLASS_C_DEC::
+join(PB_DS_CLASS_C_DEC& other)
+{
   PB_DS_ASSERT_VALID((*this))
   PB_DS_ASSERT_VALID(other)
-  if (base_type::join_prep(other) == false) {
-    PB_DS_ASSERT_VALID((*this))
-    PB_DS_ASSERT_VALID(other)
-    return;
-  }
+  if (base_type::join_prep(other) == false)
+    {
+      PB_DS_ASSERT_VALID((*this))
+      PB_DS_ASSERT_VALID(other)
+      return;
+    }
 
   node_pointer p_target_r = other.leftmost(other.m_p_head);
   _GLIBCXX_DEBUG_ASSERT(p_target_r != 0);
@@ -73,16 +77,19 @@ inline void PB_DS_CLASS_C_DEC::join(PB_DS_CLASS_C_DEC& other) {
 }
 
 PB_DS_CLASS_T_DEC
-void PB_DS_CLASS_C_DEC::split(key_const_reference r_key,
-                              PB_DS_CLASS_C_DEC& other) {
+void
+PB_DS_CLASS_C_DEC::
+split(key_const_reference r_key, PB_DS_CLASS_C_DEC& other)
+{
   PB_DS_ASSERT_VALID((*this))
   PB_DS_ASSERT_VALID(other)
 
-  if (base_type::split_prep(r_key, other) == false) {
-    PB_DS_ASSERT_VALID((*this))
-    PB_DS_ASSERT_VALID(other)
-    return;
-  }
+  if (base_type::split_prep(r_key, other) == false)
+    {
+      PB_DS_ASSERT_VALID((*this))
+      PB_DS_ASSERT_VALID(other)
+      return;
+    }
 
   node_pointer p_upper_bound = this->upper_bound(r_key).m_p_nd;
   _GLIBCXX_DEBUG_ASSERT(p_upper_bound != 0);

@@ -37,9 +37,7 @@ __DEVICE__ unsigned long long __brevll(unsigned long long __a) {
 __DEVICE__ void __brkpt() { asm volatile("brkpt;"); }
 __DEVICE__ void __brkpt(int __a) { __brkpt(); }
 #else
-__DEVICE__ void __attribute__((overloadable)) __brkpt(void) {
-  asm volatile("brkpt;");
-}
+__DEVICE__ void __attribute__((overloadable)) __brkpt(void) { asm volatile("brkpt;"); }
 __DEVICE__ void __attribute__((overloadable)) __brkpt(int __a) { __brkpt(); }
 #endif
 __DEVICE__ unsigned int __byte_perm(unsigned int __a, unsigned int __b,
@@ -555,14 +553,12 @@ __DEVICE__ unsigned int __uAtomicCAS(unsigned int *__p, unsigned int __cmp,
                                      unsigned int __v) {
   return __nvvm_atom_cas_gen_i((int *)__p, __cmp, __v);
 }
-__DEVICE__ unsigned int __uAtomicCAS_block(unsigned int *__p,
-                                           unsigned int __cmp,
-                                           unsigned int __v) {
+__DEVICE__ unsigned int
+__uAtomicCAS_block(unsigned int *__p, unsigned int __cmp, unsigned int __v) {
   return __nvvm_atom_cta_cas_gen_i((int *)__p, __cmp, __v);
 }
-__DEVICE__ unsigned int __uAtomicCAS_system(unsigned int *__p,
-                                            unsigned int __cmp,
-                                            unsigned int __v) {
+__DEVICE__ unsigned int
+__uAtomicCAS_system(unsigned int *__p, unsigned int __cmp, unsigned int __v) {
   return __nvvm_atom_sys_cas_gen_i((int *)__p, __cmp, __v);
 }
 __DEVICE__ unsigned int __uAtomicDec(unsigned int *__p, unsigned int __v) {
@@ -661,7 +657,7 @@ __DEVICE__ float __uint2float_rz(unsigned int __a) {
 }
 __DEVICE__ float __uint_as_float(unsigned int __a) {
   return __nv_uint_as_float(__a);
-}  //
+} //
 __DEVICE__ double __ull2double_rd(unsigned long long __a) {
   return __nv_ull2double_rd(__a);
 }
@@ -1042,7 +1038,7 @@ __DEVICE__ unsigned int __vsubus2(unsigned int __a, unsigned int __b) {
 __DEVICE__ unsigned int __vsubus4(unsigned int __a, unsigned int __b) {
   return __nv_vsubus4(__a, __b);
 }
-#else  // CUDA_VERSION >= 9020
+#else // CUDA_VERSION >= 9020
 // CUDA no longer provides inline assembly (or bitcode) implementation of these
 // functions, so we have to reimplment them. The implementation is naive and is
 // not optimized for performance.
@@ -1466,7 +1462,7 @@ __DEVICE__ unsigned int __vsubus4(unsigned int __a, unsigned int __b) {
       : "r"(__a), "r"(__b), "r"(0));
   return r;
 }
-#endif  // CUDA_VERSION >= 9020
+#endif // CUDA_VERSION >= 9020
 
 // For OpenMP we require the user to include <time.h> as we need to know what
 // clock_t is on the system.
@@ -1487,4 +1483,4 @@ __DEVICE__ void *memset(void *__a, int __b, size_t __c) {
 #endif
 
 #pragma pop_macro("__DEVICE__")
-#endif  // __CLANG_CUDA_DEVICE_FUNCTIONS_H__
+#endif // __CLANG_CUDA_DEVICE_FUNCTIONS_H__

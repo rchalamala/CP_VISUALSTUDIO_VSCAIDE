@@ -20,7 +20,7 @@
 // would preclude the use of our own __device__ overloads for these functions.
 
 #pragma push_macro("__DEVICE__")
-#define __DEVICE__ \
+#define __DEVICE__                                                             \
   static __inline__ __attribute__((always_inline)) __attribute__((device))
 
 __DEVICE__ long abs(long);
@@ -135,7 +135,7 @@ __DEVICE__ long lrint(double);
 __DEVICE__ long lrint(float);
 __DEVICE__ long lround(double);
 __DEVICE__ long lround(float);
-__DEVICE__ long long llround(float);  // No llround(double).
+__DEVICE__ long long llround(float); // No llround(double).
 __DEVICE__ double modf(double, double *);
 __DEVICE__ float modf(float, float *);
 __DEVICE__ double nan(const char *);
@@ -238,7 +238,6 @@ using ::ldexp;
 using ::lgamma;
 using ::llabs;
 using ::llrint;
-using ::llround;
 using ::log;
 using ::log10;
 using ::log1p;
@@ -246,6 +245,7 @@ using ::log2;
 using ::logb;
 using ::lrint;
 using ::lround;
+using ::llround;
 using ::modf;
 using ::nan;
 using ::nanf;
@@ -273,7 +273,7 @@ _LIBCPP_END_NAMESPACE_STD
 #ifdef _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 #endif
-}  // namespace std
+} // namespace std
 #endif
 
 #pragma pop_macro("__DEVICE__")

@@ -42,13 +42,18 @@
 #ifdef PB_DS_CLASS_C_DEC
 
 PB_DS_CLASS_T_DEC
-typename PB_DS_CLASS_C_DEC::iterator PB_DS_CLASS_C_DEC::s_end_it;
+typename PB_DS_CLASS_C_DEC::iterator
+PB_DS_CLASS_C_DEC::s_end_it;
 
 PB_DS_CLASS_T_DEC
-typename PB_DS_CLASS_C_DEC::const_iterator PB_DS_CLASS_C_DEC::s_const_end_it;
+typename PB_DS_CLASS_C_DEC::const_iterator
+PB_DS_CLASS_C_DEC::s_const_end_it;
 
 PB_DS_CLASS_T_DEC
-inline typename PB_DS_CLASS_C_DEC::iterator PB_DS_CLASS_C_DEC::begin() {
+inline typename PB_DS_CLASS_C_DEC::iterator
+PB_DS_CLASS_C_DEC::
+begin()
+{
   pointer_ p_value;
   size_type pos;
   get_start_it_state(p_value, pos);
@@ -56,13 +61,16 @@ inline typename PB_DS_CLASS_C_DEC::iterator PB_DS_CLASS_C_DEC::begin() {
 }
 
 PB_DS_CLASS_T_DEC
-inline typename PB_DS_CLASS_C_DEC::iterator PB_DS_CLASS_C_DEC::end() {
-  return s_end_it;
-}
+inline typename PB_DS_CLASS_C_DEC::iterator
+PB_DS_CLASS_C_DEC::
+end()
+{ return s_end_it; }
 
 PB_DS_CLASS_T_DEC
-inline typename PB_DS_CLASS_C_DEC::const_iterator PB_DS_CLASS_C_DEC::begin()
-    const {
+inline typename PB_DS_CLASS_C_DEC::const_iterator
+PB_DS_CLASS_C_DEC::
+begin() const
+{
   const_pointer_ p_value;
   size_type pos;
   get_start_it_state(p_value, pos);
@@ -70,9 +78,9 @@ inline typename PB_DS_CLASS_C_DEC::const_iterator PB_DS_CLASS_C_DEC::begin()
 }
 
 PB_DS_CLASS_T_DEC
-inline typename PB_DS_CLASS_C_DEC::const_iterator PB_DS_CLASS_C_DEC::end()
-    const {
-  return s_const_end_it;
-}
+inline typename PB_DS_CLASS_C_DEC::const_iterator
+PB_DS_CLASS_C_DEC::
+end() const
+{ return s_const_end_it; }
 
 #endif
